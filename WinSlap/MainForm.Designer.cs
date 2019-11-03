@@ -58,9 +58,10 @@
             // buttonSlap
             // 
             this.buttonSlap.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonSlap.Location = new System.Drawing.Point(138, 379);
+            this.buttonSlap.Location = new System.Drawing.Point(230, 641);
+            this.buttonSlap.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.buttonSlap.Name = "buttonSlap";
-            this.buttonSlap.Size = new System.Drawing.Size(113, 23);
+            this.buttonSlap.Size = new System.Drawing.Size(188, 39);
             this.buttonSlap.TabIndex = 1;
             this.buttonSlap.Text = "Slap!";
             this.buttonSlap.UseVisualStyleBackColor = true;
@@ -70,9 +71,10 @@
             // 
             this.parameternotice.AutoSize = true;
             this.parameternotice.ForeColor = System.Drawing.Color.Red;
-            this.parameternotice.Location = new System.Drawing.Point(13, 383);
+            this.parameternotice.Location = new System.Drawing.Point(22, 648);
+            this.parameternotice.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.parameternotice.Name = "parameternotice";
-            this.parameternotice.Size = new System.Drawing.Size(89, 13);
+            this.parameternotice.Size = new System.Drawing.Size(155, 24);
             this.parameternotice.TabIndex = 4;
             this.parameternotice.Text = "Parameter Notice";
             this.parameternotice.Visible = false;
@@ -86,10 +88,11 @@
             this.tabControl1.Controls.Add(this.tabAppearance);
             this.tabControl1.Controls.Add(this.tabSoftware);
             this.tabControl1.Controls.Add(this.tabAdvanced);
-            this.tabControl1.Location = new System.Drawing.Point(-1, 38);
+            this.tabControl1.Location = new System.Drawing.Point(-2, 64);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(393, 336);
+            this.tabControl1.Size = new System.Drawing.Size(655, 569);
             this.tabControl1.TabIndex = 6;
             // 
             // tabTweaks
@@ -98,10 +101,11 @@
             this.tabTweaks.Controls.Add(this.buttonUncheckTweaks);
             this.tabTweaks.Controls.Add(this.buttonCheckTweaks);
             this.tabTweaks.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabTweaks.Location = new System.Drawing.Point(4, 22);
+            this.tabTweaks.Location = new System.Drawing.Point(4, 31);
+            this.tabTweaks.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.tabTweaks.Name = "tabTweaks";
-            this.tabTweaks.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTweaks.Size = new System.Drawing.Size(385, 310);
+            this.tabTweaks.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tabTweaks.Size = new System.Drawing.Size(647, 534);
             this.tabTweaks.TabIndex = 0;
             this.tabTweaks.Text = "Tweaks";
             this.tabTweaks.UseVisualStyleBackColor = true;
@@ -179,19 +183,21 @@
             "Install .NET Framework 2.0, 3.0 and 3.5",
             "Enable Windows Photo Viewer",
             "Uninstall Microsoft XPS Document Writer"});
-            this.checkedListBoxTweaks.Location = new System.Drawing.Point(2, 33);
+            this.checkedListBoxTweaks.Location = new System.Drawing.Point(3, 56);
+            this.checkedListBoxTweaks.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.checkedListBoxTweaks.Name = "checkedListBoxTweaks";
             this.checkedListBoxTweaks.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.checkedListBoxTweaks.ScrollAlwaysVisible = true;
-            this.checkedListBoxTweaks.Size = new System.Drawing.Size(379, 274);
+            this.checkedListBoxTweaks.Size = new System.Drawing.Size(629, 454);
             this.checkedListBoxTweaks.TabIndex = 3;
             // 
             // buttonUncheckTweaks
             // 
             this.buttonUncheckTweaks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUncheckTweaks.Location = new System.Drawing.Point(301, 5);
+            this.buttonUncheckTweaks.Location = new System.Drawing.Point(502, 8);
+            this.buttonUncheckTweaks.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.buttonUncheckTweaks.Name = "buttonUncheckTweaks";
-            this.buttonUncheckTweaks.Size = new System.Drawing.Size(80, 23);
+            this.buttonUncheckTweaks.Size = new System.Drawing.Size(133, 39);
             this.buttonUncheckTweaks.TabIndex = 5;
             this.buttonUncheckTweaks.Text = "Uncheck all";
             this.buttonUncheckTweaks.UseVisualStyleBackColor = true;
@@ -200,9 +206,10 @@
             // buttonCheckTweaks
             // 
             this.buttonCheckTweaks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCheckTweaks.Location = new System.Drawing.Point(217, 5);
+            this.buttonCheckTweaks.Location = new System.Drawing.Point(362, 8);
+            this.buttonCheckTweaks.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.buttonCheckTweaks.Name = "buttonCheckTweaks";
-            this.buttonCheckTweaks.Size = new System.Drawing.Size(78, 23);
+            this.buttonCheckTweaks.Size = new System.Drawing.Size(130, 39);
             this.buttonCheckTweaks.TabIndex = 4;
             this.buttonCheckTweaks.Text = "Check all";
             this.buttonCheckTweaks.UseVisualStyleBackColor = true;
@@ -213,10 +220,11 @@
             this.tabAppearance.Controls.Add(this.checkedListBoxAppearance);
             this.tabAppearance.Controls.Add(this.buttonUncheckAppearance);
             this.tabAppearance.Controls.Add(this.buttonCheckAppearance);
-            this.tabAppearance.Location = new System.Drawing.Point(4, 22);
+            this.tabAppearance.Location = new System.Drawing.Point(4, 31);
+            this.tabAppearance.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.tabAppearance.Name = "tabAppearance";
-            this.tabAppearance.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAppearance.Size = new System.Drawing.Size(385, 310);
+            this.tabAppearance.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tabAppearance.Size = new System.Drawing.Size(647, 534);
             this.tabAppearance.TabIndex = 3;
             this.tabAppearance.Text = "Appearance";
             this.tabAppearance.UseVisualStyleBackColor = true;
@@ -244,19 +252,21 @@
             "Delete quicklaunch items",
             "Use Windows 7 volume control",
             "Remove Microsoft Edge dekstop shortcut"});
-            this.checkedListBoxAppearance.Location = new System.Drawing.Point(2, 33);
+            this.checkedListBoxAppearance.Location = new System.Drawing.Point(3, 56);
+            this.checkedListBoxAppearance.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.checkedListBoxAppearance.Name = "checkedListBoxAppearance";
             this.checkedListBoxAppearance.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.checkedListBoxAppearance.ScrollAlwaysVisible = true;
-            this.checkedListBoxAppearance.Size = new System.Drawing.Size(379, 274);
+            this.checkedListBoxAppearance.Size = new System.Drawing.Size(629, 454);
             this.checkedListBoxAppearance.TabIndex = 6;
             // 
             // buttonUncheckAppearance
             // 
             this.buttonUncheckAppearance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUncheckAppearance.Location = new System.Drawing.Point(301, 5);
+            this.buttonUncheckAppearance.Location = new System.Drawing.Point(502, 8);
+            this.buttonUncheckAppearance.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.buttonUncheckAppearance.Name = "buttonUncheckAppearance";
-            this.buttonUncheckAppearance.Size = new System.Drawing.Size(80, 23);
+            this.buttonUncheckAppearance.Size = new System.Drawing.Size(133, 39);
             this.buttonUncheckAppearance.TabIndex = 8;
             this.buttonUncheckAppearance.Text = "Uncheck all";
             this.buttonUncheckAppearance.UseVisualStyleBackColor = true;
@@ -265,9 +275,10 @@
             // buttonCheckAppearance
             // 
             this.buttonCheckAppearance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCheckAppearance.Location = new System.Drawing.Point(217, 5);
+            this.buttonCheckAppearance.Location = new System.Drawing.Point(362, 8);
+            this.buttonCheckAppearance.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.buttonCheckAppearance.Name = "buttonCheckAppearance";
-            this.buttonCheckAppearance.Size = new System.Drawing.Size(78, 23);
+            this.buttonCheckAppearance.Size = new System.Drawing.Size(130, 39);
             this.buttonCheckAppearance.TabIndex = 7;
             this.buttonCheckAppearance.Text = "Check all";
             this.buttonCheckAppearance.UseVisualStyleBackColor = true;
@@ -278,10 +289,11 @@
             this.tabSoftware.Controls.Add(this.buttonUncheckSoftware);
             this.tabSoftware.Controls.Add(this.buttonCheckSoftware);
             this.tabSoftware.Controls.Add(this.checkedListBoxSoftware);
-            this.tabSoftware.Location = new System.Drawing.Point(4, 22);
+            this.tabSoftware.Location = new System.Drawing.Point(4, 31);
+            this.tabSoftware.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.tabSoftware.Name = "tabSoftware";
-            this.tabSoftware.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSoftware.Size = new System.Drawing.Size(385, 310);
+            this.tabSoftware.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tabSoftware.Size = new System.Drawing.Size(647, 534);
             this.tabSoftware.TabIndex = 1;
             this.tabSoftware.Text = "Software";
             this.tabSoftware.UseVisualStyleBackColor = true;
@@ -289,9 +301,10 @@
             // buttonUncheckSoftware
             // 
             this.buttonUncheckSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUncheckSoftware.Location = new System.Drawing.Point(301, 5);
+            this.buttonUncheckSoftware.Location = new System.Drawing.Point(502, 8);
+            this.buttonUncheckSoftware.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.buttonUncheckSoftware.Name = "buttonUncheckSoftware";
-            this.buttonUncheckSoftware.Size = new System.Drawing.Size(80, 23);
+            this.buttonUncheckSoftware.Size = new System.Drawing.Size(133, 39);
             this.buttonUncheckSoftware.TabIndex = 7;
             this.buttonUncheckSoftware.Text = "Uncheck all";
             this.buttonUncheckSoftware.UseVisualStyleBackColor = true;
@@ -300,9 +313,10 @@
             // buttonCheckSoftware
             // 
             this.buttonCheckSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCheckSoftware.Location = new System.Drawing.Point(217, 5);
+            this.buttonCheckSoftware.Location = new System.Drawing.Point(362, 8);
+            this.buttonCheckSoftware.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.buttonCheckSoftware.Name = "buttonCheckSoftware";
-            this.buttonCheckSoftware.Size = new System.Drawing.Size(78, 23);
+            this.buttonCheckSoftware.Size = new System.Drawing.Size(130, 39);
             this.buttonCheckSoftware.TabIndex = 6;
             this.buttonCheckSoftware.Text = "Check all";
             this.buttonCheckSoftware.UseVisualStyleBackColor = true;
@@ -324,10 +338,11 @@
             "Install VLC media player",
             "Install Telegram",
             "Install StartIsBack++"});
-            this.checkedListBoxSoftware.Location = new System.Drawing.Point(2, 33);
+            this.checkedListBoxSoftware.Location = new System.Drawing.Point(3, 56);
+            this.checkedListBoxSoftware.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.checkedListBoxSoftware.Name = "checkedListBoxSoftware";
             this.checkedListBoxSoftware.ScrollAlwaysVisible = true;
-            this.checkedListBoxSoftware.Size = new System.Drawing.Size(379, 274);
+            this.checkedListBoxSoftware.Size = new System.Drawing.Size(629, 454);
             this.checkedListBoxSoftware.TabIndex = 4;
             // 
             // tabAdvanced
@@ -335,10 +350,11 @@
             this.tabAdvanced.Controls.Add(this.checkedListBoxAdvanced);
             this.tabAdvanced.Controls.Add(this.buttonUncheckAdvanced);
             this.tabAdvanced.Controls.Add(this.buttonCheckAdvanced);
-            this.tabAdvanced.Location = new System.Drawing.Point(4, 22);
+            this.tabAdvanced.Location = new System.Drawing.Point(4, 31);
+            this.tabAdvanced.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.tabAdvanced.Name = "tabAdvanced";
-            this.tabAdvanced.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAdvanced.Size = new System.Drawing.Size(385, 310);
+            this.tabAdvanced.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tabAdvanced.Size = new System.Drawing.Size(647, 534);
             this.tabAdvanced.TabIndex = 2;
             this.tabAdvanced.Text = "Advanced";
             this.tabAdvanced.UseVisualStyleBackColor = true;
@@ -354,18 +370,20 @@
             this.checkedListBoxAdvanced.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.checkedListBoxAdvanced.Items.AddRange(new object[] {
             "Precision Trackpad: Disable keyboard block after clicking"});
-            this.checkedListBoxAdvanced.Location = new System.Drawing.Point(2, 33);
+            this.checkedListBoxAdvanced.Location = new System.Drawing.Point(3, 56);
+            this.checkedListBoxAdvanced.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.checkedListBoxAdvanced.Name = "checkedListBoxAdvanced";
             this.checkedListBoxAdvanced.ScrollAlwaysVisible = true;
-            this.checkedListBoxAdvanced.Size = new System.Drawing.Size(379, 274);
+            this.checkedListBoxAdvanced.Size = new System.Drawing.Size(629, 454);
             this.checkedListBoxAdvanced.TabIndex = 6;
             // 
             // buttonUncheckAdvanced
             // 
             this.buttonUncheckAdvanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUncheckAdvanced.Location = new System.Drawing.Point(301, 5);
+            this.buttonUncheckAdvanced.Location = new System.Drawing.Point(502, 8);
+            this.buttonUncheckAdvanced.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.buttonUncheckAdvanced.Name = "buttonUncheckAdvanced";
-            this.buttonUncheckAdvanced.Size = new System.Drawing.Size(80, 23);
+            this.buttonUncheckAdvanced.Size = new System.Drawing.Size(133, 39);
             this.buttonUncheckAdvanced.TabIndex = 8;
             this.buttonUncheckAdvanced.Text = "Uncheck all";
             this.buttonUncheckAdvanced.UseVisualStyleBackColor = true;
@@ -374,9 +392,10 @@
             // buttonCheckAdvanced
             // 
             this.buttonCheckAdvanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCheckAdvanced.Location = new System.Drawing.Point(217, 5);
+            this.buttonCheckAdvanced.Location = new System.Drawing.Point(362, 8);
+            this.buttonCheckAdvanced.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.buttonCheckAdvanced.Name = "buttonCheckAdvanced";
-            this.buttonCheckAdvanced.Size = new System.Drawing.Size(78, 23);
+            this.buttonCheckAdvanced.Size = new System.Drawing.Size(130, 39);
             this.buttonCheckAdvanced.TabIndex = 7;
             this.buttonCheckAdvanced.Text = "Check all";
             this.buttonCheckAdvanced.UseVisualStyleBackColor = true;
@@ -386,25 +405,27 @@
             // 
             this.labelOS.AutoSize = true;
             this.labelOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOS.Location = new System.Drawing.Point(12, 9);
+            this.labelOS.Location = new System.Drawing.Point(20, 15);
+            this.labelOS.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelOS.Name = "labelOS";
-            this.labelOS.Size = new System.Drawing.Size(136, 18);
+            this.labelOS.Size = new System.Drawing.Size(230, 29);
             this.labelOS.TabIndex = 7;
             this.labelOS.Text = "Windows 10 (????)";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(389, 412);
+            this.ClientSize = new System.Drawing.Size(648, 697);
             this.Controls.Add(this.labelOS);
             this.Controls.Add(this.parameternotice);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.buttonSlap);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WinSlap 0.8";
+            this.Text = "WinSlap 0.9";
             this.Load += new System.EventHandler(this.WinSlap_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabTweaks.ResumeLayout(false);
