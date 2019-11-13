@@ -7,7 +7,6 @@ using System.Text.RegularExpressions;
 using WinSlap.Properties;
 using System.Management.Automation;
 using System.Text;
-using System.Windows.Forms;
 
 namespace WinSlap
 {
@@ -155,6 +154,25 @@ namespace WinSlap
             myKey.SetValue("UseDomainNameDevolution", "0", RegistryValueKind.DWord);
         }
 
+        public static void DisableLockscreenBlur()
+        {
+            RegistryKey myKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\System", true);
+            myKey.SetValue("DisableAcrylicBackgroundOnLogon", "1", RegistryValueKind.DWord);
+        }
+
+        public static void DisableSecurityQuestions()
+        {
+            RegistryKey myKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\System", true);
+            myKey.SetValue("NoLocalPasswordResetQuestions", "1", RegistryValueKind.DWord);
+        }
+
+        // note: "Anywhere" actually means disabled
+        public static void DisableAppSuggestions()
+        {
+            RegistryKey myKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer", true);
+            myKey.SetValue("AicEnabled", "Anywhere", RegistryValueKind.String);
+        }
+
         public static void DisableGameDvr()
         {
             RegistryKey myKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR", true);
@@ -174,8 +192,10 @@ namespace WinSlap
             RegistryKey myKey4 = Registry.LocalMachine.OpenSubKey(@"Software\Policies\Microsoft\Windows", true);
             myKey4.SetValue("AllowgameDVR", "0", RegistryValueKind.DWord);
 
+            /* TODO: doesn't work anymore as of 1909
             RegistryKey myKey5 = Registry.LocalMachine.OpenSubKey(@"System\CurrentControlSet\Services\xbgm", true);
             myKey5.SetValue("Start", "4", RegistryValueKind.DWord);
+            */
 
             RegistryKey myKey6 = Registry.LocalMachine.OpenSubKey(@"System\CurrentControlSet\Services\XblAuthManager", true);
             myKey6.SetValue("Start", "4", RegistryValueKind.DWord);

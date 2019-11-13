@@ -4,7 +4,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using WinSlap.Properties;
+// TODO: reimplement properly
+// using WinSlap.Properties;
 
 namespace WinSlap
 {
@@ -60,7 +61,7 @@ namespace WinSlap
 
         }
 
-        public void SlapTweaks(Slapping slapping)
+        private void SlapTweaks(Slapping slapping)
         {
             for (int x = 0; x <= checkedListBoxTweaks.CheckedItems.Count; x++)
             {
@@ -325,21 +326,29 @@ namespace WinSlap
                             slapping.SetCurrentOp(boxcontent);
                             Slapper.UninstallXPSWriter();
                             break;
+                        case "Disable security questions for local accounts":
+                            slapping.SetCurrentOp(boxcontent);
+                            Slapper.DisableSecurityQuestions();
+                            break;
+                        case "Disable app suggestions (e.g. use Edge instead of Firefox)":
+                            slapping.SetCurrentOp(boxcontent);
+                            Slapper.DisableAppSuggestions();
+                            break;
                         default:
                             slapping.Hide();
-                            MessageBox.Show("Error 002 in Tweaks (" + boxcontent + ")\nPlease report this bug to winslap@mauch.me", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Item not found (" + boxcontent + ")\nPlease report this issue at https://github.com/svenmauch/WinSlap", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             Environment.Exit(1);
                             break;
                     }
-                    }
-
-                   catch (NullReferenceException)
-                   {
-                       slapping.Hide();
-                       MessageBox.Show("Error 001 in \"" + boxcontent + "\"\nPlease report this bug to winslap@mauch.me", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                       Environment.Exit(1);
-                   }
                 }
+
+                catch (NullReferenceException ex)
+                {
+                    slapping.Hide();
+                    MessageBox.Show("NullReferenceException in \"" + boxcontent + "\"\nPlease report this issue at https://github.com/svenmauch/WinSlap" + "\n\n" + ex, "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Environment.Exit(1);
+                }
+            }
         }
 
         private void SlapAppearance(Slapping slapping)
@@ -403,13 +412,17 @@ namespace WinSlap
                             slapping.SetCurrentOp(boxcontent);
                             Slapper.UseWin7Volume();
                             break;
-                        case "Remove Microsoft Edge dekstop shortcut":
+                        case "Remove Microsoft Edge desktop shortcut":
                             slapping.SetCurrentOp(boxcontent);
                             Slapper.RemoveEdgeShortcut();
                             break;
+                        case "Disable Lockscreen Blur":
+                            slapping.SetCurrentOp(boxcontent);
+                            Slapper.DisableLockscreenBlur();
+                            break;
                         default:
                             slapping.Hide();
-                            MessageBox.Show("Error 002 in Appearance\nPlease report this bug to winslap@mauch.me", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Item not found in Appearance\nPlease report this issue at https://github.com/svenmauch/WinSlap", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             Environment.Exit(1);
                             break;
                     }
@@ -417,7 +430,7 @@ namespace WinSlap
                 catch (NullReferenceException)
                 {
                     slapping.Hide();
-                    MessageBox.Show("Error 001 in \"" + boxcontent + "\"\nPlease report this bug to winslap@mauch.me", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("NullReferenceException in \"" + boxcontent + "\"\nPlease report this issue at https://github.com/svenmauch/WinSlap", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Environment.Exit(1);
                 }
             }
@@ -470,7 +483,7 @@ namespace WinSlap
                             break;
                         default:
                             slapping.Hide();
-                            MessageBox.Show("Error 002 in Software\nPlease report this bug to winslap@mauch.me", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Item not found in Software\nPlease report this issue at https://github.com/svenmauch/WinSlap", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             Environment.Exit(1);
                             break;
                     }
@@ -478,7 +491,7 @@ namespace WinSlap
                 catch (NullReferenceException)
                 {
                     slapping.Hide();
-                    MessageBox.Show("Error 001 in \"" + boxcontent + "\"\nPlease report this bug to winslap@mauch.me", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("NullReferenceException in \"" + boxcontent + "\"\nPlease report this issue at https://github.com/svenmauch/WinSlap", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Environment.Exit(1);
                 }
             }
@@ -503,7 +516,7 @@ namespace WinSlap
                             break;
                         default:
                             slapping.Hide();
-                            MessageBox.Show("Error 002 in Advanced\nPlease report this bug to winslap@mauch.me", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Item not found in Advanced\nPlease report this issue at https://github.com/svenmauch/WinSlap", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             Environment.Exit(1);
                             break;
                     }
@@ -511,7 +524,7 @@ namespace WinSlap
                 catch (NullReferenceException)
                 {
                     slapping.Hide();
-                    MessageBox.Show("Error 001 in \"" + boxcontent + "\"\nPlease report this bug to winslap@mauch.me", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("NullReferenceException in \"" + boxcontent + "\"\nPlease report this issue at https://github.com/svenmauch/WinSlap", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Environment.Exit(1);
                 }
             }
@@ -524,7 +537,7 @@ namespace WinSlap
             AppDomain.CurrentDomain.ProcessExit += OnProcessExit;
             Directory.CreateDirectory(Tmpfolder);
 
-            labelOS.Text = "Windows 10 (" + Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "ReleaseId", "").ToString() + ")";
+            labelOS.Text = "Windows 10 (" + Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "ReleaseId", "") + ")";
         }
 
         private static void RestartNow()
@@ -540,10 +553,12 @@ namespace WinSlap
 
         private static void SpendeAutorun()
         {
+            /* TODO: reimplement properly
             Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\WinSlap\");
             File.WriteAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\WinSlap\" + "Spende.exe", Resources.Spende);
             RegistryKey regStartUp = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce", true);
             regStartUp.SetValue("WinSlap", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\WinSlap\" + "Spende.exe");
+            */
         }
 
         private void OnProcessExit(object sender, EventArgs e)
@@ -569,8 +584,7 @@ namespace WinSlap
         private static Boolean ShowDisclaimer()
         {
             string disclaimer = "- All changes are made at your own risk.\n" +
-                    "- Any potential damage is your own responsibility.\n" +
-                    "- There is no easy way to restore the changes.\n" +
+                    "- There is no easy way to revert the changes.\n" +
                     "- Your PC will restart immediately after the changes have been made.\n \n" +
                     "Are you ready to slap?";
 
@@ -609,11 +623,6 @@ namespace WinSlap
         private void ButtonUncheckAdvanced_Click(object sender, EventArgs e)
         {
             CheckAll(checkedListBoxAdvanced, false);
-        }
-
-        private void LabelWinSlap_DoubleClick(object sender, EventArgs e)
-        {
-            MessageBox.Show("WinSlap by Sven Mauch (2018)");
         }
 
         private void CheckAll(CheckedListBox list, bool check)

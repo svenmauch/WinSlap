@@ -11,8 +11,9 @@ namespace WinSlap
             ManagementClass mc = new ManagementClass("win32_processor");
             ManagementObjectCollection moc = mc.GetInstances();
             String id = String.Empty;
-            foreach (ManagementObject mo in moc)
+            foreach (var o in moc)
             {
+                var mo = (ManagementObject) o;
 
                 id = mo.Properties["processorID"].Value.ToString();
                 break;
@@ -25,8 +26,9 @@ namespace WinSlap
             ManagementClass mangnmt = new ManagementClass("Win32_LogicalDisk");
             ManagementObjectCollection mcol = mangnmt.GetInstances();
             string result = "";
-            foreach (ManagementObject strt in mcol)
+            foreach (var o in mcol)
             {
+                var strt = (ManagementObject) o;
                 result += Convert.ToString(strt["VolumeSerialNumber"]);
             }
             return result;
@@ -36,8 +38,9 @@ namespace WinSlap
             ManagementClass mc = new ManagementClass("Win32_NetworkAdapterConfiguration");
             ManagementObjectCollection moc = mc.GetInstances();
             string macAddress = String.Empty;
-            foreach (ManagementObject mo in moc)
+            foreach (var o in moc)
             {
+                var mo = (ManagementObject) o;
                 if (macAddress == String.Empty)
                 {
                     if ((bool)mo["IPEnabled"] == true) macAddress = mo["MacAddress"].ToString();
@@ -52,15 +55,15 @@ namespace WinSlap
         {
 
             ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_BaseBoard");
-            foreach (ManagementObject wmi in searcher.Get())
+            foreach (var o in searcher.Get())
             {
+                var wmi = (ManagementObject) o;
                 try
                 {
                     return wmi.GetPropertyValue("Manufacturer").ToString();
                 }
 
                 catch { }
-
             }
 
             return "Board Maker: Unknown";
@@ -71,16 +74,16 @@ namespace WinSlap
 
             ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_BaseBoard");
 
-            foreach (ManagementObject wmi in searcher.Get())
+            foreach (var o in searcher.Get())
             {
+                var wmi = (ManagementObject) o;
                 try
                 {
                     return wmi.GetPropertyValue("Product").ToString();
 
                 }
 
-                catch { }
-
+                catch {}
             }
 
             return "Product: Unknown";
