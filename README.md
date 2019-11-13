@@ -2,6 +2,10 @@
 
 Swiftly configure a fresh Windows 10 installation with useful tweaks and antispy settings.
 
+<p align="center">
+    <img src="https://mauch.me/img/winslap_v1.png" alt="WinSlap v1.0">
+</p>
+
 WinSlap is primarily developed for my own use cases. Feel free to use it under any terms the license permits. However, I can not guarantee that it works as intended, doesn't break your system or is actively maintained.
 
 ## Goals
