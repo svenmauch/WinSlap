@@ -43,7 +43,7 @@ namespace WinSlap
                 var mo = (ManagementObject) o;
                 if (macAddress == String.Empty)
                 {
-                    if ((bool)mo["IPEnabled"] == true) macAddress = mo["MacAddress"].ToString();
+                    if ((bool)mo["IPEnabled"]) macAddress = mo["MacAddress"].ToString();
                 }
                 mo.Dispose();
             }

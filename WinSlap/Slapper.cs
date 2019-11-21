@@ -1,12 +1,12 @@
-﻿using Microsoft.Win32;
+﻿using WinSlap.Properties;
+using Microsoft.Win32;
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
-using System.Text.RegularExpressions;
-using WinSlap.Properties;
 using System.Management.Automation;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace WinSlap
 {
@@ -489,9 +489,9 @@ namespace WinSlap
 
         public static void DisableTeredo()
         {
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            Process process = new Process();
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
             startInfo.FileName = "cmd.exe";
             startInfo.Arguments = "/C netsh interface teredo set state disabled";
             process.StartInfo = startInfo;
@@ -501,9 +501,9 @@ namespace WinSlap
 
         public static void DisableISATAP()
         {
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            Process process = new Process();
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
             startInfo.FileName = "cmd.exe";
             startInfo.Arguments = "/C netsh interface isatap set state disabled";
             process.StartInfo = startInfo;
