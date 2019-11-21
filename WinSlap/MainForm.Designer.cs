@@ -68,6 +68,7 @@
             // 
             // parameternotice
             // 
+            this.parameternotice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.parameternotice.AutoSize = true;
             this.parameternotice.ForeColor = System.Drawing.Color.Red;
             this.parameternotice.Location = new System.Drawing.Point(13, 383);
