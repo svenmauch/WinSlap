@@ -181,7 +181,9 @@
             "Enable Windows Photo Viewer",
             "Uninstall Microsoft XPS Document Writer",
             "Disable security questions for local accounts",
-            "Disable app suggestions (e.g. use Edge instead of Firefox)"});
+            "Disable app suggestions (e.g. use Edge instead of Firefox)",
+            "Remove default Fax printer",
+            "Remove Microsoft XPS Document Writer"});
             this.checkedListBoxTweaks.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxTweaks.Name = "checkedListBoxTweaks";
             this.checkedListBoxTweaks.RightToLeft = System.Windows.Forms.RightToLeft.No;

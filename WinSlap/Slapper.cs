@@ -986,5 +986,23 @@ namespace WinSlap
             string edgepath = desktoppath + @"\Microsoft Edge.lnk";
             File.Delete(edgepath);
         }
+
+        public static void RemoveFaxPrinter()
+        {
+            using (PowerShell ps = PowerShell.Create())
+            {
+                ps.AddScript("Remove-Printer -Name \"Fax\" -ErrorAction SilentlyContinue");
+                ps.Invoke();
+            }
+        }
+
+        public static void RemoveXPSDocumentWriter()
+        {
+            using (PowerShell ps = PowerShell.Create())
+            {
+                ps.AddScript("Disable-WindowsOptionalFeature -Online -FeatureName \"Printing-XPSServices-Features\" -NoRestart -WarningAction SilentlyContinue | Out-Null");
+                ps.Invoke();
+            }
+        }
     }
 }

@@ -334,6 +334,14 @@ namespace WinSlap
                             slapping.SetCurrentOp(boxcontent);
                             Slapper.DisableAppSuggestions();
                             break;
+                        case "Remove default Fax printer":
+                            slapping.SetCurrentOp(boxcontent);
+                            Slapper.RemoveFaxPrinter();
+                            break;
+                        case "Remove Microsoft XPS Document Writer":
+                            slapping.SetCurrentOp(boxcontent);
+                            Slapper.RemoveXPSDocumentWriter();
+                            break;
                         default:
                             slapping.Hide();
                             MessageBox.Show("Item not found (" + boxcontent + ")\nPlease report this issue at https://github.com/svenmauch/WinSlap", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
