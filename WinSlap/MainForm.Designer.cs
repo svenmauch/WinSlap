@@ -100,7 +100,7 @@
             this.tabTweaks.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabTweaks.Location = new System.Drawing.Point(4, 22);
             this.tabTweaks.Name = "tabTweaks";
-            this.tabTweaks.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabTweaks.Padding = new System.Windows.Forms.Padding(3);
             this.tabTweaks.Size = new System.Drawing.Size(385, 310);
             this.tabTweaks.TabIndex = 0;
             this.tabTweaks.Text = "Tweaks";
@@ -217,7 +217,7 @@
             this.tabAppearance.Controls.Add(this.buttonCheckAppearance);
             this.tabAppearance.Location = new System.Drawing.Point(4, 22);
             this.tabAppearance.Name = "tabAppearance";
-            this.tabAppearance.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabAppearance.Padding = new System.Windows.Forms.Padding(3);
             this.tabAppearance.Size = new System.Drawing.Size(385, 310);
             this.tabAppearance.TabIndex = 3;
             this.tabAppearance.Text = "Appearance";
@@ -283,7 +283,7 @@
             this.tabSoftware.Controls.Add(this.checkedListBoxSoftware);
             this.tabSoftware.Location = new System.Drawing.Point(4, 22);
             this.tabSoftware.Name = "tabSoftware";
-            this.tabSoftware.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabSoftware.Padding = new System.Windows.Forms.Padding(3);
             this.tabSoftware.Size = new System.Drawing.Size(385, 310);
             this.tabSoftware.TabIndex = 1;
             this.tabSoftware.Text = "Software";
@@ -340,7 +340,7 @@
             this.tabAdvanced.Controls.Add(this.buttonCheckAdvanced);
             this.tabAdvanced.Location = new System.Drawing.Point(4, 22);
             this.tabAdvanced.Name = "tabAdvanced";
-            this.tabAdvanced.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabAdvanced.Padding = new System.Windows.Forms.Padding(3);
             this.tabAdvanced.Size = new System.Drawing.Size(385, 310);
             this.tabAdvanced.TabIndex = 2;
             this.tabAdvanced.Text = "Advanced";
@@ -407,7 +407,7 @@
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WinSlap 1.0";
+            this.Text = "WinSlap 1.1";
             this.Load += new System.EventHandler(this.WinSlap_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabTweaks.ResumeLayout(false);
