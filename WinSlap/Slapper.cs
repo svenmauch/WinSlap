@@ -589,7 +589,7 @@ namespace WinSlap
             myKey.SetValue("DisableStartupSound", "1", RegistryValueKind.DWord);
         }
 
-        public static void DisableAutostartStarupDelay()
+        public static void DisableAutostartStartupDelay()
         {
             Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Serialize");
             RegistryKey myKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Serialize", true);

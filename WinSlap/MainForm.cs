@@ -152,7 +152,7 @@ namespace WinSlap
                             break;
                         case "Disable autostart startup delay":
                             slapping.SetCurrentOp(boxcontent);
-                            Slapper.DisableAutostartStarupDelay();
+                            Slapper.DisableAutostartStartupDelay();
                             break;
                         case "Disable location":
                             slapping.SetCurrentOp(boxcontent);
