@@ -443,17 +443,9 @@ namespace WinSlap
                             slapping.SetCurrentOp(boxcontent);
                             Slapper.InstallFirefox();
                             break;
-                        case "Install Mozilla Firefox Beta":
-                            slapping.SetCurrentOp(boxcontent);
-                            Slapper.InstallFirefoxBeta();
-                            break;
                         case "Install Mozilla Thunderbird":
                             slapping.SetCurrentOp(boxcontent);
                             Slapper.InstallThunderbird();
-                            break;
-                        case "Install Mozilla Thunderbird Beta":
-                            slapping.SetCurrentOp(boxcontent);
-                            Slapper.InstallThunderbirdBeta();
                             break;
                         case "Install VLC media player":
                             slapping.SetCurrentOp(boxcontent);

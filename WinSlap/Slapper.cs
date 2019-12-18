@@ -947,19 +947,9 @@ namespace WinSlap
             DownloadRun("https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US", "Firefox_Setup.exe", "/S");
         }
 
-        public static void InstallFirefoxBeta()
-        {
-            DownloadRun("https://download.mozilla.org/?product=firefox-beta-latest&os=win64&lang=en-US", "FirefoxBeta_Setup.exe", "/S");
-        }
-
         public static void InstallThunderbird()
         {
             DownloadRun("https://download.mozilla.org/?product=thunderbird-latest&os=win&lang=en-US", "Thunderbird_Setup.exe", "/S");
-        }
-
-        public static void InstallThunderbirdBeta()
-        {
-            DownloadRun("https://download.mozilla.org/?product=thunderbird-beta-latest&os=win&lang=en-US", "ThunderbirdBeta_Setup.exe", "/S");
         }
 
         public static void InstallVlc()

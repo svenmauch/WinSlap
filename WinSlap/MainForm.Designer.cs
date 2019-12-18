@@ -318,9 +318,7 @@
             this.checkedListBoxSoftware.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.checkedListBoxSoftware.Items.AddRange(new object[] {
             "Install Mozilla Firefox",
-            "Install Mozilla Firefox Beta",
             "Install Mozilla Thunderbird",
-            "Install Mozilla Thunderbird Beta",
             "Install VLC media player",
             "Install Telegram",
             "Install StartIsBack++"});
