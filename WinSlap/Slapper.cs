@@ -7,6 +7,7 @@ using System.Net;
 using System.Management.Automation;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace WinSlap
 {
@@ -19,11 +20,25 @@ namespace WinSlap
             {
                 FileInfo file = new FileInfo(MainForm.Tmpfolder + filename);
 
-                client.DownloadFile(new Uri(url), file.FullName);
+                DialogResult result = DialogResult.Retry;
+                while (result == DialogResult.Retry)
+                {
+                    try
+                    {
+                        client.DownloadFile(new Uri(url), file.FullName);
 
-                ProcessStartInfo ffi = new ProcessStartInfo(file.FullName, parameters);
-                Process ff = Process.Start(ffi);
-                ff?.WaitForExit();
+                        ProcessStartInfo ffi = new ProcessStartInfo(file.FullName, parameters);
+                        Process ff = Process.Start(ffi);
+                        ff?.WaitForExit();
+                    }
+                    catch (WebException)
+                    {
+                        String errorMessage = "A WebException occured trying to download from the following URL:\n\n" + url + "\n\nPlease check your network connection and report this issue on GitHub if the error persists";
+                        String caption = "Something went wrong...";
+                        result = MessageBox.Show(errorMessage, caption, MessageBoxButtons.AbortRetryIgnore);
+                        if (result == DialogResult.Abort) Application.Exit();
+                    }
+                }
             }
         }
 
