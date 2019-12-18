@@ -158,10 +158,6 @@ namespace WinSlap
                             slapping.SetCurrentOp(boxcontent);
                             Slapper.DisableLocation();
                             break;
-                        case "Disable Windows Defender":
-                            slapping.SetCurrentOp(boxcontent);
-                            Slapper.DisableDefender();
-                            break;
                         case "Disable Advertising ID":
                             slapping.SetCurrentOp(boxcontent);
                             Slapper.DisableAdvertisingId();
@@ -289,26 +285,6 @@ namespace WinSlap
                         case "Disable Microsoft Edge first run page":
                             slapping.SetCurrentOp(boxcontent);
                             Slapper.DisableEdgeFirstRunPage();
-                            break;
-                        case "Disable Link-local Multicast Name Resolution":
-                            slapping.SetCurrentOp(boxcontent);
-                            Slapper.DisableLLMNR();
-                            break;
-                        case "Disable Smart Multi-Homed Name Resolution":
-                            slapping.SetCurrentOp(boxcontent);
-                            Slapper.DisableSmartNameResolution();
-                            break;
-                        case "Disable Web Proxy Auto-Discovery":
-                            slapping.SetCurrentOp(boxcontent);
-                            Slapper.DisableWPAD();
-                            break;
-                        case "Disable Teredo tunneling":
-                            slapping.SetCurrentOp(boxcontent);
-                            Slapper.DisableTeredo();
-                            break;
-                        case "Disable Intra-Site Automatic Tunnel Addressing Protocol":
-                            slapping.SetCurrentOp(boxcontent);
-                            Slapper.DisableISATAP();
                             break;
                         case "Disable Microsoft Edge preload":
                             slapping.SetCurrentOp(boxcontent);
@@ -521,6 +497,30 @@ namespace WinSlap
                         case "Precision Trackpad: Disable keyboard block after clicking":
                             slapping.SetCurrentOp(boxcontent);
                             Slapper.InstallFirefox();
+                            break;
+                        case "Disable Windows Defender":
+                            slapping.SetCurrentOp(boxcontent);
+                            Slapper.DisableDefender();
+                            break;
+                        case "Disable Link-local Multicast Name Resolution":
+                            slapping.SetCurrentOp(boxcontent);
+                            Slapper.DisableLLMNR();
+                            break;
+                        case "Disable Smart Multi-Homed Name Resolution":
+                            slapping.SetCurrentOp(boxcontent);
+                            Slapper.DisableSmartNameResolution();
+                            break;
+                        case "Disable Web Proxy Auto-Discovery":
+                            slapping.SetCurrentOp(boxcontent);
+                            Slapper.DisableWPAD();
+                            break;
+                        case "Disable Teredo tunneling":
+                            slapping.SetCurrentOp(boxcontent);
+                            Slapper.DisableTeredo();
+                            break;
+                        case "Disable Intra-Site Automatic Tunnel Addressing Protocol":
+                            slapping.SetCurrentOp(boxcontent);
+                            Slapper.DisableISATAP();
                             break;
                         default:
                             slapping.Hide();

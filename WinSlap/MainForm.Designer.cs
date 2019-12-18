@@ -138,7 +138,6 @@
             "Disable startup sound",
             "Disable autostart startup delay",
             "Disable location",
-            "Disable Windows Defender",
             "Disable Advertising ID",
             "Disable Malware Removal Tool data reporting",
             "Disable sending typing info to Microsoft",
@@ -171,11 +170,6 @@
             "Disable pre-release features and settings",
             "Disable camera on lock screen",
             "Disable Microsoft Edge first run page",
-            "Disable Link-local Multicast Name Resolution",
-            "Disable Smart Multi-Homed Name Resolution",
-            "Disable Web Proxy Auto-Discovery",
-            "Disable Teredo tunneling",
-            "Disable Intra-Site Automatic Tunnel Addressing Protocol",
             "Disable Microsoft Edge preload",
             "Install .NET Framework 2.0, 3.0 and 3.5",
             "Enable Windows Photo Viewer",
@@ -359,7 +353,13 @@
             this.checkedListBoxAdvanced.FormattingEnabled = true;
             this.checkedListBoxAdvanced.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.checkedListBoxAdvanced.Items.AddRange(new object[] {
-            "Precision Trackpad: Disable keyboard block after clicking"});
+            "Precision Trackpad: Disable keyboard block after clicking",
+            "Disable Windows Defender",
+            "Disable Link-local Multicast Name Resolution",
+            "Disable Smart Multi-Homed Name Resolution",
+            "Disable Web Proxy Auto-Discovery",
+            "Disable Teredo tunneling",
+            "Disable Intra-Site Automatic Tunnel Addressing Protocol"});
             this.checkedListBoxAdvanced.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxAdvanced.Name = "checkedListBoxAdvanced";
             this.checkedListBoxAdvanced.ScrollAlwaysVisible = true;
