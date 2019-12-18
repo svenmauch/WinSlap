@@ -25,7 +25,7 @@ namespace WinSlap
             MinimumSize = new System.Drawing.Size(332, 173);
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void ButtonSlap_Click(object sender, EventArgs e)
         {
             if (ModifierKeys == Keys.Shift)
             {
@@ -33,35 +33,41 @@ namespace WinSlap
                 _spendeautorun = false;
             }
 
-            if (checkedListBoxTweaks.CheckedItems.Count != 0 || checkedListBoxSoftware.CheckedItems.Count != 0 || checkedListBoxAdvanced.CheckedItems.Count != 0 || checkedListBoxAppearance.CheckedItems.Count != 0)
-            {
-                if (!ShowDisclaimer()) return;
-                Hide();
-                Slapping slapping = new Slapping();
-                slapping.Show();
-
-                SlapTweaks(slapping);
-                SlapAppearance(slapping);
-                SlapSoftware(slapping);
-                SlapAdvanced(slapping);
-
-                if (_spendeautorun) SpendeAutorun();
-                if (_restart) RestartNow();
-                else
-                {
-                    slapping.Hide();
-                    MessageBox.Show("This Notice is only shown because of the NoRestart parameter.", "Slapping finished!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Environment.Exit(0);
-                }
-            }
-            else
+            if (checkedListBoxTweaks.CheckedItems.Count == 0 && checkedListBoxSoftware.CheckedItems.Count == 0 && checkedListBoxAdvanced.CheckedItems.Count == 0 && checkedListBoxAppearance.CheckedItems.Count == 0)
             {
                 MessageBox.Show("No items selected.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!ShowDisclaimer()) return;
+
+            Hide();
+            SlapForm slapform = new SlapForm();
+            slapform.Show();
+
+            ApplySlaps(slapform);
+
+            if (_spendeautorun) SpendeAutorun();
+            if (_restart) RestartNow();
+            else
+            {
+                slapform.Hide();
+                MessageBox.Show("This Notice is shown because of the NoRestart parameter.", "Slapping finished!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Environment.Exit(0);
             }
 
         }
 
-        private void SlapTweaks(Slapping slapping)
+        // ToDo: combine methods?
+        private void ApplySlaps(SlapForm slapform)
+        {
+            SlapTweaks(slapform);
+            SlapAppearance(slapform);
+            SlapSoftware(slapform);
+            SlapAdvanced(slapform);
+        }
+
+        private void SlapTweaks(SlapForm slapping)
         {
             for (int x = 0; x <= checkedListBoxTweaks.CheckedItems.Count; x++)
             {
@@ -335,7 +341,7 @@ namespace WinSlap
             }
         }
 
-        private void SlapAppearance(Slapping slapping)
+        private void SlapAppearance(SlapForm slapping)
         {
             for (int x = 0; x <= checkedListBoxAppearance.CheckedItems.Count; x++)
             {
@@ -420,7 +426,7 @@ namespace WinSlap
             }
         }
 
-        private void SlapSoftware(Slapping slapping)
+        private void SlapSoftware(SlapForm slapping)
         {
             for (int x = 0; x <= checkedListBoxSoftware.CheckedItems.Count; x++)
             {
@@ -481,7 +487,7 @@ namespace WinSlap
             }
         }
 
-        private void SlapAdvanced(Slapping slapping)
+        private void SlapAdvanced(SlapForm slapping)
         {
             for (int x = 0; x <= checkedListBoxAdvanced.CheckedItems.Count; x++)
             {

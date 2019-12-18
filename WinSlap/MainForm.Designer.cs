@@ -64,7 +64,7 @@
             this.buttonSlap.TabIndex = 1;
             this.buttonSlap.Text = "Slap!";
             this.buttonSlap.UseVisualStyleBackColor = true;
-            this.buttonSlap.Click += new System.EventHandler(this.Button1_Click);
+            this.buttonSlap.Click += new System.EventHandler(this.ButtonSlap_Click);
             // 
             // parameternotice
             // 

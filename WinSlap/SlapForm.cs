@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace WinSlap
 {
-    public partial class Slapping : Form
+    public partial class SlapForm : Form
     {
-        public Slapping()
+        public SlapForm()
         {
             InitializeComponent();
         }

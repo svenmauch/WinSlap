@@ -1,6 +1,6 @@
 ﻿namespace WinSlap
 {
-    partial class Slapping
+    partial class SlapForm
     {
         /// <summary>
         /// Required designer variable.
