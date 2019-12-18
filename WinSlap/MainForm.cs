@@ -648,5 +648,10 @@ namespace WinSlap
         {
             CheckAll(checkedListBoxAppearance, false);
         }
+
+        private void linkGitHub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/svenmauch/WinSlap");
+        }
     }
 }

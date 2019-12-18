@@ -48,6 +48,7 @@
             this.buttonUncheckAdvanced = new System.Windows.Forms.Button();
             this.buttonCheckAdvanced = new System.Windows.Forms.Button();
             this.labelOS = new System.Windows.Forms.Label();
+            this.linkGitHub = new System.Windows.Forms.LinkLabel();
             this.tabControl1.SuspendLayout();
             this.tabTweaks.SuspendLayout();
             this.tabAppearance.SuspendLayout();
@@ -396,11 +397,25 @@
             this.labelOS.TabIndex = 7;
             this.labelOS.Text = "Windows 10 (????)";
             // 
+            // linkGitHub
+            // 
+            this.linkGitHub.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkGitHub.AutoSize = true;
+            this.linkGitHub.Location = new System.Drawing.Point(286, 13);
+            this.linkGitHub.Name = "linkGitHub";
+            this.linkGitHub.Size = new System.Drawing.Size(98, 13);
+            this.linkGitHub.TabIndex = 8;
+            this.linkGitHub.TabStop = true;
+            this.linkGitHub.Text = "WinSlap on GitHub";
+            this.linkGitHub.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(225)))));
+            this.linkGitHub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkGitHub_LinkClicked);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 412);
+            this.Controls.Add(this.linkGitHub);
             this.Controls.Add(this.labelOS);
             this.Controls.Add(this.parameternotice);
             this.Controls.Add(this.tabControl1);
@@ -442,5 +457,6 @@
         private System.Windows.Forms.Button buttonUncheckAppearance;
         private System.Windows.Forms.Button buttonCheckAppearance;
         private System.Windows.Forms.Label labelOS;
+        private System.Windows.Forms.LinkLabel linkGitHub;
     }
 }
