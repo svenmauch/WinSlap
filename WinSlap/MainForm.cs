@@ -334,6 +334,10 @@ namespace WinSlap
                         slapform.SetCurrentOp(boxcontent);
                         Slapper.DisableTextMessagesCloudSync();
                         break;
+                    case "Disable Bluetooth advertisements":
+                        slapform.SetCurrentOp(boxcontent);
+                        Slapper.DisableBluetoothAdvertisements();
+                        break;
                     case "Add This PC shortcut to desktop":
                         slapform.SetCurrentOp(boxcontent);
                         Slapper.AddThisPCShortcut();

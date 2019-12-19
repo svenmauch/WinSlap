@@ -746,6 +746,14 @@ namespace WinSlap
             myKey.SetValue("ConsentToast", "2", RegistryValueKind.DWord);
         }
 
+        public static void DisableBluetoothAdvertisements()
+        {
+            Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\Bluetooth");
+
+            RegistryKey myKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\PolicyManager\current\device\Bluetooth", true);
+            myKey.SetValue("AllowAdvertising", "0", RegistryValueKind.DWord);
+        }
+
         public static void DisableClipboardHistory()
         {
             RegistryKey myKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\System", true);

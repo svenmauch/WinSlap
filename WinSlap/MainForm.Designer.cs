@@ -183,7 +183,8 @@
             "Disable cloud sync of clipboard history",
             "Disable automatic update of speech data",
             "Disable handwriting error reports",
-            "Disable cloud sync of text messages"});
+            "Disable cloud sync of text messages",
+            "Disable Bluetooth advertisements"});
             this.checkedListBoxTweaks.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxTweaks.Name = "checkedListBoxTweaks";
             this.checkedListBoxTweaks.RightToLeft = System.Windows.Forms.RightToLeft.No;
