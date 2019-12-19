@@ -4,8 +4,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-// TODO: reimplement properly
-// using WinSlap.Properties;
 
 namespace WinSlap
 {
@@ -13,14 +11,11 @@ namespace WinSlap
     {
         public static readonly string Tmpfolder = Path.GetTempPath() + @"WinSlap\";
         private bool _restart = true;
-        private bool _spendeautorun = true;
 
         public MainForm(string[] args)
         {
             const string strNoRestart = "norestart";
-            const string strNoDonate = "nodonate";
             if (args.Any(strNoRestart.Contains)) { this._restart = false; }
-            if (args.Any(strNoDonate.Contains)) { this._spendeautorun = false; }
             InitializeComponent();
             MinimumSize = new System.Drawing.Size(332, 173);
         }
@@ -30,7 +25,6 @@ namespace WinSlap
             if (ModifierKeys == Keys.Shift)
             {
                 _restart = false;
-                _spendeautorun = false;
             }
 
             if (checkedListBoxTweaks.CheckedItems.Count == 0 && checkedListBoxSoftware.CheckedItems.Count == 0 && checkedListBoxAdvanced.CheckedItems.Count == 0 && checkedListBoxAppearance.CheckedItems.Count == 0)
@@ -49,7 +43,6 @@ namespace WinSlap
 
             ApplySlaps(slapform);
 
-            if (_spendeautorun) SpendeAutorun();
             if (_restart) RestartNow();
             else
             {
@@ -577,16 +570,6 @@ namespace WinSlap
             Process.Start(proc);
         }
 
-        private static void SpendeAutorun()
-        {
-            /* TODO: reimplement properly
-            Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\WinSlap\");
-            File.WriteAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\WinSlap\" + "Spende.exe", Resources.Spende);
-            RegistryKey regStartUp = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce", true);
-            regStartUp.SetValue("WinSlap", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\WinSlap\" + "Spende.exe");
-            */
-        }
-
         private void OnProcessExit(object sender, EventArgs e)
         {
             Directory.Delete(Tmpfolder, true);
@@ -599,11 +582,6 @@ namespace WinSlap
             {
                 parameternotice.Visible = true;
                 parameternotice.Text += " NoRestart";
-            }
-            if (!_spendeautorun)
-            {
-                parameternotice.Visible = true;
-                parameternotice.Text += " NoSpende";
             }
         }
 

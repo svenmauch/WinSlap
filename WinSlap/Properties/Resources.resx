@@ -121,11 +121,6 @@
   <data name="delapps" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delapps.ps1;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <!-- TODO: reimplement properly
-  <data name="Spende" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Spende.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  -->
   <data name="preventpreinstallingapps" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\preventpreinstallingapps.ps1;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
