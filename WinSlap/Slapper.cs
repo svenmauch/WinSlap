@@ -676,6 +676,10 @@ namespace WinSlap
             Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo");
             RegistryKey myKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo", true);
             myKey.SetValue("Enabled", "0", RegistryValueKind.DWord);
+
+            Registry.LocalMachine.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo");
+            RegistryKey myKey2 = Registry.LocalMachine.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo", true);
+            myKey2.SetValue("Enabled", "0", RegistryValueKind.DWord);
         }
 
         public static void DisableMrtReporting()
@@ -742,10 +746,59 @@ namespace WinSlap
             myKey.SetValue("ConsentToast", "2", RegistryValueKind.DWord);
         }
 
+        public static void DisableClipboardHistory()
+        {
+            RegistryKey myKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\System", true);
+            myKey.SetValue("AllowClipboardHistory", "0", RegistryValueKind.DWord);
+
+            RegistryKey myKey2 = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Policies\Microsoft\Windows\System", true);
+            myKey2.SetValue("AllowClipboardHistory", "0", RegistryValueKind.DWord);
+        }
+
+        public static void DisableClipboardCloudSync()
+        {
+            RegistryKey myKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\System", true);
+            myKey.SetValue("AllowCrossDeviceClipboard", "0", RegistryValueKind.DWord);
+
+            RegistryKey myKey2 = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Policies\Microsoft\Windows\System", true);
+            myKey2.SetValue("AllowCrossDeviceClipboard", "0", RegistryValueKind.DWord);
+        }
+
+        public static void DisableAutomaticSpeechDataUpdates()
+        {
+            RegistryKey myKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Speech_OneCore\Preferences", true);
+            myKey.SetValue("ModelDownloadAllowed", "0", RegistryValueKind.DWord);
+        }
+        public static void DisableTextMessagesCloudSync()
+        {
+            Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Messaging");
+            Registry.LocalMachine.CreateSubKey(@"SOFTWARE\WOW6432Node\Policies\Microsoft\Windows\Messaging");
+
+            RegistryKey myKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Messaging", true);
+            myKey.SetValue("AllowMessageSync", "0", RegistryValueKind.DWord);
+
+            RegistryKey myKey2 = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Policies\Microsoft\Windows\Messaging", true);
+            myKey2.SetValue("AllowMessageSync", "0", RegistryValueKind.DWord);
+        }
+        public static void DisableHandwritingErrorReports()
+        {
+            Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\HandwritingErrorReports");
+            Registry.LocalMachine.CreateSubKey(@"SOFTWARE\WOW6432Node\Policies\Microsoft\Windows\HandwritingErrorReports");
+
+            RegistryKey myKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\HandwritingErrorReports", true);
+            myKey.SetValue("PreventHandwritingErrorReports", "1", RegistryValueKind.DWord);
+
+            RegistryKey myKey2 = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Policies\Microsoft\Windows\HandwritingErrorReports", true);
+            myKey2.SetValue("PreventHandwritingErrorReports", "1", RegistryValueKind.DWord);
+        }
+
         public static void DisableAppDiagnostics()
         {
-            RegistryKey myKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Privacy", true);
+            RegistryKey myKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Privacy", true);
             myKey.SetValue("TailoredExperiencesWithDiagnosticDataEnabled", "0", RegistryValueKind.DWord);
+
+            RegistryKey myKey2 = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Privacy", true);
+            myKey2.SetValue("TailoredExperiencesWithDiagnosticDataEnabled", "0", RegistryValueKind.DWord);
         }
 
         public static void DisableSmartScreen()

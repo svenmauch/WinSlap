@@ -178,7 +178,12 @@
             "Disable security questions for local accounts",
             "Disable app suggestions (e.g. use Edge instead of Firefox)",
             "Remove default Fax printer",
-            "Remove Microsoft XPS Document Writer"});
+            "Remove Microsoft XPS Document Writer",
+            "Disable clipboard history",
+            "Disable cloud sync of clipboard history",
+            "Disable automatic update of speech data",
+            "Disable handwriting error reports",
+            "Disable cloud sync of text messages"});
             this.checkedListBoxTweaks.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxTweaks.Name = "checkedListBoxTweaks";
             this.checkedListBoxTweaks.RightToLeft = System.Windows.Forms.RightToLeft.No;

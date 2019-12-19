@@ -314,6 +314,26 @@ namespace WinSlap
                         slapform.SetCurrentOp(boxcontent);
                         Slapper.RemoveXPSDocumentWriter();
                         break;
+                    case "Disable clipboard history":
+                        slapform.SetCurrentOp(boxcontent);
+                        Slapper.DisableClipboardHistory();
+                        break;
+                    case "Disable cloud sync of clipboard history":
+                        slapform.SetCurrentOp(boxcontent);
+                        Slapper.DisableClipboardCloudSync();
+                        break;
+                    case "Disable automatic update of speech data":
+                        slapform.SetCurrentOp(boxcontent);
+                        Slapper.DisableAutomaticSpeechDataUpdates();
+                        break;
+                    case "Disable handwriting error reports":
+                        slapform.SetCurrentOp(boxcontent);
+                        Slapper.DisableHandwritingErrorReports();
+                        break;
+                    case "Disable cloud sync of text messages":
+                        slapform.SetCurrentOp(boxcontent);
+                        Slapper.DisableTextMessagesCloudSync();
+                        break;
                     case "Add This PC shortcut to desktop":
                         slapform.SetCurrentOp(boxcontent);
                         Slapper.AddThisPCShortcut();
