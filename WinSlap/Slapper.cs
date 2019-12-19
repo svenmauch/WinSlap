@@ -185,7 +185,7 @@ namespace WinSlap
         {
             Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\PrecisionTouchPad", true);
             RegistryKey myKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\PrecisionTouchPad", true);
-            myKey.SetValue("AAPThreshold", "1", RegistryValueKind.DWord);
+            myKey.SetValue("AAPThreshold", "0", RegistryValueKind.DWord);
         }
 
         // note: "Anywhere" actually means disabled
