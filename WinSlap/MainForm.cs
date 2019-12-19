@@ -497,7 +497,8 @@ namespace WinSlap
             AppDomain.CurrentDomain.ProcessExit += OnProcessExit;
             Directory.CreateDirectory(Tmpfolder);
 
-            labelOS.Text = "Windows 10 (" + Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "ReleaseId", "") + ")";
+            string win10release = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "ReleaseId", "").ToString();
+            labelOS.Text = "Windows 10 (" + win10release + ")";
         }
 
         private static void RestartNow()
