@@ -35,7 +35,9 @@ namespace WinSlap
 
             if (checkedListBoxTweaks.CheckedItems.Count == 0 && checkedListBoxSoftware.CheckedItems.Count == 0 && checkedListBoxAdvanced.CheckedItems.Count == 0 && checkedListBoxAppearance.CheckedItems.Count == 0)
             {
-                MessageBox.Show("No items selected.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string caption = "Notice";
+                string errorMessage = "No items selected.";
+                MessageBox.Show(errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -52,7 +54,9 @@ namespace WinSlap
             else
             {
                 slapform.Hide();
-                MessageBox.Show("This Notice is shown because of the NoRestart parameter.", "Slapping finished!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string caption = "Slapping finished!";
+                string errorMessage = "This Notice is shown because of the NoRestart parameter.";
+                MessageBox.Show(errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Environment.Exit(0);
             }
 
@@ -326,7 +330,9 @@ namespace WinSlap
                             break;
                         default:
                             slapping.Hide();
-                            MessageBox.Show("Item not found (" + boxcontent + ")\nPlease report this issue at https://github.com/svenmauch/WinSlap", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            string caption = "Something went wrong...";
+                            string errorMessage = "Item not found (" + boxcontent + ")\nPlease report this issue at https://github.com/svenmauch/WinSlap";
+                            MessageBox.Show(errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             Environment.Exit(1);
                             break;
                     }
@@ -335,7 +341,9 @@ namespace WinSlap
                 catch (NullReferenceException ex)
                 {
                     slapping.Hide();
-                    MessageBox.Show("NullReferenceException in \"" + boxcontent + "\"\nPlease report this issue at https://github.com/svenmauch/WinSlap" + "\n\n" + ex, "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string caption = "Something went wrong...";
+                    string errorMessage = "NullReferenceException in \"" + boxcontent + "\"\nPlease report this issue at https://github.com/svenmauch/WinSlap" + "\n\n" + ex;
+                    MessageBox.Show(errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Environment.Exit(1);
                 }
             }
@@ -412,7 +420,9 @@ namespace WinSlap
                             break;
                         default:
                             slapping.Hide();
-                            MessageBox.Show("Item not found in Appearance\nPlease report this issue at https://github.com/svenmauch/WinSlap", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            string caption = "Something went wrong...";
+                            string errorMessage = "Item not found in Appearance\nPlease report this issue at https://github.com/svenmauch/WinSlap";
+                            MessageBox.Show(errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             Environment.Exit(1);
                             break;
                     }
@@ -420,7 +430,9 @@ namespace WinSlap
                 catch (NullReferenceException)
                 {
                     slapping.Hide();
-                    MessageBox.Show("NullReferenceException in \"" + boxcontent + "\"\nPlease report this issue at https://github.com/svenmauch/WinSlap", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string caption = "Something went wrong...";
+                    string errorMessage = "NullReferenceException in \"" + boxcontent + "\"\nPlease report this issue at https://github.com/svenmauch/WinSlap";
+                    MessageBox.Show(errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Environment.Exit(1);
                 }
             }
@@ -465,7 +477,9 @@ namespace WinSlap
                             break;
                         default:
                             slapping.Hide();
-                            MessageBox.Show("Item not found in Software\nPlease report this issue at https://github.com/svenmauch/WinSlap", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            string caption = "Something went wrong...";
+                            string errorMessage = "Item not found in Software\nPlease report this issue at https://github.com/svenmauch/WinSlap";
+                            MessageBox.Show(errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             Environment.Exit(1);
                             break;
                     }
@@ -473,7 +487,9 @@ namespace WinSlap
                 catch (NullReferenceException)
                 {
                     slapping.Hide();
-                    MessageBox.Show("NullReferenceException in \"" + boxcontent + "\"\nPlease report this issue at https://github.com/svenmauch/WinSlap", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string caption = "Something went wrong...";
+                    string errorMessage = "NullReferenceException in \"" + boxcontent + "\"\nPlease report this issue at https://github.com/svenmauch/WinSlap";
+                    MessageBox.Show(errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Environment.Exit(1);
                 }
             }
@@ -522,7 +538,9 @@ namespace WinSlap
                             break;
                         default:
                             slapping.Hide();
-                            MessageBox.Show("Item not found in Advanced\nPlease report this issue at https://github.com/svenmauch/WinSlap", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            string caption = "Something went wrong...";
+                            string errorMessage = "Item not found in Advanced\nPlease report this issue at https://github.com/svenmauch/WinSlap";
+                            MessageBox.Show(errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             Environment.Exit(1);
                             break;
                     }
@@ -530,7 +548,9 @@ namespace WinSlap
                 catch (NullReferenceException)
                 {
                     slapping.Hide();
-                    MessageBox.Show("NullReferenceException in \"" + boxcontent + "\"\nPlease report this issue at https://github.com/svenmauch/WinSlap", "Something went wrong...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string caption = "Something went wrong...";
+                    string errorMessage = "NullReferenceException in \"" + boxcontent + "\"\nPlease report this issue at https://github.com/svenmauch/WinSlap";
+                    MessageBox.Show(errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Environment.Exit(1);
                 }
             }
@@ -589,12 +609,13 @@ namespace WinSlap
 
         private static Boolean ShowDisclaimer()
         {
+            string caption = "Important";
             string disclaimer = "- All changes are made at your own risk.\n" +
                     "- There is no easy way to revert the changes.\n" +
                     "- Your PC will restart immediately after the changes have been made.\n \n" +
                     "Are you ready to slap?";
 
-            if (MessageBox.Show(disclaimer, "Important!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show(disclaimer, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 return true;
             }
