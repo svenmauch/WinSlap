@@ -22,10 +22,7 @@ namespace WinSlap
 
         private void ButtonSlap_Click(object sender, EventArgs e)
         {
-            if (ModifierKeys == Keys.Shift)
-            {
-                _restart = false;
-            }
+            if (ModifierKeys == Keys.Shift) _restart = false;
 
             if (checkedListBoxTweaks.CheckedItems.Count == 0 && checkedListBoxSoftware.CheckedItems.Count == 0 && checkedListBoxAdvanced.CheckedItems.Count == 0 && checkedListBoxAppearance.CheckedItems.Count == 0)
             {
@@ -41,7 +38,10 @@ namespace WinSlap
             SlapForm slapform = new SlapForm();
             slapform.Show();
 
-            ApplySlaps(slapform);
+            ApplySlaplist(slapform, checkedListBoxTweaks);
+            ApplySlaplist(slapform, checkedListBoxAppearance);
+            ApplySlaplist(slapform, checkedListBoxSoftware);
+            ApplySlaplist(slapform, checkedListBoxAdvanced);
 
             if (_restart) RestartNow();
             else
@@ -55,13 +55,15 @@ namespace WinSlap
 
         }
 
-        // ToDo: combine methods?
-        private void ApplySlaps(SlapForm slapform)
+        private void ApplySlaplist(SlapForm slapform, CheckedListBox slaplist)
         {
-            SlapTweaks(slapform);
-            SlapAppearance(slapform);
-            SlapSoftware(slapform);
-            SlapAdvanced(slapform);
+            if (slaplist.CheckedItems.Count == 0) return;
+            for (int x = 0; x <= slaplist.CheckedItems.Count; x++)
+            {
+                
+                string boxcontent = slaplist.CheckedItems[x].ToString();
+                ApplySlap(slapform, boxcontent);
+            }
         }
 
         private void ApplySlap(SlapForm slapform, string boxcontent)
@@ -462,58 +464,6 @@ namespace WinSlap
             }
         }
 
-        private void SlapTweaks(SlapForm slapform)
-        {
-            for (int x = 0; x <= checkedListBoxTweaks.CheckedItems.Count; x++)
-            {
-                if (x == checkedListBoxTweaks.CheckedItems.Count)
-                {
-                    return;
-                }
-                string boxcontent = checkedListBoxTweaks.CheckedItems[x].ToString();
-                ApplySlap(slapform, boxcontent);
-            }
-        }
-
-        private void SlapAppearance(SlapForm slapform)
-        {
-            for (int x = 0; x <= checkedListBoxAppearance.CheckedItems.Count; x++)
-            {
-                if (x == checkedListBoxAppearance.CheckedItems.Count)
-                {
-                    return;
-                }
-                string boxcontent = checkedListBoxAppearance.CheckedItems[x].ToString();
-                ApplySlap(slapform, boxcontent);
-            }
-        }
-
-        private void SlapSoftware(SlapForm slapform)
-        {
-            for (int x = 0; x <= checkedListBoxSoftware.CheckedItems.Count; x++)
-            {
-                if (x == checkedListBoxSoftware.CheckedItems.Count)
-                {
-                    return;
-                }
-                string boxcontent = checkedListBoxSoftware.CheckedItems[x].ToString();
-                ApplySlap(slapform, boxcontent);
-            }
-        }
-
-        private void SlapAdvanced(SlapForm slapform)
-        {
-            for (int x = 0; x <= checkedListBoxAdvanced.CheckedItems.Count; x++)
-            {
-                if (x == checkedListBoxAdvanced.CheckedItems.Count)
-                {
-                    return;
-                }
-                string boxcontent = checkedListBoxAdvanced.CheckedItems[x].ToString();
-                ApplySlap(slapform, boxcontent);
-            }
-        }
-
         private void WinSlap_Load(object sender, EventArgs e)
         {
             InitParameterNotice();
@@ -614,7 +564,7 @@ namespace WinSlap
             CheckAll(checkedListBoxAppearance, false);
         }
 
-        private void linkGitHub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinkGitHub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/svenmauch/WinSlap");
         }
