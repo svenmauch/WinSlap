@@ -30,6 +30,9 @@ namespace WinSlap
                         ProcessStartInfo ffi = new ProcessStartInfo(file.FullName, parameters);
                         Process ff = Process.Start(ffi);
                         ff?.WaitForExit();
+
+                        // continue if installation was successful
+                        result = DialogResult.Ignore;
                     }
                     catch (WebException)
                     {
