@@ -181,6 +181,13 @@ namespace WinSlap
             myKey.SetValue("NoLocalPasswordResetQuestions", "1", RegistryValueKind.DWord);
         }
 
+        public static void DisableBlockPrecisionTrackpad()
+        {
+            Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\PrecisionTouchPad", true);
+            RegistryKey myKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\PrecisionTouchPad", true);
+            myKey.SetValue("AAPThreshold", "1", RegistryValueKind.DWord);
+        }
+
         // note: "Anywhere" actually means disabled
         public static void DisableAppSuggestions()
         {

@@ -392,7 +392,7 @@ namespace WinSlap
                         break;
                     case "Precision Trackpad: Disable keyboard block after clicking":
                         slapform.SetCurrentOp(boxcontent);
-                        Slapper.InstallFirefox();
+                        Slapper.DisableBlockPrecisionTrackpad();
                         break;
                     case "Disable Windows Defender":
                         slapform.SetCurrentOp(boxcontent);
