@@ -776,6 +776,9 @@ namespace WinSlap
         {
             RegistryKey myKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Speech_OneCore\Preferences", true);
             myKey.SetValue("ModelDownloadAllowed", "0", RegistryValueKind.DWord);
+
+            RegistryKey myKey2 = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Speech", true);
+            myKey2.SetValue("AllowSpeechModelUpdate", "0", RegistryValueKind.DWord);
         }
         public static void DisableTextMessagesCloudSync()
         {
@@ -893,8 +896,17 @@ namespace WinSlap
 
         public static void DisableAutomaticMapsUpdates()
         {
+            Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Maps");
+            Registry.LocalMachine.CreateSubKey(@"SOFTWARE\WOW6432Node\Policies\Microsoft\Windows\Maps");
+
             RegistryKey myKey = Registry.LocalMachine.OpenSubKey(@"SYSTEM\Maps", true);
             myKey.SetValue("AutoUpdateEnabled", "0", RegistryValueKind.DWord);
+
+            RegistryKey myKey2 = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Maps", true);
+            myKey2.SetValue("AutoDownloadAndUpdateMapData", "0", RegistryValueKind.DWord);
+
+            RegistryKey myKey3 = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Policies\Microsoft\Windows\Maps", true);
+            myKey3.SetValue("AutoDownloadAndUpdateMapData", "0", RegistryValueKind.DWord);
         }
 
         public static void DisableErrorReporting()
