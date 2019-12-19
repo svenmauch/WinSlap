@@ -72,15 +72,6 @@ namespace WinSlap
             return "";
         }
 
-        public static string GetRedirect(string url)
-        {
-            Uri uri = new Uri(url);
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
-            request.AllowAutoRedirect = false;
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            return response.Headers.Get("Location");
-        }
-
         public static void HideTaskview()
         {
             RegistryKey myKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", true);
