@@ -38,56 +38,26 @@ namespace WinSlap
         // ToDo: implement cancel check
         void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            object[] arrayTweaks = checkedListBoxTweaks.CheckedItems.OfType<object>().ToArray();
+            object[] arrayAppearance = checkedListBoxAppearance.CheckedItems.OfType<object>().ToArray();
+            object[] arraySoftware = checkedListBoxSoftware.CheckedItems.OfType<object>().ToArray();
+            object[] arrayAdvanced = checkedListBoxAdvanced.CheckedItems.OfType<object>().ToArray();
+
+            object[] items = arrayTweaks.Concat(arrayAppearance).Concat(arraySoftware).Concat(arrayAdvanced).ToArray();
+
             int totalCheckedItems = checkedListBoxTweaks.CheckedItems.Count + checkedListBoxSoftware.CheckedItems.Count + checkedListBoxAdvanced.CheckedItems.Count + checkedListBoxAppearance.CheckedItems.Count;
             int totalItemsDone = 0;
             double progresspercent;
             int progress = 0;
 
-            // Tweaks
-            for (int x = 0; x <= checkedListBoxTweaks.CheckedItems.Count - 1; x++)
+            for (int x = 0; x <= items.Length - 1; x++)
             {
-                string boxcontent = checkedListBoxTweaks.CheckedItems[x].ToString();
+                string boxcontent = items[x].ToString();
                 backgroundWorker1.ReportProgress(progress, boxcontent);
                 ApplySlap(boxcontent);
                 totalItemsDone++;
                 progresspercent = (double)totalItemsDone / (double)totalCheckedItems;
                 progress = (int)Math.Ceiling(progresspercent * 100);
-                backgroundWorker1.ReportProgress(progress);
-            }
-
-            // Appearance
-            for (int x = 0; x <= checkedListBoxAppearance.CheckedItems.Count - 1; x++)
-            {
-                string boxcontent = checkedListBoxAppearance.CheckedItems[x].ToString();
-                backgroundWorker1.ReportProgress(progress, boxcontent);
-                ApplySlap(boxcontent);
-                totalItemsDone++;
-                progresspercent = (double)totalItemsDone / (double)totalCheckedItems;
-                progress = (int)Math.Ceiling(progresspercent * 100);
-                backgroundWorker1.ReportProgress(progress);
-            }
-
-            // Software
-            for (int x = 0; x <= checkedListBoxSoftware.CheckedItems.Count - 1; x++)
-            {
-                string boxcontent = checkedListBoxSoftware.CheckedItems[x].ToString();
-                backgroundWorker1.ReportProgress(progress, boxcontent);
-                ApplySlap(boxcontent);
-                totalItemsDone++;
-                progresspercent = (double)totalItemsDone / (double)totalCheckedItems;
-                progress = (int)Math.Ceiling(progresspercent * 100);
-                backgroundWorker1.ReportProgress(progress);
-            }
-
-            // Advanced
-            for (int x = 0; x <= checkedListBoxAdvanced.CheckedItems.Count - 1; x++)
-            {
-                string boxcontent = checkedListBoxAdvanced.CheckedItems[x].ToString();
-                backgroundWorker1.ReportProgress(progress, boxcontent);
-                ApplySlap(boxcontent);
-                totalItemsDone++;
-                progresspercent = (double) totalItemsDone / (double) totalCheckedItems;
-                progress = (int) Math.Ceiling(progresspercent * 100);
                 backgroundWorker1.ReportProgress(progress);
             }
         }
