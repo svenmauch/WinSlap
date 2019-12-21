@@ -3,7 +3,7 @@
 Swiftly configure a fresh Windows 10 installation with useful tweaks and antispy settings.
 
 <p align="center">
-    <img src="https://mauch.me/img/winslap_v1.png" alt="WinSlap v1.0">
+    <img src="https://mauch.me/img/winslap_v1_2.png" alt="WinSlap v1.2">
 </p>
 
 WinSlap is primarily developed for my own use cases. Feel free to use it under any terms the license permits. However, I can not guarantee that it works as intended, doesn't break your system or is actively maintained.
@@ -38,7 +38,6 @@ WinSlap is primarily developed for my own use cases. Feel free to use it under a
 - Disable startup sound
 - Disable autostart startup delay
 - Disable location
-- Disable Windows Defender
 - Disable Advertising ID
 - Disable Malware Removal Tool data reporting
 - Disable sending typing info to Microsoft
@@ -71,17 +70,20 @@ WinSlap is primarily developed for my own use cases. Feel free to use it under a
 - Disable pre-release features and settings
 - Disable camera on lock screen
 - Disable Microsoft Edge first run page
-- Disable Link-local Multicast Name Resolution
-- Disable Smart Multi-Homed Name Resolution
-- Disable Web Proxy Auto-Discovery
-- Disable Teredo tunneling
-- Disable Intra-Site Automatic Tunnel Addressing Protocol
 - Disable Microsoft Edge preload
 - Install .NET Framework 2.0, 3.0 and 3.5
 - Enable Windows Photo Viewer
 - Uninstall Microsoft XPS Document Writer
 - Disable security questions for local accounts
 - Disable app suggestions (e.g. use Edge instead of Firefox)
+- Remove default Fax printer
+- Remove Microsoft XPS Document Writer
+- Disable clipboard history
+- Disable cloud sync of clipboard history
+- Disable automatic update of speech data
+- Disable handwriting error reports
+- Disable cloud sync of text messages
+- Disable Bluetooth advertisements
 
 ### Appeareance
 
@@ -103,9 +105,7 @@ WinSlap is primarily developed for my own use cases. Feel free to use it under a
 ### Software
 
 - Install Mozilla Firefox
-- Install Mozilla Firefox Beta
 - Install Mozilla Thunderbird
-- Install Mozilla Thunderbird Beta
 - Install VLC media player
 - Install Telegram
 - Install StartIsBack++
@@ -113,3 +113,9 @@ WinSlap is primarily developed for my own use cases. Feel free to use it under a
 ### Advanced
 
 - Precision Trackpad: Disable keyboard block after clicking
+- Disable Windows Defender
+- Disable Link-local Multicast Name Resolution
+- Disable Smart Multi-Homed Name Resolution
+- Disable Web Proxy Auto-Discovery
+- Disable Teredo tunneling
+- Disable Intra-Site Automatic Tunnel Addressing Protocol
