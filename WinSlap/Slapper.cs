@@ -768,6 +768,7 @@ namespace WinSlap
             RegistryKey myKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Speech_OneCore\Preferences", true);
             myKey.SetValue("ModelDownloadAllowed", "0", RegistryValueKind.DWord);
 
+            Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Speech");
             RegistryKey myKey2 = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Speech", true);
             myKey2.SetValue("AllowSpeechModelUpdate", "0", RegistryValueKind.DWord);
         }
