@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.currentOp = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // label1
@@ -60,19 +61,27 @@
             this.currentOp.AutoSize = true;
             this.currentOp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentOp.ForeColor = System.Drawing.Color.PaleTurquoise;
-            this.currentOp.Location = new System.Drawing.Point(11, 108);
+            this.currentOp.Location = new System.Drawing.Point(11, 100);
             this.currentOp.Name = "currentOp";
             this.currentOp.Size = new System.Drawing.Size(99, 13);
             this.currentOp.TabIndex = 2;
             this.currentOp.Text = "Current Operation...";
             // 
-            // Slapping
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(12, 120);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(299, 23);
+            this.progressBar1.TabIndex = 3;
+            // 
+            // SlapForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(323, 131);
+            this.ClientSize = new System.Drawing.Size(323, 154);
             this.ControlBox = false;
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.currentOp);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -80,7 +89,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Slapping";
+            this.Name = "SlapForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -98,5 +107,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label currentOp;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

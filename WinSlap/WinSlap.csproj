@@ -111,7 +111,6 @@
     <Compile Include="SlapForm.Designer.cs">
       <DependentUpon>SlapForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThreadHelperClass.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
