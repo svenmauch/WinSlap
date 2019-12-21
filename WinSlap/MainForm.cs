@@ -58,9 +58,8 @@ namespace WinSlap
         private void ApplySlaplist(SlapForm slapform, CheckedListBox slaplist)
         {
             if (slaplist.CheckedItems.Count == 0) return;
-            for (int x = 0; x <= slaplist.CheckedItems.Count; x++)
+            for (int x = 0; x <= slaplist.CheckedItems.Count - 1; x++)
             {
-                
                 string boxcontent = slaplist.CheckedItems[x].ToString();
                 ApplySlap(slapform, boxcontent);
             }
