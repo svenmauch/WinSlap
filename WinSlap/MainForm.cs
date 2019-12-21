@@ -48,7 +48,7 @@ namespace WinSlap
             {
                 slapform.Hide();
                 string caption = "Slapping finished!";
-                string errorMessage = "This Notice is shown because of the NoRestart parameter.";
+                string errorMessage = "This message is shown because you are skipping the reboot.\n(shift-klick or norestart argument)";
                 MessageBox.Show(errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Environment.Exit(0);
             }
