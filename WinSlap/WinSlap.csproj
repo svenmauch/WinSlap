@@ -146,6 +146,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\delapps.ps1" />
     <None Include="Resources\delapps1.ps1" />
     <None Include="Resources\photoviewer.ps1" />
     <None Include="Resources\preventpreinstallingapps.ps1" />
@@ -168,9 +169,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\delapps.ps1" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\StartMenuLayout.xml" />

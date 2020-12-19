@@ -118,9 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="delapps" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delapps.ps1;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="preventpreinstallingapps" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\preventpreinstallingapps.ps1;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -132,6 +129,9 @@
   </data>
   <data name="photoviewer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\photoviewer.ps1;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="delapps" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delapps.ps1;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="updateapps" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\updateapps.ps1;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
