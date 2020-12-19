@@ -399,6 +399,7 @@ namespace WinSlap
             RegistryKey myKey3 = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Policies\DataCollection", true);
             myKey3.SetValue("AllowTelemetry", "0", RegistryValueKind.DWord);
 
+            Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\WMI\Autologger\AutoLogger-Diagtrack-Listener");
             RegistryKey myKey4 = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\WMI\Autologger\AutoLogger-Diagtrack-Listener", true);
             myKey4.SetValue("Start", "0", RegistryValueKind.DWord);
 
