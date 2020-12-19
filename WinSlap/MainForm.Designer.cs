@@ -250,7 +250,8 @@
             "Delete quicklaunch items",
             "Use Windows 7 volume control",
             "Remove Microsoft Edge desktop shortcut",
-            "Disable Lockscreen Blur"});
+            "Disable Lockscreen Blur",
+            "Hide Meet Now icon in taskbar"});
             this.checkedListBoxAppearance.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxAppearance.Name = "checkedListBoxAppearance";
             this.checkedListBoxAppearance.RightToLeft = System.Windows.Forms.RightToLeft.No;

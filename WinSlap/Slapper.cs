@@ -103,6 +103,16 @@ namespace WinSlap
             myKey.SetValue("SearchboxTaskbarMode", "0", RegistryValueKind.DWord);
         }
 
+        public static void HideMeetNow()
+        {
+            Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", true);
+            Registry.LocalMachine.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", true);
+            RegistryKey myKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", true);
+            RegistryKey myKey2 = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer", true);
+            myKey.SetValue("HideSCAMeetNow", "1", RegistryValueKind.DWord);
+            myKey2.SetValue("HideSCAMeetNow", "1", RegistryValueKind.DWord);
+        }
+
         /*
         // TODO: does not seem to work!
         public static void UpdateMSProducts()

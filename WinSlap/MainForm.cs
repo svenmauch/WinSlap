@@ -353,6 +353,9 @@ namespace WinSlap
                     case "Disable Lockscreen Blur":
                         Slapper.DisableLockscreenBlur();
                         break;
+                    case "Hide Meet Now icon in taskbar":
+                        Slapper.HideMeetNow();
+                        break;
                     case "Install Mozilla Firefox":
                         Slapper.InstallFirefox();
                         break;
