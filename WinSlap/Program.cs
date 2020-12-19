@@ -27,9 +27,9 @@ namespace WinSlap
 
             string releaseid = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "ReleaseId", "").ToString();
 
-            if (releaseid != "1909")
+            if (releaseid != "2009")
             {
-                MessageBox.Show("WinSlap 1.3 is developed for Windows 10 (1909).\nThis PC is running Windows 10 (" + releaseid + ").\nPlease proceed with caution.", "Untested OS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("WinSlap 1.3 is developed for Windows 10 (2009/20H2).\nThis PC is running Windows 10 (" + releaseid + ").\nPlease proceed with caution.", "Untested OS", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             Application.Run(new MainForm(args));
