@@ -542,6 +542,7 @@ namespace WinSlap
         {
             Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search");
             Registry.LocalMachine.CreateSubKey(@"SOFTWARE\WOW6432Node\Policies\Microsoft\Windows\Windows Search");
+            Registry.LocalMachine.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Search");
 
             RegistryKey myKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Search", true);
             myKey.SetValue("BingSearchEnabled", "0", RegistryValueKind.DWord);
