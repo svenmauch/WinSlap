@@ -878,6 +878,7 @@ namespace WinSlap
         {
             Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting");
             Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\PolicyManager\default\WiFi\AllowAutoConnectToWiFiSenseHotspots");
+            Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\WcmSvc\wifinetworkmanager\config");
 
             RegistryKey myKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting", true);
             myKey.SetValue("Value", "0", RegistryValueKind.DWord);
