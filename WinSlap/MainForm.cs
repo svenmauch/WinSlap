@@ -224,6 +224,9 @@ namespace WinSlap
                     case "Remove preinstalled apps except Photos, Calculator, Store":
                         Slapper.RemovePreinstalledApps();
                         break;
+                    case "Update Windows Store apps":
+                        Slapper.UpdateStoreApps();
+                        break;
                     case "Prevent preinstalling apps for new users":
                         Slapper.PreventPreinstallingApps();
                         break;

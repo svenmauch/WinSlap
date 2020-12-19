@@ -999,6 +999,17 @@ namespace WinSlap
             ourKey2.Close();
         }
 
+        public static void UpdateStoreApps()
+        {
+            string commands = Encoding.UTF8.GetString(Resources.updateapps);
+
+            using (PowerShell ps = PowerShell.Create())
+            {
+                ps.AddScript(commands);
+                ps.Invoke();
+            }
+        }
+
         public static void PreventPreinstallingApps()
         {
             string commands = Encoding.UTF8.GetString(Resources.preventpreinstallingapps);

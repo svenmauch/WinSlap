@@ -152,6 +152,7 @@
     <None Include="Resources\startlayout" />
     <None Include="Resources\startlayout.reg" />
     <None Include="Resources\StartMenuLayout" />
+    <None Include="Resources\updateapps.ps1" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

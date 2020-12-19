@@ -156,6 +156,7 @@
             "Disable sticky keys prompt",
             "Hide 3D Objects from File Explorer",
             "Remove preinstalled apps except Photos, Calculator, Store",
+            "Update Windows Store apps",
             "Prevent preinstalling apps for new users",
             "Unpin preinstalled apps",
             "Disable Smart Screen",

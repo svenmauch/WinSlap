@@ -109,5 +109,15 @@ namespace WinSlap.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] updateapps {
+            get {
+                object obj = ResourceManager.GetObject("updateapps", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
