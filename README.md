@@ -55,6 +55,7 @@ WinSlap is primarily developed for my own use cases. Feel free to use it under a
   - Disable sticky keys prompt
   - Hide 3D Objects from File Explorer
   - Remove preinstalled apps except Photos, Calculator, Store
+  - Update Windows Store Apps
   - Prevent preinstalling apps for new users
   - Unpin preinstalled apps
   - Disable Smart Screen
@@ -101,6 +102,7 @@ WinSlap is primarily developed for my own use cases. Feel free to use it under a
   - Use Windows 7 volume control
   - Remove Microsoft Edge desktop shortcut
   - Disable Lockscreen Blur
+  - Hide Meet Now icon in taskbar
 
 ### Software
 
