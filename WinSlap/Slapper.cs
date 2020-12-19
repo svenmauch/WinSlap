@@ -1062,7 +1062,7 @@ namespace WinSlap
 
         public static void RemoveEdgeShortcut()
         {
-            string desktoppath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string desktoppath = Environment.GetFolderPath(Environment.SpecialFolder.CommonDesktopDirectory);
             string edgepath = desktoppath + @"\Microsoft Edge.lnk";
             File.Delete(edgepath);
         }
