@@ -877,6 +877,7 @@ namespace WinSlap
         public static void DisableWiFiSense()
         {
             Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting");
+            Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\PolicyManager\default\WiFi\AllowAutoConnectToWiFiSenseHotspots");
 
             RegistryKey myKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting", true);
             myKey.SetValue("Value", "0", RegistryValueKind.DWord);
