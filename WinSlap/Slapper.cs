@@ -1080,25 +1080,36 @@ namespace WinSlap
             }
         }
 
+        public static void WinGetInstall(string packageid)
+        {
+            Process process = new Process();
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = "/C winget install --silent --id " + packageid;
+            process.StartInfo = startInfo;
+            process.Start();
+            process.WaitForExit();
+        }
+
         public static void InstallFirefox()
         {
-            DownloadRun("https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US", "Firefox_Setup.exe", "/S");
+            WinGetInstall("Mozilla.Firefox");
         }
 
         public static void InstallThunderbird()
         {
-            DownloadRun("https://download.mozilla.org/?product=thunderbird-latest&os=win&lang=en-US", "Thunderbird_Setup.exe", "/S");
+            WinGetInstall("Mozilla.Thunderbird");
         }
 
         public static void InstallVlc()
         {
-            string url = GetLatestFtp("ftp://ftp.halifax.rwth-aachen.de/videolan/vlc/last/win32/", @"win32.exe$");
-            DownloadRun(url, "VLC_Setup.exe", "/L=1033 /S");
+            WinGetInstall("VideoLAN.VLC");
         }
 
         public static void InstallTelegram()
         {
-            DownloadRun("https://tdesktop.com/win", "Telegram_Setup.exe", "/SP- /VERYSILENT");
+            WinGetInstall("Telegram.TelegramDesktop");
         }
 
         public static void InstallStartIsBack()
