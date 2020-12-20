@@ -1043,6 +1043,43 @@ namespace WinSlap
                 Registry.LocalMachine.DeleteSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}", false);
         }
 
+        public static void InstallWinGet()
+        {
+            String url = "https://github.com/microsoft/winget-cli/releases/download/v0.2.2941-preview/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle";
+            using (WebClient client = new WebClient())
+            {
+                FileInfo file = new FileInfo(MainForm.Tmpfolder + "winget.appxbundle");
+
+                DialogResult result = DialogResult.Retry;
+                while (result == DialogResult.Retry)
+                {
+                    try
+                    {
+                        client.DownloadFile(new Uri(url), file.FullName);
+
+                        Process process = new Process();
+                        ProcessStartInfo startInfo = new ProcessStartInfo();
+                        startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                        startInfo.FileName = "cmd.exe";
+                        startInfo.Arguments = "/C DISM.exe /Online /Add-ProvisionedAppxPackage /PackagePath:" + file.FullName + " /SkipLicense";
+                        process.StartInfo = startInfo;
+                        process.Start();
+                        process.WaitForExit();
+
+                        // continue if installation was successful
+                        result = DialogResult.Ignore;
+                    }
+                    catch (WebException)
+                    {
+                        string caption = "Something went wrong...";
+                        string errorMessage = "A WebException occured trying to download from the following URL:\n\n" + url + "\n\nPlease check your network connection and report this issue on GitHub if the error persists";
+                        result = MessageBox.Show(errorMessage, caption, MessageBoxButtons.AbortRetryIgnore);
+                        if (result == DialogResult.Abort) Application.Exit();
+                    }
+                }
+            }
+        }
+
         public static void InstallFirefox()
         {
             DownloadRun("https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US", "Firefox_Setup.exe", "/S");

@@ -106,6 +106,10 @@ namespace WinSlap
 
         private void ApplySlap(string boxcontent)
         {
+            if (checkedListBoxSoftware.CheckedItems.Count != 0)
+            {
+                Slapper.InstallWinGet();
+            }
             try
             {
                 switch (boxcontent)
