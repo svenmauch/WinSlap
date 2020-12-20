@@ -129,7 +129,6 @@
             "Disable Telemetry",
             "Uninstall OneDrive",
             "Disable Activity History",
-            "Disable Background Apps",
             "Disable automatically installing Apps",
             "Disable Feedback dialogs",
             "Disable Start Menu suggestions",
@@ -360,6 +359,7 @@
             this.checkedListBoxAdvanced.FormattingEnabled = true;
             this.checkedListBoxAdvanced.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.checkedListBoxAdvanced.Items.AddRange(new object[] {
+            "Disable Background Apps",
             "Precision Trackpad: Disable keyboard block after clicking",
             "Disable Windows Defender",
             "Disable Link-local Multicast Name Resolution",

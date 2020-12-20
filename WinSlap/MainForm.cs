@@ -143,9 +143,6 @@ namespace WinSlap
                     case "Disable Activity History":
                         Slapper.DisableActivityHistory();
                         break;
-                    case "Disable Background Apps":
-                        Slapper.DisableBackgroundApps();
-                        break;
                     case "Disable automatically installing Apps":
                         Slapper.DisableAutomaticAppInstall();
                         break;
@@ -373,6 +370,9 @@ namespace WinSlap
                         break;
                     case "Install StartIsBack++":
                         Slapper.InstallStartIsBack();
+                        break;
+                    case "Disable Background Apps":
+                        Slapper.DisableBackgroundApps();
                         break;
                     case "Precision Trackpad: Disable keyboard block after clicking":
                         Slapper.DisableBlockPrecisionTrackpad();
