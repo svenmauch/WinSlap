@@ -1413,5 +1413,14 @@ namespace WinSlap
                 ps.Invoke();
             }
         }
+
+        public static void EnableWSL()
+        {
+            using (PowerShell ps = PowerShell.Create())
+            {
+                ps.AddScript("Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux");
+                ps.Invoke();
+            }
+        }
     }
 }

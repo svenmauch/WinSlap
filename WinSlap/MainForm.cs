@@ -552,6 +552,9 @@ namespace WinSlap
                     case "Disable Intra-Site Automatic Tunnel Addressing Protocol":
                         Slapper.DisableISATAP();
                         break;
+                    case "Enable Windows Subsystem for Linux":
+                        Slapper.EnableWSL();
+                        break;
                     default:
                         string caption = "Something went wrong...";
                         string errorMessage = "Item not found (" + boxcontent + ")\n\nPlease report this issue on GitHub. Slapping will continue after closing this message.";

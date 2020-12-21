@@ -417,7 +417,8 @@
             "Disable Smart Multi-Homed Name Resolution",
             "Disable Web Proxy Auto-Discovery",
             "Disable Teredo tunneling",
-            "Disable Intra-Site Automatic Tunnel Addressing Protocol"});
+            "Disable Intra-Site Automatic Tunnel Addressing Protocol",
+            "Enable Windows Subsystem for Linux"});
             this.checkedListBoxAdvanced.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxAdvanced.Name = "checkedListBoxAdvanced";
             this.checkedListBoxAdvanced.ScrollAlwaysVisible = true;
