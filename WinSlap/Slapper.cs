@@ -1092,6 +1092,141 @@ namespace WinSlap
             process.WaitForExit();
         }
 
+        public static void Install7Zip()
+        {
+            WinGetInstall("7zip.7zip");
+        }
+
+        public static void InstallAdobeReaderDC()
+        {
+            WinGetInstall("Adobe.AdobeAcrobatReaderDC");
+        }
+
+        public static void InstallAudacity()
+        {
+            WinGetInstall("Audacity.Audacity");
+        }
+
+        public static void InstallBalenaEtcher()
+        {
+            WinGetInstall("Balena.Etcher");
+        }
+
+        public static void InstallBattleNet()
+        {
+            WinGetInstall("Blizzard.BattleNet");
+        }
+
+        public static void InstallCalibre()
+        {
+            WinGetInstall("calibre.calibre");
+        }
+
+        public static void InstallCPUZ()
+        {
+            WinGetInstall("CPUID.CPU-Z");
+        }
+
+        public static void InstallDiscord()
+        {
+            WinGetInstall("Discord.Discord");
+        }
+
+        public static void InstallDupeGuru()
+        {
+            WinGetInstall("DupeGuru.DupeGuru");
+        }
+
+        public static void InstallEarTrumpet()
+        {
+            WinGetInstall("File-New-Project.EarTrumpet");
+        }
+
+        public static void InstallEpicGamesLauncher()
+        {
+            WinGetInstall("EpicGames.EpicGamesLauncher");
+        }
+
+        public static void InstallEverythingSearch()
+        {
+            WinGetInstall("voidtools.EverythingLite");
+        }
+
+        public static void InstallFlux()
+        {
+            WinGetInstall("flux.flux");
+        }
+
+        public static void InstallFileZilla()
+        {
+            WinGetInstall("TimKosse.FileZillaClient");
+        }
+
+        public static void InstallGIMP()
+        {
+            WinGetInstall("GIMP.GIMP");
+        }
+
+        public static void InstallGPUZ()
+        {
+            WinGetInstall("TechPowerUp.GPU-Z");
+        }
+
+        public static void InstallGit()
+        {
+            WinGetInstall("Git.Git");
+        }
+
+        public static void InstallGoogleChrome()
+        {
+            WinGetInstall("Google.Chrome");
+        }
+
+        public static void InstallHashTab()
+        {
+            WinGetInstall("Implbits.HashTab");
+        }
+
+        public static void InstallInkscape()
+        {
+            WinGetInstall("Inkscape.Inkscape");
+        }
+
+        public static void InstallIrfanview()
+        {
+            WinGetInstall("IrfanSkiljan.IrfanView");
+        }
+
+        public static void InstallJavaRE()
+        {
+            WinGetInstall("Oracle.JavaRuntimeEnvironment");
+        }
+
+        public static void InstallKDEConnect()
+        {
+            WinGetInstall("KDE.KDEConnect");
+        }
+
+        public static void InstallKeePassXC()
+        {
+            WinGetInstall("KeePassXCTeam.KeePassXC");
+        }
+
+        public static void InstallLeagueOfLegends()
+        {
+            WinGetInstall("RiotGames.LeagueOfLegends");
+        }
+
+        public static void InstallLibreOffice()
+        {
+            WinGetInstall("LibreOffice.LibreOffice");
+        }
+
+        public static void InstallMinecraft()
+        {
+            WinGetInstall("Mojang.MinecraftLauncher");
+        }
+
         public static void InstallFirefox()
         {
             WinGetInstall("Mozilla.Firefox");
@@ -1102,9 +1237,84 @@ namespace WinSlap
             WinGetInstall("Mozilla.Thunderbird");
         }
 
-        public static void InstallVlc()
+        public static void InstallNextcloudDesktop()
         {
-            WinGetInstall("VideoLAN.VLC");
+            WinGetInstall("Nextcloud.NextcloudDesktop");
+        }
+
+        public static void InstallNotepadPlusPlus()
+        {
+            WinGetInstall("Notepad++.Notepad++");
+        }
+
+        public static void InstallOBSStudio()
+        {
+            WinGetInstall("OBSProject.OBSStudio");
+        }
+
+        public static void InstallOpenVPNConnect()
+        {
+            WinGetInstall("OpenVPNTechnologies.OpenVPNConnect");
+        }
+
+        public static void InstallOrigin()
+        {
+            WinGetInstall("ElectronicArts.Origin");
+        }
+
+        public static void InstallPowerToys()
+        {
+            WinGetInstall("Microsoft.PowerToys");
+        }
+
+        public static void InstallPuTTY()
+        {
+            WinGetInstall("PuTTY.PuTTY");
+        }
+
+        public static void InstallPython()
+        {
+            WinGetInstall("Python.Python");
+        }
+
+        public static void InstallSkype()
+        {
+            WinGetInstall("Microsoft.Skype");
+        }
+
+        public static void InstallSlack()
+        {
+            WinGetInstall("SlackTechnologies.Slack");
+        }
+
+        public static void InstallSpeccy()
+        {
+            WinGetInstall("Piriform.Speccy");
+        }
+
+        public static void InstallSpotify()
+        {
+            WinGetInstall("Spotify.Spotify");
+        }
+
+        public static void InstallStartIsBack()
+        {
+            DownloadRun("https://s3.amazonaws.com/startisback/StartIsBackPlusPlus_setup.exe", "StartIsBack_Setup.exe", "/elevated /silent");
+        }
+
+        public static void InstallSteam()
+        {
+            WinGetInstall("Valve.Steam");
+        }
+
+        public static void InstallTeamViewer()
+        {
+            WinGetInstall("TeamViewer.TeamViewer");
+        }
+
+        public static void InstallTeamSpeak()
+        {
+            WinGetInstall("TeamSpeakSystems.TeamSpeakClient");
         }
 
         public static void InstallTelegram()
@@ -1112,9 +1322,54 @@ namespace WinSlap
             WinGetInstall("Telegram.TelegramDesktop");
         }
 
-        public static void InstallStartIsBack()
+        public static void InstallTwitch()
         {
-            DownloadRun("https://s3.amazonaws.com/startisback/StartIsBackPlusPlus_setup.exe", "StartIsBack_Setup.exe", "/elevated /silent");
+            WinGetInstall("twitch.twitch");
+        }
+
+        public static void InstallUbisoftConnect()
+        {
+            WinGetInstall("Ubisoft.Connect");
+        }
+
+        public static void InstallVirtualBox()
+        {
+            WinGetInstall("Oracle.VirtualBox");
+        }
+
+        public static void InstallVSCode()
+        {
+            WinGetInstall("Microsoft.VisualStudioCode");
+        }
+
+        public static void InstallVlc()
+        {
+            WinGetInstall("VideoLAN.VLC");
+        }
+
+        public static void InstallWinRAR()
+        {
+            WinGetInstall("RARLab.WinRAR");
+        }
+
+        public static void InstallWinSCP()
+        {
+            WinGetInstall("WinSCP.WinSCP");
+        }
+
+        public static void InstallWindowsTerminal()
+        {
+            WinGetInstall("Microsoft.WindowsTerminal");
+        }
+
+        public static void InstallWireshark()
+        {
+            WinGetInstall("WiresharkFoundation.Wireshark");
+        }
+
+        public static void InstallZoom()
+        {
+            WinGetInstall("Zoom.Zoom");
         }
 
         public static void RemoveIntelContextMenu()

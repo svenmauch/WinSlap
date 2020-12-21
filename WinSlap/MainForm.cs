@@ -360,20 +360,173 @@ namespace WinSlap
                     case "Hide Meet Now icon in taskbar":
                         Slapper.HideMeetNow();
                         break;
+                    case "Install 7Zip":
+                        Slapper.Install7Zip();
+                        break;
+                    case "Install Adobe Acrobat Reader DC":
+                        Slapper.InstallAdobeReaderDC();
+                        break;
+                    case "Install Audacity":
+                        Slapper.InstallAudacity();
+                        break;
+                    case "Install BalenaEtcher":
+                        Slapper.InstallBalenaEtcher();
+                        break;
+                    case "Install Battle.Net":
+                        Slapper.InstallBattleNet();
+                        break;
+                    case "Install calibre":
+                        Slapper.InstallCalibre();
+                        break;
+                    case "Install CPU-Z":
+                        Slapper.InstallCPUZ();
+                        break;
+                    case "Install Discord":
+                        Slapper.InstallDiscord();
+                        break;
+                    case "Install DupeGuru":
+                        Slapper.InstallDupeGuru();
+                        break;
+                    case "Install EarTrumpet":
+                        Slapper.InstallEarTrumpet();
+                        break;
+                    case "Install Epic Games Launcher":
+                        Slapper.InstallEpicGamesLauncher();
+                        break;
+                    case "Install Everything Search":
+                        Slapper.InstallEverythingSearch();
+                        break;
+                    case "Install f.lux":
+                        Slapper.InstallFlux();
+                        break;
+                    case "Install FileZilla":
+                        Slapper.InstallFileZilla();
+                        break;
+                    case "Install GIMP":
+                        Slapper.InstallGIMP();
+                        break;
+                    case "Install GPU-Z":
+                        Slapper.InstallGPUZ();
+                        break;
+                    case "Install Git":
+                        Slapper.InstallGit();
+                        break;
+                    case "Install Google Chrome":
+                        Slapper.InstallGoogleChrome();
+                        break;
+                    case "Install HashTab":
+                        Slapper.InstallHashTab();
+                        break;
+                    case "Install Inkscape":
+                        Slapper.InstallInkscape();
+                        break;
+                    case "Install Irfanview":
+                        Slapper.InstallIrfanview();
+                        break;
+                    case "Install Java Runtime Environment":
+                        Slapper.InstallJavaRE();
+                        break;
+                    case "Install KDE Connect":
+                        Slapper.InstallKDEConnect();
+                        break;
+                    case "Install KeePassXC":
+                        Slapper.InstallKeePassXC();
+                        break;
+                    case "Install League Of Legends":
+                        Slapper.InstallLeagueOfLegends();
+                        break;
+                    case "Install LibreOffice":
+                        Slapper.InstallLibreOffice();
+                        break;
+                    case "Install Minecraft":
+                        Slapper.InstallMinecraft();
+                        break;
                     case "Install Mozilla Firefox":
                         Slapper.InstallFirefox();
                         break;
                     case "Install Mozilla Thunderbird":
                         Slapper.InstallThunderbird();
                         break;
-                    case "Install VLC media player":
-                        Slapper.InstallVlc();
+                    case "Install Nextcloud Desktop":
+                        Slapper.InstallNextcloudDesktop();
+                        break;
+                    case "Install Notepad++":
+                        Slapper.InstallNotepadPlusPlus();
+                        break;
+                    case "Install OBS Studio":
+                        Slapper.InstallOBSStudio();
+                        break;
+                    case "Install OpenVPN Connect":
+                        Slapper.InstallOpenVPNConnect();
+                        break;
+                    case "Install Origin":
+                        Slapper.InstallOrigin();
+                        break;
+                    case "Install PowerToys":
+                        Slapper.InstallPowerToys();
+                        break;
+                    case "Install PuTTY":
+                        Slapper.InstallPuTTY();
+                        break;
+                    case "Install Python":
+                        Slapper.InstallPython();
+                        break;
+                    case "Install Skype":
+                        Slapper.InstallSkype();
+                        break;
+                    case "Install Slack":
+                        Slapper.InstallSlack();
+                        break;
+                    case "Install Speccy":
+                        Slapper.InstallSpeccy();
+                        break;
+                    case "Install Spotify":
+                        Slapper.InstallSpotify();
+                        break;
+                    case "Install StartIsBack++":
+                        Slapper.InstallStartIsBack();
+                        break;
+                    case "Install Steam":
+                        Slapper.InstallSteam();
+                        break;
+                    case "Install TeamViewer":
+                        Slapper.InstallTeamViewer();
+                        break;
+                    case "Install TeamSpeak":
+                        Slapper.InstallTeamSpeak();
                         break;
                     case "Install Telegram":
                         Slapper.InstallTelegram();
                         break;
-                    case "Install StartIsBack++":
-                        Slapper.InstallStartIsBack();
+                    case "Install Twitch":
+                        Slapper.InstallTwitch();
+                        break;
+                    case "Install Ubisoft Connect":
+                        Slapper.InstallUbisoftConnect();
+                        break;
+                    case "Install VirtualBox":
+                        Slapper.InstallVirtualBox();
+                        break;
+                    case "Install Visual Studio Code":
+                        Slapper.InstallVSCode();
+                        break;
+                    case "Install VLC media player":
+                        Slapper.InstallVlc();
+                        break;
+                    case "Install WinRAR":
+                        Slapper.InstallWinRAR();
+                        break;
+                    case "Install WinSCP":
+                        Slapper.InstallWinSCP();
+                        break;
+                    case "Install Windows Terminal":
+                        Slapper.InstallWindowsTerminal();
+                        break;
+                    case "Install Wireshark":
+                        Slapper.InstallWireshark();
+                        break;
+                    case "Install Zoom":
+                        Slapper.InstallZoom();
                         break;
                     case "Disable Background Apps":
                         Slapper.DisableBackgroundApps();
