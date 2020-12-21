@@ -1422,5 +1422,14 @@ namespace WinSlap
                 ps.Invoke();
             }
         }
+
+        public static void UninstallInternetExplorer()
+        {
+            using (PowerShell ps = PowerShell.Create())
+            {
+                ps.AddScript("Disable-WindowsOptionalFeature -FeatureName Internet-Explorer-Optional-amd64 –Online");
+                ps.Invoke();
+            }
+        }
     }
 }
