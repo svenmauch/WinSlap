@@ -1057,19 +1057,12 @@ namespace WinSlap
                     {
                         client.DownloadFile(new Uri(url), file.FullName);
 
-                        Process process = new Process();
-                        ProcessStartInfo startInfo = new ProcessStartInfo();
-                        startInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                        startInfo.FileName = "cmd.exe";
-                        startInfo.Arguments = "/C DISM.exe /Online /Add-ProvisionedAppxPackage /PackagePath:" + file.FullName + " /SkipLicense";
-                        process.StartInfo = startInfo;
-                        process.Start();
-                        process.WaitForExit();
+                        using (PowerShell ps = PowerShell.Create())
+                        {
+                            ps.AddScript("Add-AppxPackage -Path " + file.FullName);
+                            ps.Invoke();
+                        }
 
-                        string caption = "Something went wrong...";
-                        string errorMessage = "Error " + process.ExitCode.ToString() + " while trying to install WinGet.\n\nPlease report this issue on GitHub. Slapping will continue after closing this message, though items checked in Software tab will likely not install.";
-                        MessageBox.Show(new Form { TopMost = true }, errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        
                         // continue if installation was successful
                         result = DialogResult.Ignore;
                     }
