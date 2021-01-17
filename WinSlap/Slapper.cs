@@ -1066,6 +1066,10 @@ namespace WinSlap
                         process.Start();
                         process.WaitForExit();
 
+                        string caption = "Something went wrong...";
+                        string errorMessage = "Error " + process.ExitCode.ToString() + " while trying to install WinGet.\n\nPlease report this issue on GitHub. Slapping will continue after closing this message, though items checked in Software tab will likely not install.";
+                        MessageBox.Show(new Form { TopMost = true }, errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        
                         // continue if installation was successful
                         result = DialogResult.Ignore;
                     }
