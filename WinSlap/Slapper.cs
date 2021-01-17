@@ -1059,8 +1059,14 @@ namespace WinSlap
 
                         using (PowerShell ps = PowerShell.Create())
                         {
-                            ps.AddScript("Add-AppxPackage -Path " + file.FullName);
+                            ps.AddScript("Add-AppxPackage -Path "+ file.FullName);
                             ps.Invoke();
+                            if (ps.HadErrors)
+                            {
+                                string caption = "Something went wrong...";
+                                string errorMessage = "An error occured while trying to install winget.\n\nPlease report this issue on GitHub. Slapping will continue after closing this message, though items selected in Software will likely not be installed.";
+                                MessageBox.Show(new Form { TopMost = true }, errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
 
                         // continue if installation was successful
