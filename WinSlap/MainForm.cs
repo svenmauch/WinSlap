@@ -478,9 +478,6 @@ namespace WinSlap
                     case "Install Speccy":
                         Slapper.InstallSpeccy();
                         break;
-                    case "Install Spotify":
-                        Slapper.InstallSpotify();
-                        break;
                     case "Install StartIsBack++":
                         Slapper.InstallStartIsBack();
                         break;

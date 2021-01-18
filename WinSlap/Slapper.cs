@@ -1293,11 +1293,6 @@ namespace WinSlap
             WinGetInstall("Piriform.Speccy");
         }
 
-        public static void InstallSpotify()
-        {
-            WinGetInstall("Spotify.Spotify");
-        }
-
         public static void InstallStartIsBack()
         {
             DownloadRun("https://s3.amazonaws.com/startisback/StartIsBackPlusPlus_setup.exe", "StartIsBack_Setup.exe", "/elevated /silent");

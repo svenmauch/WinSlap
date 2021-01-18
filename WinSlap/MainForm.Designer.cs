@@ -360,7 +360,6 @@
             "Install Python",
             "Install Slack",
             "Install Speccy",
-            "Install Spotify",
             "Install StartIsBack++",
             "Install Steam",
             "Install TeamViewer",
