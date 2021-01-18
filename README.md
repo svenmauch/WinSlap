@@ -28,7 +28,6 @@ WinSlap is primarily developed for my own use cases. Feel free to use it under a
   - Disable Telemetry
   - Uninstall OneDrive
   - Disable Activity History
-  - Disable Background Apps
   - Disable automatically installing Apps
   - Disable Feedback dialogs
   - Disable Start Menu suggestions
@@ -106,14 +105,59 @@ WinSlap is primarily developed for my own use cases. Feel free to use it under a
 
 ### Software
 
+  - Install 7Zip
+  - Install Adobe Acrobat Reader DC
+  - Install Audacity
+  - Install BalenaEtcher
+  - Install calibre
+  - Install CPU-Z
+  - Install DupeGuru
+  - Install EarTrumpet
+  - Install Epic Games Launcher
+  - Install FileZilla
+  - Install GIMP
+  - Install GPU-Z
+  - Install Git
+  - Install Google Chrome
+  - Install HashTab
+  - Install Inkscape
+  - Install Irfanview
+  - Install Java Runtime Environment
+  - Install KDE Connect
+  - Install KeePassXC
+  - Install League Of Legends
+  - Install LibreOffice
+  - Install Minecraft
   - Install Mozilla Firefox
   - Install Mozilla Thunderbird
-  - Install VLC media player
-  - Install Telegram
+  - Install Nextcloud Desktop
+  - Install Notepad++
+  - Install OBS Studio
+  - Install OpenVPN Connect
+  - Install Origin
+  - Install PowerToys
+  - Install PuTTY
+  - Install Python
+  - Install Slack
+  - Install Speccy
   - Install StartIsBack++
+  - Install Steam
+  - Install TeamViewer
+  - Install TeamSpeak
+  - Install Telegram
+  - Install Twitch
+  - Install Ubisoft Connect
+  - Install VirtualBox
+  - Install VLC media player
+  - Install WinRAR
+  - Install WinSCP
+  - Install Windows Terminal
+  - Install Wireshark
+  - Install Zoom
 
 ### Advanced
 
+  - Disable Background Apps
   - Precision Trackpad: Disable keyboard block after clicking
   - Disable Windows Defender
   - Disable Link-local Multicast Name Resolution
@@ -121,3 +165,5 @@ WinSlap is primarily developed for my own use cases. Feel free to use it under a
   - Disable Web Proxy Auto-Discovery
   - Disable Teredo tunneling
   - Disable Intra-Site Automatic Tunnel Addressing Protocol
+  - Enable Windows Subsystem for Linux
+  - Uninstall Internet Explorer
