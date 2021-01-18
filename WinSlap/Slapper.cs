@@ -1213,6 +1213,9 @@ namespace WinSlap
         public static void InstallKeePassXC()
         {
             WinGetInstall("KeePassXCTeam.KeePassXC");
+
+            RegistryKey myKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+            myKey.DeleteValue("KeePassXC", false);
         }
 
         public static void InstallLeagueOfLegends()
@@ -1308,6 +1311,9 @@ namespace WinSlap
         public static void InstallSteam()
         {
             WinGetInstall("Valve.Steam");
+
+            RegistryKey myKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+            myKey.DeleteValue("Steam", false);
         }
 
         public static void InstallTeamViewer()
@@ -1328,6 +1334,7 @@ namespace WinSlap
         public static void InstallTwitch()
         {
             WinGetInstall("twitch.twitch");
+            File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\Twitch.lnk");
         }
 
         public static void InstallUbisoftConnect()
