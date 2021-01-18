@@ -382,9 +382,6 @@ namespace WinSlap
                     case "Install CPU-Z":
                         Slapper.InstallCPUZ();
                         break;
-                    case "Install Discord":
-                        Slapper.InstallDiscord();
-                        break;
                     case "Install DupeGuru":
                         Slapper.InstallDupeGuru();
                         break;
@@ -574,7 +571,7 @@ namespace WinSlap
                 MessageBox.Show(new Form { TopMost = true }, errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        
         private void WinSlap_Load(object sender, EventArgs e)
         {
             InitParameterNotice();

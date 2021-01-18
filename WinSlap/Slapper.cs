@@ -1130,11 +1130,6 @@ namespace WinSlap
             WinGetInstall("CPUID.CPU-Z");
         }
 
-        public static void InstallDiscord()
-        {
-            WinGetInstall("Discord.Discord");
-        }
-
         public static void InstallDupeGuru()
         {
             WinGetInstall("DupeGuru.DupeGuru");

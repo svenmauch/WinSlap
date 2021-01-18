@@ -331,7 +331,6 @@
             "Install BalenaEtcher",
             "Install calibre",
             "Install CPU-Z",
-            "Install Discord",
             "Install DupeGuru",
             "Install EarTrumpet",
             "Install Epic Games Launcher",
