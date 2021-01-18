@@ -18,6 +18,7 @@ namespace WinSlap
 
         public MainForm(string[] args)
         {
+            Environment.SetEnvironmentVariable("SEE_MASK_NOZONECHECKS", "1");
             const string strNoRestart = "norestart";
             if (args.Any(strNoRestart.Contains)) { this._restart = false; }
             InitializeComponent();
