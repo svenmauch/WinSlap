@@ -384,6 +384,9 @@ namespace WinSlap
                     case "Install CPU-Z":
                         Slapper.InstallCPUZ();
                         break;
+                    case "Install Discord":
+                        Slapper.InstallDiscord();
+                        break;
                     case "Install DupeGuru":
                         Slapper.InstallDupeGuru();
                         break;
