@@ -315,6 +315,9 @@ namespace WinSlap
                     case "Disable Bluetooth advertisements":
                         Slapper.DisableBluetoothAdvertisements();
                         break;
+                    case "Disable Windows Media DRM internet access":
+                        Slapper.DisableDRMInternetAccess();
+                        break;
                     case "Add This PC shortcut to desktop":
                         Slapper.AddThisPCShortcut();
                         break;

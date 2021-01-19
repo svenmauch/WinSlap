@@ -357,6 +357,14 @@ namespace WinSlap
             key.SetValue("DisablePCA", "1", RegistryValueKind.DWord);
         }
 
+        public static void DisableDRMInternetAccess()
+        {
+            Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\WMDRM", true);
+
+            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\WMDRM", true);
+            key.SetValue("DisableOnline", "1", RegistryValueKind.DWord);
+        }
+
         public static void DisableStepsRecorder()
         {
             Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\AppCompat", true);
