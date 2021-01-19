@@ -477,7 +477,7 @@
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WinSlap 1.4";
+            this.Text = "WinSlap 1.5";
             this.Load += new System.EventHandler(this.WinSlap_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabTweaks.ResumeLayout(false);
