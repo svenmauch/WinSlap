@@ -1045,7 +1045,7 @@ namespace WinSlap
 
         public static void InstallWinGet()
         {
-            String url = "https://github.com/microsoft/winget-cli/releases/download/v0.2.2941-preview/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle";
+            String url = "https://github.com/microsoft/winget-cli/releases/download/v0.2.3162-preview/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle";
             using (WebClient client = new WebClient())
             {
                 FileInfo file = new FileInfo(MainForm.Tmpfolder + "winget.appxbundle");
