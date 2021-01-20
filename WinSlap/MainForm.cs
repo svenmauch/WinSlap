@@ -318,6 +318,9 @@ namespace WinSlap
                     case "Disable Windows Media DRM internet access":
                         Slapper.DisableDRMInternetAccess();
                         break;
+                    case "Disable Get even more out of Windows screen":
+                        Slapper.DisableGetEvenMoreOutOfWindows();
+                        break;
                     case "Add This PC shortcut to desktop":
                         Slapper.AddThisPCShortcut();
                         break;

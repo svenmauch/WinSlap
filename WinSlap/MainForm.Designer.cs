@@ -185,7 +185,8 @@
             "Disable handwriting error reports",
             "Disable cloud sync of text messages",
             "Disable Bluetooth advertisements",
-            "Disable Windows Media DRM internet access"});
+            "Disable Windows Media DRM internet access",
+            "Disable Get even more out of Windows screen"});
             this.checkedListBoxTweaks.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxTweaks.Name = "checkedListBoxTweaks";
             this.checkedListBoxTweaks.RightToLeft = System.Windows.Forms.RightToLeft.No;

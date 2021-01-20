@@ -381,6 +381,14 @@ namespace WinSlap
             key.SetValue("EnableMtcUvc", "0", RegistryValueKind.DWord);
         }
 
+        public static void DisableGetEvenMoreOutOfWindows()
+        {
+            Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement", true);
+
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement", true);
+            key.SetValue("ScoobeSystemSettingEnabled", "0", RegistryValueKind.DWord);
+        }
+
         public static void HideOneDriveFileExplorer()
         {
             Registry.ClassesRoot.CreateSubKey(@"CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}", true);
