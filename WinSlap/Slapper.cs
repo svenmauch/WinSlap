@@ -381,6 +381,14 @@ namespace WinSlap
             key.SetValue("EnableMtcUvc", "0", RegistryValueKind.DWord);
         }
 
+        public static void SetPowerPlanHighPerformance()
+        {
+            Registry.LocalMachine.CreateSubKey(@"Software\Policies\Microsoft\Power\PowerSettings", true);
+
+            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"Software\Policies\Microsoft\Power\PowerSettings", true);
+            key.SetValue("ActivePowerScheme", "8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c", RegistryValueKind.String);
+        }
+
         public static void DisableGetEvenMoreOutOfWindows()
         {
             Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement", true);

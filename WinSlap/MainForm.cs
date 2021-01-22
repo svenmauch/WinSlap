@@ -321,6 +321,9 @@ namespace WinSlap
                     case "Disable Get even more out of Windows screen":
                         Slapper.DisableGetEvenMoreOutOfWindows();
                         break;
+                    case "Set power plan to high performance":
+                        Slapper.SetPowerPlanHighPerformance();
+                        break;
                     case "Add This PC shortcut to desktop":
                         Slapper.AddThisPCShortcut();
                         break;
