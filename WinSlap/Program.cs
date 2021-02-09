@@ -29,7 +29,7 @@ namespace WinSlap
 
             if (releaseid != "2009")
             {
-                MessageBox.Show("WinSlap 1.4 is developed for Windows 10 (2009/20H2).\nThis PC is running Windows 10 (" + releaseid + ").\nPlease proceed with caution.", "Untested OS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("WinSlap 1.5 is developed for Windows 10 (2009/20H2).\nThis PC is running Windows 10 (" + releaseid + ").\nPlease proceed with caution.", "Untested OS", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             Application.Run(new MainForm(args));

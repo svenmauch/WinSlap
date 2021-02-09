@@ -184,7 +184,10 @@
             "Disable automatic update of speech data",
             "Disable handwriting error reports",
             "Disable cloud sync of text messages",
-            "Disable Bluetooth advertisements"});
+            "Disable Bluetooth advertisements",
+            "Disable Windows Media DRM internet access",
+            "Disable Get even more out of Windows screen",
+            "Set power plan to high performance"});
             this.checkedListBoxTweaks.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxTweaks.Name = "checkedListBoxTweaks";
             this.checkedListBoxTweaks.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -329,15 +332,12 @@
             "Install Adobe Acrobat Reader DC",
             "Install Audacity",
             "Install BalenaEtcher",
-            "Install Battle.Net",
             "Install calibre",
             "Install CPU-Z",
             "Install Discord",
             "Install DupeGuru",
             "Install EarTrumpet",
             "Install Epic Games Launcher",
-            "Install Everything Search",
-            "Install f.lux",
             "Install FileZilla",
             "Install GIMP",
             "Install GPU-Z",
@@ -362,10 +362,8 @@
             "Install PowerToys",
             "Install PuTTY",
             "Install Python",
-            "Install Skype",
             "Install Slack",
             "Install Speccy",
-            "Install Spotify",
             "Install StartIsBack++",
             "Install Steam",
             "Install TeamViewer",
@@ -374,7 +372,6 @@
             "Install Twitch",
             "Install Ubisoft Connect",
             "Install VirtualBox",
-            "Install Visual Studio Code",
             "Install VLC media player",
             "Install WinRAR",
             "Install WinSCP",
@@ -484,7 +481,7 @@
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WinSlap 1.4";
+            this.Text = "WinSlap 1.5";
             this.Load += new System.EventHandler(this.WinSlap_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabTweaks.ResumeLayout(false);

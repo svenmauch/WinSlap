@@ -315,6 +315,15 @@ namespace WinSlap
                     case "Disable Bluetooth advertisements":
                         Slapper.DisableBluetoothAdvertisements();
                         break;
+                    case "Disable Windows Media DRM internet access":
+                        Slapper.DisableDRMInternetAccess();
+                        break;
+                    case "Disable Get even more out of Windows screen":
+                        Slapper.DisableGetEvenMoreOutOfWindows();
+                        break;
+                    case "Set power plan to high performance":
+                        Slapper.SetPowerPlanHighPerformance();
+                        break;
                     case "Add This PC shortcut to desktop":
                         Slapper.AddThisPCShortcut();
                         break;
@@ -480,9 +489,6 @@ namespace WinSlap
                     case "Install Speccy":
                         Slapper.InstallSpeccy();
                         break;
-                    case "Install Spotify":
-                        Slapper.InstallSpotify();
-                        break;
                     case "Install StartIsBack++":
                         Slapper.InstallStartIsBack();
                         break;
@@ -573,7 +579,7 @@ namespace WinSlap
                 MessageBox.Show(new Form { TopMost = true }, errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        
         private void WinSlap_Load(object sender, EventArgs e)
         {
             InitParameterNotice();
