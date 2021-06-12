@@ -369,6 +369,9 @@ namespace WinSlap
                     case "Hide Meet Now icon in taskbar":
                         Slapper.HideMeetNow();
                         break;
+                    case "Hide News and interests in taskbar":
+                        Slapper.HideNewsAndInterests();
+                        break;
                     case "Install 7Zip":
                         Slapper.Install7Zip();
                         break;

@@ -952,6 +952,12 @@ namespace WinSlap
             }
         }
 
+        public static void HideNewsAndInterests()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Feeds", true);
+            key.SetValue("ShellFeedsTaskbarViewMode", "2", RegistryValueKind.DWord);
+        }
+
         public static void DisableRemoteAssistance()
         {
             RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Remote Assistance", true);
