@@ -13,6 +13,10 @@ WinSlap is primarily developed for my own use cases. Feel free to use it under a
  1. Apply tweaks to a fresh installation of Windows 10 after using a clean retail image (if you're looking to apply tweaks during installation, check out image creation tools)
  2. No bloat. WinSlap does what it's features list says and nothing else.
 
+## Note
+
+WinSlap is currently developed for and tested against **Windows 10 Pro 20H2 (64-bit)** on single-user systems. While it should work on older versions and can work on newer versions or multi-user systems, I have not tested it myself.
+
 ## Features
 
 ### Tweaks
