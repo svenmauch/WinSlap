@@ -1075,10 +1075,10 @@ namespace WinSlap
 
         public static void InstallWinGet()
         {
-            String url = "https://github.com/microsoft/winget-cli/releases/download/v1.0.11451/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle";
+            String url = "https://github.com/microsoft/winget-cli/releases/download/v1.0.11692/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle";
             using (WebClient client = new WebClient())
             {
-                FileInfo file = new FileInfo(MainForm.Tmpfolder + "winget.appxbundle");
+                FileInfo file = new FileInfo(MainForm.Tmpfolder + "winget.msixbundle");
 
                 DialogResult result = DialogResult.Retry;
                 while (result == DialogResult.Retry)
