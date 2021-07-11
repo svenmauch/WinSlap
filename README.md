@@ -15,7 +15,7 @@ WinSlap is primarily developed for my own use cases. Feel free to use it under a
 
 ## Note
 
-WinSlap is currently developed for and tested against **Windows 10 Pro 20H2 (64-bit)** on single-user systems. While it should work on older versions and can work on newer versions or multi-user systems, I have not tested it myself.
+WinSlap is currently developed for and tested against **Windows 10 Pro 21H1 (64-bit)** on single-user systems. While it should work on older versions and can work on newer versions or multi-user systems, I have not tested it myself.
 
 ## Features
 
@@ -88,6 +88,9 @@ WinSlap is currently developed for and tested against **Windows 10 Pro 20H2 (64-
   - Disable handwriting error reports
   - Disable cloud sync of text messages
   - Disable Bluetooth advertisements
+  - Disable Windows Media DRM internet access
+  - Disable Get even more out of Windows screen
+  - Set power plan to high performance
 
 ### Appeareance
 
