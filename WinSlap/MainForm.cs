@@ -590,7 +590,7 @@ namespace WinSlap
             AppDomain.CurrentDomain.ProcessExit += OnProcessExit;
             Directory.CreateDirectory(Tmpfolder);
 
-            string win10release = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "ReleaseId", "").ToString();
+            string win10release = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "DisplayVersion", "").ToString();
             labelOS.Text = "Windows 10 (" + win10release + ")";
         }
 
