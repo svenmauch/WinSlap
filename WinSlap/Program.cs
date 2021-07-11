@@ -25,11 +25,11 @@ namespace WinSlap
                 Application.Exit();
             }
 
-            string releaseid = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "ReleaseId", "").ToString();
+            string win10version = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "DisplayVersion", "").ToString();
 
-            if (releaseid != "2009")
+            if (win10version != "21H1")
             {
-                MessageBox.Show("WinSlap 1.5 is developed for Windows 10 (2009/20H2).\nThis PC is running Windows 10 (" + releaseid + ").\nPlease proceed with caution.", "Untested OS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("WinSlap 1.5 is developed for Windows 10 (21H1).\nThis PC is running Windows 10 (" + win10version + ").\nPlease proceed with caution.", "Untested OS", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             Application.Run(new MainForm(args));
