@@ -199,8 +199,7 @@
             "Disable SafeSearch",
             "Disable suggested content in settings app",
             "Disable automatic login after finishing updates",
-            "Disable Windows Defender submitting sample files",
-            "Disable Windows Backup notification"});
+            "Disable Windows Defender submitting sample files"});
             this.checkedListBoxTweaks.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxTweaks.Name = "checkedListBoxTweaks";
             this.checkedListBoxTweaks.RightToLeft = System.Windows.Forms.RightToLeft.No;
