@@ -195,7 +195,8 @@
             "Disable suggestions in timeline",
             "Disable typing insights",
             "Disable spell checker",
-            "Disable text suggestions on the software keyboard"});
+            "Disable text suggestions on the software keyboard",
+            "Disable SafeSearch"});
             this.checkedListBoxTweaks.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxTweaks.Name = "checkedListBoxTweaks";
             this.checkedListBoxTweaks.RightToLeft = System.Windows.Forms.RightToLeft.No;

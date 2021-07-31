@@ -903,6 +903,12 @@ namespace WinSlap
             key.SetValue("EnableTextPrediction", "0", RegistryValueKind.DWord);
         }
 
+        public static void DisableSafeSearch()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings", true);
+            key.SetValue("SafeSearchMode", "0", RegistryValueKind.DWord);
+        }
+
         public static void EnableStorageSense()
         {
             Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\StorageSense");
