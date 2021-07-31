@@ -897,6 +897,12 @@ namespace WinSlap
             key.SetValue("EnableSpellchecking", "0", RegistryValueKind.DWord);
         }
 
+        public static void DisableTextSuggestions()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\TabletTip\1.7", true);
+            key.SetValue("EnableTextPrediction", "0", RegistryValueKind.DWord);
+        }
+
         public static void EnableStorageSense()
         {
             Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\StorageSense");

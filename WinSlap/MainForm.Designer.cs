@@ -194,7 +194,8 @@
             "Disable Aero Shake",
             "Disable suggestions in timeline",
             "Disable typing insights",
-            "Disable spell checker"});
+            "Disable spell checker",
+            "Disable text suggestions on the software keyboard"});
             this.checkedListBoxTweaks.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxTweaks.Name = "checkedListBoxTweaks";
             this.checkedListBoxTweaks.RightToLeft = System.Windows.Forms.RightToLeft.No;

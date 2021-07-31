@@ -393,6 +393,9 @@ namespace WinSlap
                     case "Disable spell checker":
                         Slapper.DisableSpellChecker();
                         break;
+                    case "Disable text suggestions on the software keyboard":
+                        Slapper.DisableTextSuggestions();
+                        break;
                     case "Install 7Zip":
                         Slapper.Install7Zip();
                         break;
