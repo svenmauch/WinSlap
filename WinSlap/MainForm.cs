@@ -390,6 +390,9 @@ namespace WinSlap
                     case "Disable typing insights":
                         Slapper.DisableTypingInsights();
                         break;
+                    case "Disable spell checker":
+                        Slapper.DisableSpellChecker();
+                        break;
                     case "Install 7Zip":
                         Slapper.Install7Zip();
                         break;

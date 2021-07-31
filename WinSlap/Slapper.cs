@@ -890,6 +890,13 @@ namespace WinSlap
             key.SetValue("InsightsEnabled", "0", RegistryValueKind.DWord);
         }
 
+        public static void DisableSpellChecker()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\TabletTip\1.7", true);
+            key.SetValue("EnableAutocorrection", "0", RegistryValueKind.DWord);
+            key.SetValue("EnableSpellchecking", "0", RegistryValueKind.DWord);
+        }
+
         public static void EnableStorageSense()
         {
             Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\StorageSense");
