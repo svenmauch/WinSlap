@@ -188,7 +188,8 @@
             "Disable Windows Media DRM internet access",
             "Disable Get even more out of Windows screen",
             "Set power plan to high performance",
-            "Disable notifications on the lock screen"});
+            "Disable notifications on the lock screen",
+            "Disable reminders and incoming VoIP calls on the lock screen"});
             this.checkedListBoxTweaks.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxTweaks.Name = "checkedListBoxTweaks";
             this.checkedListBoxTweaks.RightToLeft = System.Windows.Forms.RightToLeft.No;
