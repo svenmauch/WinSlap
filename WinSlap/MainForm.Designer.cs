@@ -198,7 +198,8 @@
             "Disable text suggestions on the software keyboard",
             "Disable SafeSearch",
             "Disable suggested content in settings app",
-            "Disable automatic login after finishing updates"});
+            "Disable automatic login after finishing updates",
+            "Disable Windows Defender submitting sample files"});
             this.checkedListBoxTweaks.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxTweaks.Name = "checkedListBoxTweaks";
             this.checkedListBoxTweaks.RightToLeft = System.Windows.Forms.RightToLeft.No;

@@ -1035,6 +1035,13 @@ namespace WinSlap
             key.SetValue("ShellFeedsTaskbarViewMode", "2", RegistryValueKind.DWord);
         }
 
+        public static void DisableDefenderSampleFiles()
+        {
+            Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Spynet", true);
+            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Spynet", true);
+            key.SetValue("SubmitSamplesConsent", "2", RegistryValueKind.DWord);
+        }
+
         public static void DisableRemoteAssistance()
         {
             RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Remote Assistance", true);

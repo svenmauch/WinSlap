@@ -405,6 +405,9 @@ namespace WinSlap
                     case "Disable automatic login after finishing updates":
                         Slapper.DisableAutoLoginAfterUpdates();
                         break;
+                    case "Disable Windows Defender submitting sample files":
+                        Slapper.DisableDefenderSampleFiles();
+                        break;
                     case "Install 7Zip":
                         Slapper.Install7Zip();
                         break;
