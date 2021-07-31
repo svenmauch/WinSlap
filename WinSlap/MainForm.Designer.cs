@@ -197,7 +197,8 @@
             "Disable spell checker",
             "Disable text suggestions on the software keyboard",
             "Disable SafeSearch",
-            "Disable suggested content in settings app"});
+            "Disable suggested content in settings app",
+            "Disable automatic login after finishing updates"});
             this.checkedListBoxTweaks.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxTweaks.Name = "checkedListBoxTweaks";
             this.checkedListBoxTweaks.RightToLeft = System.Windows.Forms.RightToLeft.No;

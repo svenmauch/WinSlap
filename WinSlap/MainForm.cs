@@ -402,6 +402,9 @@ namespace WinSlap
                     case "Disable suggested content in settings app":
                         Slapper.DisableSuggestedContentInSettings();
                         break;
+                    case "Disable automatic login after finishing updates":
+                        Slapper.DisableAutoLoginAfterUpdates();
+                        break;
                     case "Install 7Zip":
                         Slapper.Install7Zip();
                         break;

@@ -924,6 +924,12 @@ namespace WinSlap
             key.SetValue("AllowStorageSenseGlobal", "1", RegistryValueKind.DWord);
         }
 
+        public static void DisableAutoLoginAfterUpdates()
+        {
+            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", true);
+            key.SetValue("DisableAutomaticRestartSignOn", "1", RegistryValueKind.DWord);
+        }
+
         public static void DisableEdgeFirstRunPage()
         {
             Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\MicrosoftEdge");
