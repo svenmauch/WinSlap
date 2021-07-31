@@ -909,6 +909,14 @@ namespace WinSlap
             key.SetValue("SafeSearchMode", "0", RegistryValueKind.DWord);
         }
 
+        public static void DisableSuggestedContentInSettings()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", true);
+            key.SetValue("SubscribedContent-338393Enabled", "0", RegistryValueKind.DWord);
+            key.SetValue("SubscribedContent-353694Enabled", "0", RegistryValueKind.DWord);
+            key.SetValue("SubscribedContent-353696Enabled", "0", RegistryValueKind.DWord);
+        }
+
         public static void EnableStorageSense()
         {
             Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\StorageSense");

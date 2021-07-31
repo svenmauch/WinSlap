@@ -399,6 +399,9 @@ namespace WinSlap
                     case "Disable SafeSearch":
                         Slapper.DisableSafeSearch();
                         break;
+                    case "Disable suggested content in settings app":
+                        Slapper.DisableSuggestedContentInSettings();
+                        break;
                     case "Install 7Zip":
                         Slapper.Install7Zip();
                         break;
