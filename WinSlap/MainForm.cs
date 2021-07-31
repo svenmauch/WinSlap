@@ -381,6 +381,9 @@ namespace WinSlap
                     case "Disable Windows welcome experience":
                         Slapper.DisableWelcomeExperience();
                         break;
+                    case "Disable Aero Shake":
+                        Slapper.DisableAeroShake();
+                        break;
                     case "Install 7Zip":
                         Slapper.Install7Zip();
                         break;

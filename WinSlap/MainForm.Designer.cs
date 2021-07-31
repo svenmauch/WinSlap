@@ -190,7 +190,8 @@
             "Set power plan to high performance",
             "Disable notifications on the lock screen",
             "Disable reminders and incoming VoIP calls on the lock screen",
-            "Disable Windows welcome experience"});
+            "Disable Windows welcome experience",
+            "Disable Aero Shake"});
             this.checkedListBoxTweaks.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxTweaks.Name = "checkedListBoxTweaks";
             this.checkedListBoxTweaks.RightToLeft = System.Windows.Forms.RightToLeft.No;

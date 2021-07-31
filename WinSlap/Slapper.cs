@@ -871,6 +871,12 @@ namespace WinSlap
             key.SetValue("SubscribedContent-310093Enabled", "0", RegistryValueKind.DWord);
         }
 
+        public static void DisableAeroShake()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced", true);
+            key.SetValue("DisallowShaking", "1", RegistryValueKind.DWord);
+        }
+
         public static void DisableEdgeFirstRunPage()
         {
             Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\MicrosoftEdge");
