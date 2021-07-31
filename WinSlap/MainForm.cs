@@ -408,6 +408,9 @@ namespace WinSlap
                     case "Disable Windows Defender submitting sample files":
                         Slapper.DisableDefenderSampleFiles();
                         break;
+                    case "Disable Windows Backup notification":
+                        Slapper.DisableWindowsBackupNotification();
+                        break;
                     case "Install 7Zip":
                         Slapper.Install7Zip();
                         break;

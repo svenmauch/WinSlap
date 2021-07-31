@@ -1042,6 +1042,12 @@ namespace WinSlap
             key.SetValue("SubmitSamplesConsent", "2", RegistryValueKind.DWord);
         }
 
+        public static void DisableWindowsBackupNotification()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings", true);
+            key.SetValue("Windows.SystemToast.BackupReminder", "0", RegistryValueKind.DWord);
+        }
+
         public static void DisableRemoteAssistance()
         {
             RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Remote Assistance", true);
