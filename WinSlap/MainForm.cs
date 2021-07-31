@@ -579,6 +579,9 @@ namespace WinSlap
                     case "Uninstall Internet Explorer":
                         Slapper.UninstallInternetExplorer();
                         break;
+                    case "Enable Storage Sense":
+                        Slapper.EnableStorageSense();
+                        break;
                     default:
                         string caption = "Something went wrong...";
                         string errorMessage = "Item not found (" + boxcontent + ")\n\nPlease report this issue on GitHub. Slapping will continue after closing this message.";

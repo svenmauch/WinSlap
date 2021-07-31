@@ -877,6 +877,13 @@ namespace WinSlap
             key.SetValue("DisallowShaking", "1", RegistryValueKind.DWord);
         }
 
+        public static void EnableStorageSense()
+        {
+            Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\StorageSense");
+            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\StorageSense", true);
+            key.SetValue("AllowStorageSenseGlobal", "1", RegistryValueKind.DWord);
+        }
+
         public static void DisableEdgeFirstRunPage()
         {
             Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\MicrosoftEdge");

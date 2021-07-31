@@ -421,7 +421,8 @@
             "Disable Teredo tunneling",
             "Disable Intra-Site Automatic Tunnel Addressing Protocol",
             "Enable Windows Subsystem for Linux",
-            "Uninstall Internet Explorer"});
+            "Uninstall Internet Explorer",
+            "Enable Storage Sense"});
             this.checkedListBoxAdvanced.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxAdvanced.Name = "checkedListBoxAdvanced";
             this.checkedListBoxAdvanced.ScrollAlwaysVisible = true;
