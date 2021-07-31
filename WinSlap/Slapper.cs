@@ -883,6 +883,13 @@ namespace WinSlap
             key.SetValue("SubscribedContent-353698Enabled", "0", RegistryValueKind.DWord);
         }
 
+        public static void DisableTypingInsights()
+        {
+            Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Input\Settings");
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Input\Settings", true);
+            key.SetValue("InsightsEnabled", "0", RegistryValueKind.DWord);
+        }
+
         public static void EnableStorageSense()
         {
             Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\StorageSense");

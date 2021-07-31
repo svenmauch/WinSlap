@@ -192,7 +192,8 @@
             "Disable reminders and incoming VoIP calls on the lock screen",
             "Disable Windows welcome experience",
             "Disable Aero Shake",
-            "Disable suggestions in timeline"});
+            "Disable suggestions in timeline",
+            "Disable typing insights"});
             this.checkedListBoxTweaks.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxTweaks.Name = "checkedListBoxTweaks";
             this.checkedListBoxTweaks.RightToLeft = System.Windows.Forms.RightToLeft.No;

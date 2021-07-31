@@ -387,6 +387,9 @@ namespace WinSlap
                     case "Disable suggestions in timeline":
                         Slapper.DisableTimelineSuggestions();
                         break;
+                    case "Disable typing insights":
+                        Slapper.DisableTypingInsights();
+                        break;
                     case "Install 7Zip":
                         Slapper.Install7Zip();
                         break;
