@@ -378,6 +378,9 @@ namespace WinSlap
                     case "Disable reminders and incoming VoIP calls on the lock screen":
                         Slapper.DisableRemindersAndCallsOnLockScreen();
                         break;
+                    case "Disable Windows welcome experience":
+                        Slapper.DisableWelcomeExperience();
+                        break;
                     case "Install 7Zip":
                         Slapper.Install7Zip();
                         break;

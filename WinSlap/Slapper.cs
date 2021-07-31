@@ -865,6 +865,12 @@ namespace WinSlap
             key.SetValue("NOC_GLOBAL_SETTING_ALLOW_CRITICAL_TOASTS_ABOVE_LOCK", "0", RegistryValueKind.DWord);
         }
 
+        public static void DisableWelcomeExperience()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", true);
+            key.SetValue("SubscribedContent-310093Enabled", "0", RegistryValueKind.DWord);
+        }
+
         public static void DisableEdgeFirstRunPage()
         {
             Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\MicrosoftEdge");
