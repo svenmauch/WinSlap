@@ -853,6 +853,12 @@ namespace WinSlap
             key3.SetValue("EnableSmartScreen", "0", RegistryValueKind.DWord);
         }
 
+        public static void DisableNotificationOnLockScreen()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings", true);
+            key.SetValue("NOC_GLOBAL_SETTING_ALLOW_TOASTS_ABOVE_LOCK", "0", RegistryValueKind.DWord);
+        }
+
         public static void DisableEdgeFirstRunPage()
         {
             Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\MicrosoftEdge");

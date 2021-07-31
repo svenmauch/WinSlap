@@ -372,6 +372,9 @@ namespace WinSlap
                     case "Hide News and interests in taskbar":
                         Slapper.HideNewsAndInterests();
                         break;
+                    case "Disable notifications on the lock screen":
+                        Slapper.DisableNotificationOnLockScreen();
+                        break;
                     case "Install 7Zip":
                         Slapper.Install7Zip();
                         break;
