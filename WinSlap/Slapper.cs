@@ -877,6 +877,12 @@ namespace WinSlap
             key.SetValue("DisallowShaking", "1", RegistryValueKind.DWord);
         }
 
+        public static void DisableTimelineSuggestions()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", true);
+            key.SetValue("SubscribedContent-353698Enabled", "0", RegistryValueKind.DWord);
+        }
+
         public static void EnableStorageSense()
         {
             Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\StorageSense");

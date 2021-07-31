@@ -384,6 +384,9 @@ namespace WinSlap
                     case "Disable Aero Shake":
                         Slapper.DisableAeroShake();
                         break;
+                    case "Disable suggestions in timeline":
+                        Slapper.DisableTimelineSuggestions();
+                        break;
                     case "Install 7Zip":
                         Slapper.Install7Zip();
                         break;
