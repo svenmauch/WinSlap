@@ -430,7 +430,8 @@
             "Disable Intra-Site Automatic Tunnel Addressing Protocol",
             "Enable Windows Subsystem for Linux",
             "Uninstall Internet Explorer",
-            "Enable Storage Sense"});
+            "Enable Storage Sense",
+            "Disable fast startup"});
             this.checkedListBoxAdvanced.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxAdvanced.Name = "checkedListBoxAdvanced";
             this.checkedListBoxAdvanced.ScrollAlwaysVisible = true;

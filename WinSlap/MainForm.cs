@@ -606,6 +606,9 @@ namespace WinSlap
                     case "Enable Storage Sense":
                         Slapper.EnableStorageSense();
                         break;
+                    case "Disable fast startup":
+                        Slapper.DisableFastStartup();
+                        break;
                     default:
                         string caption = "Something went wrong...";
                         string errorMessage = "Item not found (" + boxcontent + ")\n\nPlease report this issue on GitHub. Slapping will continue after closing this message.";

@@ -1042,6 +1042,12 @@ namespace WinSlap
             key.SetValue("SubmitSamplesConsent", "2", RegistryValueKind.DWord);
         }
 
+        public static void DisableFastStartup()
+        {
+            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Power", true);
+            key.SetValue("HiberbootEnabled", "1", RegistryValueKind.DWord);
+        }
+
         public static void DisableRemoteAssistance()
         {
             RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Remote Assistance", true);
