@@ -1495,6 +1495,16 @@ namespace WinSlap
             WinGetInstall("Microsoft.WindowsTerminal");
         }
 
+        public static void InstallWireguard()
+        {
+            WinGetInstall("Wireguard.Wireguard");
+        }
+
+        public static void InstallAnyDesk()
+        {
+            WinGetInstall("AnyDeskSoftwareGmbH.AnyDeskMSI");
+        }
+
         public static void InstallWireshark()
         {
             WinGetInstall("WiresharkFoundation.Wireshark");

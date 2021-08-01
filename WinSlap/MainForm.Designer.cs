@@ -343,6 +343,7 @@
             this.checkedListBoxSoftware.Items.AddRange(new object[] {
             "Install 7Zip",
             "Install Adobe Acrobat Reader DC",
+            "Install AnyDesk",
             "Install Audacity",
             "Install BalenaEtcher",
             "Install calibre",
@@ -389,6 +390,7 @@
             "Install WinRAR",
             "Install WinSCP",
             "Install Windows Terminal",
+            "Install Wireguard",
             "Install Wireshark",
             "Install Zoom"});
             this.checkedListBoxSoftware.Location = new System.Drawing.Point(2, 33);

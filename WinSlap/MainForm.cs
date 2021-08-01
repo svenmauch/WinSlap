@@ -414,6 +414,9 @@ namespace WinSlap
                     case "Install Adobe Acrobat Reader DC":
                         Slapper.InstallAdobeReaderDC();
                         break;
+                    case "Install AnyDesk":
+                        Slapper.InstallAnyDesk();
+                        break;
                     case "Install Audacity":
                         Slapper.InstallAudacity();
                         break;
@@ -566,6 +569,9 @@ namespace WinSlap
                         break;
                     case "Install Windows Terminal":
                         Slapper.InstallWindowsTerminal();
+                        break;
+                    case "Install Wireguard":
+                        Slapper.InstallWireguard();
                         break;
                     case "Install Wireshark":
                         Slapper.InstallWireshark();
