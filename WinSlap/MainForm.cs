@@ -609,6 +609,9 @@ namespace WinSlap
                     case "Disable fast startup":
                         Slapper.DisableFastStartup();
                         break;
+                    case "Disable mouse pointer acceleration":
+                        Slapper.DisableMousePointerAcceleration();
+                        break;
                     default:
                         string caption = "Something went wrong...";
                         string errorMessage = "Item not found (" + boxcontent + ")\n\nPlease report this issue on GitHub. Slapping will continue after closing this message.";

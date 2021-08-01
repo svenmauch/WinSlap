@@ -1042,6 +1042,14 @@ namespace WinSlap
             key.SetValue("SubmitSamplesConsent", "2", RegistryValueKind.DWord);
         }
 
+        public static void DisableMousePointerAcceleration()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Mouse", true);
+            key.SetValue("MouseSpeed", "0", RegistryValueKind.DWord);
+            key.SetValue("MouseThreshold1", "0", RegistryValueKind.DWord);
+            key.SetValue("MouseThreshold2", "0", RegistryValueKind.DWord);
+        }
+
         public static void DisableFastStartup()
         {
             RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Power", true);

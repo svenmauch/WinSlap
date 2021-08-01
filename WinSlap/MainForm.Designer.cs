@@ -431,7 +431,8 @@
             "Enable Windows Subsystem for Linux",
             "Uninstall Internet Explorer",
             "Enable Storage Sense",
-            "Disable fast startup"});
+            "Disable fast startup",
+            "Disable mouse pointer acceleration"});
             this.checkedListBoxAdvanced.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxAdvanced.Name = "checkedListBoxAdvanced";
             this.checkedListBoxAdvanced.ScrollAlwaysVisible = true;
