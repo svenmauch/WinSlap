@@ -91,6 +91,18 @@ WinSlap is currently developed for and tested against **Windows 10 Pro 21H1 (64-
   - Disable Windows Media DRM internet access
   - Disable Get even more out of Windows screen
   - Set power plan to high performance
+  - Disable notifications on the lock screen
+  - Disable reminders and incoming VoIP calls on the lock screen
+  - Disable Windows welcome experience
+  - Disable Aero Shake
+  - Disable suggestions in timeline
+  - Disable typing insights
+  - Disable spell checker
+  - Disable text suggestions on the software keyboard
+  - Disable SafeSearch
+  - nDisable suggested content in settings app
+  - Disable automatic login after finishing updates
+  - Disable Windows Defender submitting sample files
 
 ### Appeareance
 
@@ -109,11 +121,13 @@ WinSlap is currently developed for and tested against **Windows 10 Pro 21H1 (64-
   - Remove Microsoft Edge desktop shortcut
   - Disable Lockscreen Blur
   - Hide Meet Now icon in taskbar
+  - Hide News and interests in taskbar
 
 ### Software
 
   - Install 7Zip
   - Install Adobe Acrobat Reader DC
+  - Install AnyDesk
   - Install Audacity
   - Install BalenaEtcher
   - Install calibre
@@ -159,6 +173,7 @@ WinSlap is currently developed for and tested against **Windows 10 Pro 21H1 (64-
   - Install WinRAR
   - Install WinSCP
   - Install Windows Terminal
+  - Install Wireguard
   - Install Wireshark
   - Install Zoom
 
@@ -174,3 +189,6 @@ WinSlap is currently developed for and tested against **Windows 10 Pro 21H1 (64-
   - Disable Intra-Site Automatic Tunnel Addressing Protocol
   - Enable Windows Subsystem for Linux
   - Uninstall Internet Explorer
+  - Enable Storage Sense
+  - Disable fast startup
+  - Disable mouse pointer acceleration
