@@ -909,6 +909,13 @@ namespace WinSlap
             key.SetValue("SafeSearchMode", "0", RegistryValueKind.DWord);
         }
 
+        public static void UseWin10RibbonExplorer()
+        {
+            Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked");
+            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked", true);
+            key.SetValue("{e2bf9676-5f8f-435c-97eb-11607a5bedf7}", "", RegistryValueKind.String);
+        }
+
         public static void DisableSuggestedContentInSettings()
         {
             RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", true);

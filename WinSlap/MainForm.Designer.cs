@@ -316,7 +316,8 @@
             "Always show file name extensions",
             "Remove OneDrive from File Explorer",
             "Delete quicklaunch items",
-            "Remove Microsoft Edge desktop shortcut"});
+            "Remove Microsoft Edge desktop shortcut",
+            "Use Windows 10 ribbon bar in Windows Explorer"});
             this.checkedListBoxWin11Appearance.Location = new System.Drawing.Point(2, 33);
             this.checkedListBoxWin11Appearance.Name = "checkedListBoxWin11Appearance";
             this.checkedListBoxWin11Appearance.RightToLeft = System.Windows.Forms.RightToLeft.No;

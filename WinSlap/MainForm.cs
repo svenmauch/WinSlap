@@ -432,6 +432,9 @@ namespace WinSlap
                     case "Disable Windows Defender submitting sample files":
                         Slapper.DisableDefenderSampleFiles();
                         break;
+                    case "Use Windows 10 ribbon bar in Windows Explorer":
+                        Slapper.UseWin10RibbonExplorer();
+                        break;
                     case "Install 7Zip":
                         Slapper.Install7Zip();
                         break;
