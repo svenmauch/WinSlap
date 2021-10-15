@@ -1,6 +1,6 @@
 ﻿namespace WinSlap
 {
-    class Globals
+    static class Globals
     {
         public static string winmajor; // 10, 11
         public static int winbuild; // 19043, 22000

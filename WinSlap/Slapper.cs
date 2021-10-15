@@ -37,7 +37,7 @@ namespace WinSlap
                     catch (WebException)
                     {
                         string caption = "Something went wrong...";
-                        string errorMessage = "A WebException occured trying to download from the following URL:\n\n" + url + "\n\nPlease check your network connection and report this issue on GitHub if the error persists";
+                        string errorMessage = $"A WebException occured trying to download from the following URL:\n\n{url}\n\nPlease check your network connection and report this issue on GitHub if the error persists";
                         result = MessageBox.Show(errorMessage, caption, MessageBoxButtons.AbortRetryIgnore);
                         if (result == DialogResult.Abort) Application.Exit();
                     }
@@ -1203,7 +1203,7 @@ namespace WinSlap
                     catch (WebException)
                     {
                         string caption = "Something went wrong...";
-                        string errorMessage = "A WebException occured trying to download from the following URL:\n\n" + url + "\n\nPlease check your network connection and report this issue on GitHub if the error persists";
+                        string errorMessage = $"A WebException occured trying to download from the following URL:\n\n{url}\n\nPlease check your network connection and report this issue on GitHub if the error persists";
                         result = MessageBox.Show(errorMessage, caption, MessageBoxButtons.AbortRetryIgnore);
                         if (result == DialogResult.Abort) Application.Exit();
                     }
