@@ -21,15 +21,26 @@ namespace WinSlap
 
             if (vs.Major != 10)
             {
-                MessageBox.Show("WinSlap currently only supports Windows 10.", "Unsupported OS", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("WinSlap only supports Windows 10 and Windows 11.", "Unsupported OS", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 Application.Exit();
             }
 
-            string win10version = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "DisplayVersion", "").ToString();
+            Globals.winrelease = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "DisplayVersion", "").ToString();
+            Globals.winbuild = Int32.Parse(Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "CurrentBuild", "").ToString());
 
-            if (win10version != "21H1")
+
+            if (Globals.winbuild >= 22000)
             {
-                MessageBox.Show("WinSlap 1.6 is developed for Windows 10 (21H1).\nThis PC is running Windows 10 (" + win10version + ").\nPlease proceed with caution.", "Untested OS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Globals.winmajor = "11";
+            }
+            else
+            {
+                Globals.winmajor = "10";
+            }
+
+            if (Globals.winbuild < 19043 || Globals.winbuild > 22000)
+            {
+                MessageBox.Show("WinSlap 1.6 is developed for Windows 10 (21H1) and Windows 11 (21H2).\nThis PC is running Windows " + Globals.winmajor + " (" + Globals.winrelease + ").\nPlease proceed with caution.", "Untested OS", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             Application.Run(new MainForm(args));

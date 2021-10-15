@@ -100,6 +100,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Globals.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="HardwareInfo.cs" />
     <Compile Include="Program.cs" />

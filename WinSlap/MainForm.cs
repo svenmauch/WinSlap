@@ -38,14 +38,30 @@ namespace WinSlap
         // ToDo: implement cancel check
         void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            object[] arrayTweaks = checkedListBoxTweaks.CheckedItems.OfType<object>().ToArray();
-            object[] arrayAppearance = checkedListBoxAppearance.CheckedItems.OfType<object>().ToArray();
-            object[] arraySoftware = checkedListBoxSoftware.CheckedItems.OfType<object>().ToArray();
-            object[] arrayAdvanced = checkedListBoxAdvanced.CheckedItems.OfType<object>().ToArray();
+            object[] items;
+            int totalCheckedItems;
+            if (Globals.winmajor == "11")
+            {
+                object[] arrayTweaks = checkedListBoxWin11Tweaks.CheckedItems.OfType<object>().ToArray();
+                object[] arrayAppearance = checkedListBoxWin11Appearance.CheckedItems.OfType<object>().ToArray();
+                object[] arraySoftware = checkedListBoxWin11Software.CheckedItems.OfType<object>().ToArray();
+                object[] arrayAdvanced = checkedListBoxWin11Advanced.CheckedItems.OfType<object>().ToArray();
 
-            object[] items = arrayTweaks.Concat(arrayAppearance).Concat(arraySoftware).Concat(arrayAdvanced).ToArray();
+                items = arrayTweaks.Concat(arrayAppearance).Concat(arraySoftware).Concat(arrayAdvanced).ToArray();
 
-            int totalCheckedItems = checkedListBoxTweaks.CheckedItems.Count + checkedListBoxSoftware.CheckedItems.Count + checkedListBoxAdvanced.CheckedItems.Count + checkedListBoxAppearance.CheckedItems.Count;
+                totalCheckedItems = checkedListBoxWin11Tweaks.CheckedItems.Count + checkedListBoxWin11Software.CheckedItems.Count + checkedListBoxWin11Advanced.CheckedItems.Count + checkedListBoxWin11Appearance.CheckedItems.Count;
+            } else
+            {
+                object[] arrayTweaks = checkedListBoxWin10Tweaks.CheckedItems.OfType<object>().ToArray();
+                object[] arrayAppearance = checkedListBoxWin10Appearance.CheckedItems.OfType<object>().ToArray();
+                object[] arraySoftware = checkedListBoxWin10Software.CheckedItems.OfType<object>().ToArray();
+                object[] arrayAdvanced = checkedListBoxWin10Advanced.CheckedItems.OfType<object>().ToArray();
+
+                items = arrayTweaks.Concat(arrayAppearance).Concat(arraySoftware).Concat(arrayAdvanced).ToArray();
+
+                totalCheckedItems = checkedListBoxWin10Tweaks.CheckedItems.Count + checkedListBoxWin10Software.CheckedItems.Count + checkedListBoxWin10Advanced.CheckedItems.Count + checkedListBoxWin10Appearance.CheckedItems.Count;
+            }
+
             int totalItemsDone = 0;
             double progresspercent;
             int progress = 0;
@@ -86,7 +102,15 @@ namespace WinSlap
         {
             if (ModifierKeys == Keys.Shift) _restart = false;
 
-            int totalCheckedItems = checkedListBoxTweaks.CheckedItems.Count + checkedListBoxSoftware.CheckedItems.Count + checkedListBoxAdvanced.CheckedItems.Count + checkedListBoxAppearance.CheckedItems.Count;
+            int totalCheckedItems;
+            if (Globals.winmajor == "11")
+            {
+                totalCheckedItems = checkedListBoxWin11Tweaks.CheckedItems.Count + checkedListBoxWin11Software.CheckedItems.Count + checkedListBoxWin11Advanced.CheckedItems.Count + checkedListBoxWin11Appearance.CheckedItems.Count;
+            } else
+            {
+                totalCheckedItems = checkedListBoxWin10Tweaks.CheckedItems.Count + checkedListBoxWin10Software.CheckedItems.Count + checkedListBoxWin10Advanced.CheckedItems.Count + checkedListBoxWin10Appearance.CheckedItems.Count;
+            }
+
             if (totalCheckedItems == 0)
             {
                 string caption = "Notice";
@@ -106,7 +130,7 @@ namespace WinSlap
 
         private void ApplySlap(string boxcontent)
         {
-            if (checkedListBoxSoftware.CheckedItems.Count != 0)
+            if (checkedListBoxWin10Software.CheckedItems.Count != 0 || checkedListBoxWin11Software.CheckedItems.Count != 0)
             {
                 Slapper.InstallWinGet();
             }
@@ -641,8 +665,17 @@ namespace WinSlap
             AppDomain.CurrentDomain.ProcessExit += OnProcessExit;
             Directory.CreateDirectory(Tmpfolder);
 
-            string win10release = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "DisplayVersion", "").ToString();
-            labelOS.Text = "Windows 10 (" + win10release + ")";
+            labelOS.Text = $"Windows {Globals.winmajor} ({Globals.winrelease})";
+
+            if (Globals.winmajor == "11")
+            {
+                tabControlWin11.Visible = true;
+                tabControlWin10.Visible = false;
+            } else
+            {
+                tabControlWin11.Visible = false;
+                tabControlWin10.Visible = true;
+            }
         }
 
         private static void RestartNow()
@@ -688,32 +721,32 @@ namespace WinSlap
 
         private void ButtonUncheckTweaks_Click(object sender, EventArgs e)
         {
-            CheckAll(checkedListBoxTweaks, false);
+            CheckAll(checkedListBoxWin11Tweaks, false);
         }
 
         private void ButtonCheckTweaks_Click(object sender, EventArgs e)
         {
-            CheckAll(checkedListBoxTweaks, true);
+            CheckAll(checkedListBoxWin11Tweaks, true);
         }
 
         private void ButtonCheckSoftware_Click(object sender, EventArgs e)
         {
-            CheckAll(checkedListBoxSoftware, true);
+            CheckAll(checkedListBoxWin11Software, true);
         }
 
         private void ButtonUncheckSoftware_Click(object sender, EventArgs e)
         {
-            CheckAll(checkedListBoxSoftware, false);
+            CheckAll(checkedListBoxWin11Software, false);
         }
 
         private void ButtonCheckAdvanced_Click(object sender, EventArgs e)
         {
-            CheckAll(checkedListBoxAdvanced, true);
+            CheckAll(checkedListBoxWin11Advanced, true);
         }
 
         private void ButtonUncheckAdvanced_Click(object sender, EventArgs e)
         {
-            CheckAll(checkedListBoxAdvanced, false);
+            CheckAll(checkedListBoxWin11Advanced, false);
         }
 
         private void CheckAll(CheckedListBox list, bool check)
@@ -726,17 +759,57 @@ namespace WinSlap
 
         private void ButtonCheckAppearance_Click(object sender, EventArgs e)
         {
-            CheckAll(checkedListBoxAppearance, true);
+            CheckAll(checkedListBoxWin11Appearance, true);
         }
 
         private void ButtonUncheckAppearance_Click(object sender, EventArgs e)
         {
-            CheckAll(checkedListBoxAppearance, false);
+            CheckAll(checkedListBoxWin11Appearance, false);
         }
 
         private void LinkGitHub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/svenmauch/WinSlap");
+        }
+
+        private void buttonWin10CheckTweaks_Click(object sender, EventArgs e)
+        {
+            CheckAll(checkedListBoxWin10Tweaks, true);
+        }
+
+        private void buttonWin10UncheckTweaks_Click(object sender, EventArgs e)
+        {
+            CheckAll(checkedListBoxWin10Tweaks, false);
+        }
+
+        private void buttonWin10CheckAppearance_Click(object sender, EventArgs e)
+        {
+            CheckAll(checkedListBoxWin10Appearance, true);
+        }
+
+        private void buttonWin10UncheackAppearance_Click(object sender, EventArgs e)
+        {
+            CheckAll(checkedListBoxWin10Appearance, false);
+        }
+
+        private void buttonWin10CheckSoftware_Click(object sender, EventArgs e)
+        {
+            CheckAll(checkedListBoxWin10Software, true);
+        }
+
+        private void buttonWin10UncheckSoftware_Click(object sender, EventArgs e)
+        {
+            CheckAll(checkedListBoxWin10Software, false);
+        }
+
+        private void buttonWin10CheckAdvanced_Click(object sender, EventArgs e)
+        {
+            CheckAll(checkedListBoxWin10Advanced, true);
+        }
+
+        private void buttonWin10UncheckAdvanced_Click(object sender, EventArgs e)
+        {
+            CheckAll(checkedListBoxWin10Advanced, false);
         }
     }
 }
