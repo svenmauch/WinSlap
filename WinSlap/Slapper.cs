@@ -1244,7 +1244,7 @@ namespace WinSlap
 
         public static void InstallAdobeReaderDC()
         {
-            WinGetInstall("Adobe.AdobeAcrobatReaderDC");
+            WinGetInstall("Adobe.Acrobat.Reader.64-bit");
         }
 
         public static void InstallAudacity()
@@ -1304,7 +1304,7 @@ namespace WinSlap
 
         public static void InstallFileZilla()
         {
-            WinGetInstall("TimKosse.FileZillaClient");
+            WinGetInstall("TimKosse.FileZilla.Client");
         }
 
         public static void InstallGIMP()
@@ -1422,7 +1422,7 @@ namespace WinSlap
 
         public static void InstallPython()
         {
-            WinGetInstall("Python.Python");
+            WinGetInstall("Python.Python.3");
         }
 
         public static void InstallSkype()
@@ -1521,7 +1521,7 @@ namespace WinSlap
 
         public static void InstallAnyDesk()
         {
-            WinGetInstall("AnyDeskSoftwareGmbH.AnyDeskMSI");
+            WinGetInstall("AnyDeskSoftwareGmbH.AnyDesk");
         }
 
         public static void InstallWireshark()
