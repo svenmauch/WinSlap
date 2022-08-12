@@ -1257,11 +1257,6 @@ namespace WinSlap
             WinGetInstall("Balena.Etcher");
         }
 
-        public static void InstallBattleNet()
-        {
-            WinGetInstall("Blizzard.BattleNet");
-        }
-
         public static void InstallCalibre()
         {
             WinGetInstall("calibre.calibre");
@@ -1360,11 +1355,6 @@ namespace WinSlap
             key.DeleteValue("KeePassXC", false);
         }
 
-        public static void InstallLeagueOfLegends()
-        {
-            WinGetInstall("RiotGames.LeagueOfLegends");
-        }
-
         public static void InstallLibreOffice()
         {
             WinGetInstall("TheDocumentFoundation.LibreOffice");
@@ -1403,11 +1393,6 @@ namespace WinSlap
         public static void InstallOpenVPNConnect()
         {
             WinGetInstall("OpenVPNTechnologies.OpenVPNConnect");
-        }
-
-        public static void InstallOrigin()
-        {
-            WinGetInstall("ElectronicArts.Origin");
         }
 
         public static void InstallPowerToys()
@@ -1471,12 +1456,6 @@ namespace WinSlap
         public static void InstallTelegram()
         {
             WinGetInstall("Telegram.TelegramDesktop");
-        }
-
-        public static void InstallTwitch()
-        {
-            WinGetInstall("twitch.twitch");
-            File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\Twitch.lnk");
         }
 
         public static void InstallUbisoftConnect()
