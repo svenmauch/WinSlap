@@ -462,9 +462,6 @@ namespace WinSlap
                     case "Install BalenaEtcher":
                         Slapper.InstallBalenaEtcher();
                         break;
-                    case "Install Battle.Net":
-                        Slapper.InstallBattleNet();
-                        break;
                     case "Install calibre":
                         Slapper.InstallCalibre();
                         break;
@@ -519,9 +516,6 @@ namespace WinSlap
                     case "Install KeePassXC":
                         Slapper.InstallKeePassXC();
                         break;
-                    case "Install League Of Legends":
-                        Slapper.InstallLeagueOfLegends();
-                        break;
                     case "Install LibreOffice":
                         Slapper.InstallLibreOffice();
                         break;
@@ -548,9 +542,6 @@ namespace WinSlap
                         break;
                     case "Install OpenVPN Connect":
                         Slapper.InstallOpenVPNConnect();
-                        break;
-                    case "Install Origin":
-                        Slapper.InstallOrigin();
                         break;
                     case "Install PowerToys":
                         Slapper.InstallPowerToys();
@@ -587,9 +578,6 @@ namespace WinSlap
                         break;
                     case "Install Telegram":
                         Slapper.InstallTelegram();
-                        break;
-                    case "Install Twitch":
-                        Slapper.InstallTwitch();
                         break;
                     case "Install Ubisoft Connect":
                         Slapper.InstallUbisoftConnect();
