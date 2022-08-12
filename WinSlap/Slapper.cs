@@ -1224,7 +1224,7 @@ namespace WinSlap
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.WindowStyle = ProcessWindowStyle.Hidden;
             startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = "/C winget install --silent --id " + packageid;
+            startInfo.Arguments = "/C winget install --silent --accept-package-agreements --accept-source-agreements --id " + packageid;
             process.StartInfo = startInfo;
             process.Start();
             process.WaitForExit();
