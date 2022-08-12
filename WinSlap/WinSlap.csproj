@@ -148,7 +148,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Resources\delapps.ps1" />
-    <None Include="Resources\delapps1.ps1" />
     <None Include="Resources\photoviewer.ps1" />
     <None Include="Resources\preventpreinstallingapps.ps1" />
     <None Include="Resources\startlayout" />
