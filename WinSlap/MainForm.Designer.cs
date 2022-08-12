@@ -440,7 +440,7 @@
             "Install Python",
             "Install Slack",
             "Install Speccy",
-            "Install StartIsBack++",
+            "Install StartAllBack",
             "Install Steam",
             "Install TeamViewer",
             "Install TeamSpeak",

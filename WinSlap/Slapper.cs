@@ -1445,6 +1445,11 @@ namespace WinSlap
             WinGetInstall("StartIsBack.StartIsBack");
         }
 
+        public static void InstallStartAllBack()
+        {
+            WinGetInstall("StartIsBack.StartAllBack");
+        }
+
         public static void InstallSteam()
         {
             WinGetInstall("Valve.Steam");

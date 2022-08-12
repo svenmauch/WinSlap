@@ -570,6 +570,9 @@ namespace WinSlap
                     case "Install Speccy":
                         Slapper.InstallSpeccy();
                         break;
+                    case "Install StartAllBack":
+                        Slapper.InstallStartAllBack();
+                        break;
                     case "Install StartIsBack++":
                         Slapper.InstallStartIsBack();
                         break;
