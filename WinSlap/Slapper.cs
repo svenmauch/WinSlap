@@ -1180,7 +1180,7 @@ namespace WinSlap
 
         public static void InstallWinGet()
         {
-            String url = "https://github.com/microsoft/winget-cli/releases/download/v1.0.11692/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle";
+            String url = "https://github.com/microsoft/winget-cli/releases/download/v1.3.2091/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle";
             using (WebClient client = new WebClient())
             {
                 FileInfo file = new FileInfo(MainForm.Tmpfolder + "winget.msixbundle");
@@ -1224,14 +1224,7 @@ namespace WinSlap
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.WindowStyle = ProcessWindowStyle.Hidden;
             startInfo.FileName = "cmd.exe";
-            if (Globals.winmajor == "11")
-            {
-                startInfo.Arguments = "/C winget install --silent --accept-package-agreements --accept-source-agreements --id " + packageid;
-            }
-            else
-            {
-                startInfo.Arguments = "/C winget install --silent --id " + packageid;
-            }
+            startInfo.Arguments = "/C winget install --silent --accept-package-agreements --accept-source-agreements --id " + packageid;
             process.StartInfo = startInfo;
             process.Start();
             process.WaitForExit();

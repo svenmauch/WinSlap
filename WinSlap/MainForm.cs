@@ -129,15 +129,31 @@ namespace WinSlap
 
             if (checkedListBoxWin10Software.CheckedItems.Count != 0 || checkedListBoxWin11Software.CheckedItems.Count != 0)
             {
-                Process process = new Process();
-                ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                startInfo.FileName = "cmd.exe";
-                startInfo.Arguments = "/C where winget";
-                process.StartInfo = startInfo;
-                process.Start();
-                process.WaitForExit();
-                if (process.ExitCode != 0)
+                Process process1 = new Process();
+                ProcessStartInfo startInfo1 = new ProcessStartInfo();
+                startInfo1.WindowStyle = ProcessWindowStyle.Hidden;
+                startInfo1.FileName = "cmd.exe";
+                startInfo1.Arguments = "/C where winget";
+                process1.StartInfo = startInfo1;
+                process1.Start();
+                process1.WaitForExit();
+                if (process1.ExitCode != 0)
+                {
+                    Slapper.InstallWinGet();
+                }
+
+                Process process2 = new Process();
+                ProcessStartInfo startInfo2 = new ProcessStartInfo();
+                startInfo2.WindowStyle = ProcessWindowStyle.Hidden;
+                startInfo2.FileName = "cmd.exe";
+                startInfo2.Arguments = "/C winget --version";
+                startInfo2.UseShellExecute = false;
+                startInfo2.RedirectStandardOutput = true;
+                process2.StartInfo = startInfo2;
+                process2.Start();
+                string output2 = process2.StandardOutput.ReadToEnd();
+                process2.WaitForExit();
+                if (output2.Contains("v1.0") || output2.Contains("v1.1") || output2.Contains("v1.2"))
                 {
                     Slapper.InstallWinGet();
                 }
@@ -150,6 +166,9 @@ namespace WinSlap
             {
                 switch (boxcontent)
                 {
+                    case "Remove preinstalled apps except Photos, Calculator, Store":
+                        Slapper.RemovePreinstalledApps();
+                        break;
                     case "Disable Shared Experiences":
                         Slapper.DisableSharedExperiences();
                         break;
@@ -258,12 +277,6 @@ namespace WinSlap
                     case "Hide 3D Objects from File Explorer":
                         Slapper.Hide3DObjectsFileExplorer();
                         break;
-                    case "Remove preinstalled apps except Photos, Calculator, Store":
-                        Slapper.RemovePreinstalledApps();
-                        break;
-                    case "Update Windows Store apps":
-                        Slapper.UpdateStoreApps();
-                        break;
                     case "Prevent preinstalling apps for new users":
                         Slapper.PreventPreinstallingApps();
                         break;
@@ -314,6 +327,9 @@ namespace WinSlap
                         break;
                     case "Install .NET Framework 2.0, 3.0 and 3.5":
                         Slapper.InstallNetFrameworks();
+                        break;
+                    case "Update Windows Store apps":
+                        Slapper.UpdateStoreApps();
                         break;
                     case "Enable Windows Photo Viewer":
                         Slapper.EnablePhotoViewer();
