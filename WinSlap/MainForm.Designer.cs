@@ -448,7 +448,6 @@
             "Install VLC media player",
             "Install WinRAR",
             "Install WinSCP",
-            "Install Windows Terminal",
             "Install Wireguard",
             "Install Wireshark",
             "Install Zoom"});
