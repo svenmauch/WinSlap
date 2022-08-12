@@ -504,9 +504,6 @@ namespace WinSlap
                     case "Install Google Chrome":
                         Slapper.InstallGoogleChrome();
                         break;
-                    case "Install HashTab":
-                        Slapper.InstallHashTab();
-                        break;
                     case "Install Inkscape":
                         Slapper.InstallInkscape();
                         break;
@@ -545,6 +542,9 @@ namespace WinSlap
                         break;
                     case "Install OBS Studio":
                         Slapper.InstallOBSStudio();
+                        break;
+                    case "Install OpenHashTab":
+                        Slapper.InstallOpenHashTab();
                         break;
                     case "Install OpenVPN Connect":
                         Slapper.InstallOpenVPNConnect();

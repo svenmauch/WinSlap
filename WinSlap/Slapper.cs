@@ -1322,9 +1322,9 @@ namespace WinSlap
             WinGetInstall("Google.Chrome");
         }
 
-        public static void InstallHashTab()
+        public static void InstallOpenHashTab()
         {
-            WinGetInstall("Implbits.HashTab");
+            WinGetInstall("namazso.OpenHashTab");
         }
 
         public static void InstallInkscape()
