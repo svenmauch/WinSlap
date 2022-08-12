@@ -129,7 +129,18 @@ namespace WinSlap
 
             if (checkedListBoxWin10Software.CheckedItems.Count != 0 || checkedListBoxWin11Software.CheckedItems.Count != 0)
             {
-                Slapper.InstallWinGet();
+                Process process = new Process();
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                startInfo.FileName = "cmd.exe";
+                startInfo.Arguments = "/C where winget";
+                process.StartInfo = startInfo;
+                process.Start();
+                process.WaitForExit();
+                if (process.ExitCode != 0)
+                {
+                    Slapper.InstallWinGet();
+                }
             }
         }
 
