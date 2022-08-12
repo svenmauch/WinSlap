@@ -126,14 +126,15 @@ namespace WinSlap
             SlapForm.Show();
 
             backgroundWorker1.RunWorkerAsync(300); //300 gives a total of 3 seconds pause
-        }
 
-        private void ApplySlap(string boxcontent)
-        {
             if (checkedListBoxWin10Software.CheckedItems.Count != 0 || checkedListBoxWin11Software.CheckedItems.Count != 0)
             {
                 Slapper.InstallWinGet();
             }
+        }
+
+        private void ApplySlap(string boxcontent)
+        {
             try
             {
                 switch (boxcontent)
