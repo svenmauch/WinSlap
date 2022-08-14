@@ -1228,6 +1228,12 @@ namespace WinSlap
             process.StartInfo = startInfo;
             process.Start();
             process.WaitForExit();
+            if (process.ExitCode != 0)
+            {
+                string caption = "Something went wrong...";
+                string errorMessage = $"WinSlap failed to install the following software using winget: {packageid}\n\nError code: {process.ExitCode}\n\nPlease report this issue on GitHub if the error persists.";
+                MessageBox.Show(new Form { TopMost = true }, errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public static void Install7Zip()
