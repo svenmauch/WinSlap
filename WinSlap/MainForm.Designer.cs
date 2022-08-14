@@ -993,7 +993,7 @@
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WinSlap 1.6";
+            this.Text = "WinSlap 1.7";
             this.Load += new System.EventHandler(this.WinSlap_Load);
             this.tabControlWin11.ResumeLayout(false);
             this.tabTweaks.ResumeLayout(false);
