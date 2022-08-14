@@ -469,9 +469,6 @@ namespace WinSlap
                     case "Install Adobe Acrobat Reader DC":
                         Slapper.InstallAdobeReaderDC();
                         break;
-                    case "Install AnyDesk":
-                        Slapper.InstallAnyDesk();
-                        break;
                     case "Install Audacity":
                         Slapper.InstallAudacity();
                         break;
@@ -526,9 +523,6 @@ namespace WinSlap
                     case "Install Java Runtime Environment":
                         Slapper.InstallJavaRE();
                         break;
-                    case "Install KDE Connect":
-                        Slapper.InstallKDEConnect();
-                        break;
                     case "Install KeePassXC":
                         Slapper.InstallKeePassXC();
                         break;
@@ -576,12 +570,6 @@ namespace WinSlap
                         break;
                     case "Install Speccy":
                         Slapper.InstallSpeccy();
-                        break;
-                    case "Install StartAllBack":
-                        Slapper.InstallStartAllBack();
-                        break;
-                    case "Install StartIsBack++":
-                        Slapper.InstallStartIsBack();
                         break;
                     case "Install Steam":
                         Slapper.InstallSteam();

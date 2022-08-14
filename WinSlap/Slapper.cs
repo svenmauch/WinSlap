@@ -1341,11 +1341,6 @@ namespace WinSlap
             WinGetInstall("Oracle.JavaRuntimeEnvironment");
         }
 
-        public static void InstallKDEConnect()
-        {
-            WinGetInstall("KDE.KDEConnect");
-        }
-
         public static void InstallKeePassXC()
         {
             WinGetInstall("KeePassXCTeam.KeePassXC");
@@ -1424,16 +1419,6 @@ namespace WinSlap
             WinGetInstall("Piriform.Speccy");
         }
 
-        public static void InstallStartIsBack()
-        {
-            WinGetInstall("StartIsBack.StartIsBack");
-        }
-
-        public static void InstallStartAllBack()
-        {
-            WinGetInstall("StartIsBack.StartAllBack");
-        }
-
         public static void InstallSteam()
         {
             WinGetInstall("Valve.Steam");
@@ -1495,11 +1480,6 @@ namespace WinSlap
         public static void InstallWireguard()
         {
             WinGetInstall("Wireguard.Wireguard");
-        }
-
-        public static void InstallAnyDesk()
-        {
-            WinGetInstall("AnyDeskSoftwareGmbH.AnyDesk");
         }
 
         public static void InstallWireshark()
