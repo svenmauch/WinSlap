@@ -15,7 +15,7 @@ WinSlap is primarily developed for my own use cases. Feel free to use it under a
 
 ## Note
 
-WinSlap is currently developed for and tested against **Windows 10 Pro 21H1 (64-bit)** on single-user systems. While it should work on older versions and can work on newer versions or multi-user systems, I have not tested it myself.
+WinSlap is currently developed for and tested against **Windows 10 Pro 21H2 (64-bit)** on single-user systems. While it should work on older versions and can work on newer versions or multi-user systems, I have not tested it myself.
 
 ## Features
 
@@ -127,7 +127,6 @@ WinSlap is currently developed for and tested against **Windows 10 Pro 21H1 (64-
 
   - Install 7Zip
   - Install Adobe Acrobat Reader DC
-  - Install AnyDesk
   - Install Audacity
   - Install BalenaEtcher
   - Install calibre
@@ -144,9 +143,7 @@ WinSlap is currently developed for and tested against **Windows 10 Pro 21H1 (64-
   - Install Inkscape
   - Install Irfanview
   - Install Java Runtime Environment
-  - Install KDE Connect
   - Install KeePassXC
-  - Install League Of Legends
   - Install LibreOffice
   - Install Minecraft
   - Install Mozilla Firefox
@@ -155,18 +152,15 @@ WinSlap is currently developed for and tested against **Windows 10 Pro 21H1 (64-
   - Install Notepad++
   - Install OBS Studio
   - Install OpenVPN Connect
-  - Install Origin
   - Install PowerToys
   - Install PuTTY
   - Install Python
   - Install Slack
   - Install Speccy
-  - Install StartIsBack++
   - Install Steam
   - Install TeamViewer
   - Install TeamSpeak
   - Install Telegram
-  - Install Twitch
   - Install Ubisoft Connect
   - Install VirtualBox
   - Install VLC media player
