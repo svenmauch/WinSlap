@@ -38,9 +38,9 @@ namespace WinSlap
                 Globals.winmajor = "10";
             }
 
-            if (Globals.winbuild < 19043 || Globals.winbuild > 22000)
+            if (Globals.winbuild != 19044 || Globals.winbuild > 22000)
             {
-                MessageBox.Show($"WinSlap 1.7 is developed for Windows 10 (21H1) and Windows 11 (21H2).\nThis PC is running Windows {Globals.winmajor} ({Globals.winrelease}).\nPlease proceed with caution.", "Untested OS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"WinSlap 1.7 is developed for Windows 10 (21H2) and Windows 11 (21H2).\nThis PC is running Windows {Globals.winmajor} ({Globals.winrelease}).\nPlease proceed with caution.", "Untested OS", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             Application.Run(new MainForm(args));
