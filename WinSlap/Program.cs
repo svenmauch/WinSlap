@@ -38,9 +38,9 @@ namespace WinSlap
                 Globals.winmajor = "10";
             }
 
-            if (Globals.winbuild != 19044)
+            if (Globals.winbuild != 19045)
             {
-                MessageBox.Show($"WinSlap 1.7 is developed for Windows 10 (21H2).\nThis PC is running Windows {Globals.winmajor} ({Globals.winrelease}).\nPlease proceed with caution.", "Untested OS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"WinSlap 1.7 is developed for Windows 10 (22H2).\nThis PC is running Windows {Globals.winmajor} ({Globals.winrelease}).\nPlease proceed with caution.", "Untested OS", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             Application.Run(new MainForm(args));
