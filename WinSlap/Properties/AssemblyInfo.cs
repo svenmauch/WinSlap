@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("WinSlap")]
-[assembly: AssemblyCopyright("Copyright © Sven Mauch 2022")]
+[assembly: AssemblyCopyright("Copyright © Sven Mauch 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
