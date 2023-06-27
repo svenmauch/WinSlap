@@ -854,7 +854,8 @@ namespace WinSlap
             Directory.CreateDirectory(tempfolder);
             File.WriteAllBytes(tempfolder + "startlayout.reg", Resources.startlayout);
 
-            UpdateRegistryKey(RegistryHive.HKLM, @"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon", "AutoRestartShell", "0", RegistryValueKind.DWord);
+            Process regeditProcess = Process.Start("regedit.exe", "/s " + tempfolder + "startlayout.reg");
+            regeditProcess.WaitForExit();
 
             var processes = Process.GetProcessesByName("explorer");
             foreach (var process in processes)
@@ -862,13 +863,6 @@ namespace WinSlap
                 process.Kill();
                 process.WaitForExit();
             }
-
-            Process regeditProcess = Process.Start("regedit.exe", "/s " + tempfolder + "startlayout.reg");
-            regeditProcess.WaitForExit();
-
-            Process.Start("explorer");
-
-            UpdateRegistryKey(RegistryHive.HKLM, @"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon", "AutoRestartShell", "1", RegistryValueKind.DWord);
         }
 
         public static void UpdateStoreApps()
