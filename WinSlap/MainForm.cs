@@ -87,7 +87,12 @@ namespace WinSlap
 
             await DoWorkAsync(items, totalCheckedItems, progressIndicator);
 
-            if (_restart) RestartNow();
+            if (_restart)
+            {
+                SlapForm.Dispose();
+                Coffee coffee = new Coffee();
+                coffee.Show();
+            }
             else
             {
                 SlapForm.Dispose();
@@ -684,17 +689,6 @@ namespace WinSlap
                 tabControlWin11.Visible = false;
                 tabControlWin10.Visible = true;
             }
-        }
-
-        private static void RestartNow()
-        {
-            ProcessStartInfo proc = new ProcessStartInfo
-            {
-                FileName = "cmd",
-                WindowStyle = ProcessWindowStyle.Hidden,
-                Arguments = "/C shutdown -f -r -t 0"
-            };
-            Process.Start(proc);
         }
 
         private void OnProcessExit(object sender, EventArgs e)

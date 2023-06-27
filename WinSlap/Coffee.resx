@@ -117,29 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="preventpreinstallingapps" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\preventpreinstallingapps.ps1;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="StartMenuLayout" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\StartMenuLayout;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="photoviewer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\photoviewer.ps1;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="delapps" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delapps.ps1;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="startlayout" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\startlayout;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="coffee-cup-svgrepo-com" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\coffee-cup-svgrepo-com.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="updateapps" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\updateapps.ps1;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="coffee-cup-svgrepo-com1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\coffee-cup-svgrepo-com1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>
