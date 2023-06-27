@@ -912,24 +912,38 @@ namespace WinSlap
 
         public static void InstallWinGet()
         {
-            String url = "https://github.com/microsoft/winget-cli/releases/download/v1.4.11071/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle";
+            String url1 = "https://www.nuget.org/api/v2/package/Microsoft.UI.Xaml/2.7.3";
+            String url2 = "https://github.com/microsoft/winget-cli/releases/download/v1.4.11071/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle";
             using (WebClient client = new WebClient())
             {
-                FileInfo file = new FileInfo(MainForm.Tmpfolder + "winget.msixbundle");
+                FileInfo file1 = new FileInfo(MainForm.Tmpfolder + "microsoft.ui.xaml.zip");
+                FileInfo file2 = new FileInfo(MainForm.Tmpfolder + "winget.msixbundle");
 
                 DialogResult result = DialogResult.Retry;
                 while (result == DialogResult.Retry)
                 {
                     try
                     {
-                        client.DownloadFile(new Uri(url), file.FullName);
+                        client.DownloadFile(new Uri(url1), file1.FullName);
+                        client.DownloadFile(new Uri(url2), file2.FullName);
+
+                        System.IO.Compression.ZipFile.ExtractToDirectory(file1.FullName, MainForm.Tmpfolder + "microsoft-ui-xaml");
 
                         using (PowerShell ps = PowerShell.Create())
                         {
-                            ps.AddScript("Add-AppxPackage -Path " + file.FullName);
+                            ps.AddScript("Add-AppxPackage -Path https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx");
+                            ps.AddScript("Add-AppxPackage -Path " + MainForm.Tmpfolder + @"microsoft-ui-xaml\tools\AppX\x64\Release\Microsoft.UI.Xaml.2.7.appx");
+                            ps.AddScript("Add-AppxPackage -Path " + file2.FullName);
                             ps.Invoke();
                             if (ps.HadErrors)
                             {
+                                using (StreamWriter sw = new StreamWriter("WinSlap-Error.log", true))  // creates or appends to existing file
+                                {
+                                    foreach (ErrorRecord error in ps.Streams.Error)
+                                    {
+                                        sw.WriteLine(error.ToString());
+                                    }
+                                }
                                 string caption = "Something went wrong...";
                                 string errorMessage = "An error occured while trying to install winget.\n\nPlease report this issue on GitHub. Slapping will continue after closing this message, though items selected in Software will likely not be installed.";
                                 MessageBox.Show(new Form { TopMost = true }, errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -942,7 +956,7 @@ namespace WinSlap
                     catch (WebException)
                     {
                         string caption = "Something went wrong...";
-                        string errorMessage = $"A WebException occured trying to download from the following URL:\n\n{url}\n\nPlease check your network connection and report this issue on GitHub if the error persists";
+                        string errorMessage = $"A WebException occured trying to download a required file.\n\nPlease check your network connection and report this issue on GitHub if the error persists";
                         result = MessageBox.Show(errorMessage, caption, MessageBoxButtons.AbortRetryIgnore);
                         if (result == DialogResult.Abort) Application.Exit();
                     }
