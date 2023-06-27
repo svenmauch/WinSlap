@@ -433,7 +433,7 @@
             "Install OpenVPN Connect",
             "Install PowerToys",
             "Install PuTTY",
-            "Install Python",
+            "Install Python 3.11",
             "Install Slack",
             "Install Speccy",
             "Install Steam",
@@ -881,7 +881,7 @@
             "Install OpenVPN Connect",
             "Install PowerToys",
             "Install PuTTY",
-            "Install Python",
+            "Install Python 3.11",
             "Install Slack",
             "Install Speccy",
             "Install Steam",
@@ -988,8 +988,8 @@
             this.Controls.Add(this.labelOS);
             this.Controls.Add(this.parameternotice);
             this.Controls.Add(this.buttonSlap);
-            this.Controls.Add(this.tabControlWin11);
             this.Controls.Add(this.tabControlWin10);
+            this.Controls.Add(this.tabControlWin11);
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

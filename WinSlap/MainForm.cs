@@ -559,8 +559,8 @@ namespace WinSlap
                     case "Install PuTTY":
                         Slapper.InstallPuTTY();
                         break;
-                    case "Install Python":
-                        Slapper.InstallPython();
+                    case "Install Python 3.11":
+                        Slapper.InstallPython311();
                         break;
                     case "Install Skype":
                         Slapper.InstallSkype();

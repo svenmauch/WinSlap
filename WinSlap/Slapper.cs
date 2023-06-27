@@ -1145,9 +1145,9 @@ namespace WinSlap
             WinGetInstall("PuTTY.PuTTY");
         }
 
-        public static void InstallPython()
+        public static void InstallPython311()
         {
-            WinGetInstall("Python.Python.3");
+            WinGetInstall("Python.Python.3.11");
         }
 
         public static void InstallSkype()
