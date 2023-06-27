@@ -1042,11 +1042,6 @@ namespace WinSlap
             WinGetInstall("flux.flux");
         }
 
-        public static void InstallFileZilla()
-        {
-            WinGetInstall("TimKosse.FileZilla.Client");
-        }
-
         public static void InstallGIMP()
         {
             WinGetInstall("GIMP.GIMP");
