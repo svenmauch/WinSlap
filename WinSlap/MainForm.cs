@@ -49,11 +49,11 @@ namespace WinSlap
                 for (int x = 0; x <= items.Length - 1; x++)
                 {
                     string boxcontent = items[x].ToString();
-                    await ApplySlapAsync(boxcontent);
-                    totalItemsDone++;
-                    double progresspercent = (double)totalItemsDone / (double)totalCheckedItems;
+                    double progresspercent = (double)totalItemsDone / totalCheckedItems;
                     int percent = (int)Math.Ceiling(progresspercent * 100);
                     progress?.Report(new ProgressReport { PercentComplete = percent, CurrentJob = boxcontent });
+                    await ApplySlapAsync(boxcontent);
+                    totalItemsDone++;
                 }
             }
             catch (Exception ex)
