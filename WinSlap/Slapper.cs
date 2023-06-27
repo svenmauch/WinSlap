@@ -912,7 +912,7 @@ namespace WinSlap
 
         public static void InstallWinGet()
         {
-            String url = "https://github.com/microsoft/winget-cli/releases/download/v1.3.2091/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle";
+            String url = "https://github.com/microsoft/winget-cli/releases/download/v1.4.11071/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle";
             using (WebClient client = new WebClient())
             {
                 FileInfo file = new FileInfo(MainForm.Tmpfolder + "winget.msixbundle");
