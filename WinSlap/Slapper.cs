@@ -654,7 +654,7 @@ namespace WinSlap
         public static void DisableSmartScreen()
         {
             UpdateRegistryKey(RegistryHive.HKCU, @"SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost", "EnableWebContentEvaluation", "0", RegistryValueKind.DWord);
-            UpdateRegistryKey(RegistryHive.HKLM, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer", "SmartScreenEnabled", "Off", RegistryValueKind.DWord);
+            UpdateRegistryKey(RegistryHive.HKLM, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer", "SmartScreenEnabled", "Off", RegistryValueKind.String);
             UpdateRegistryKey(RegistryHive.HKLM, @"SOFTWARE\Policies\Microsoft\Windows\System", "EnableSmartScreen", "0", RegistryValueKind.DWord);
         }
 
