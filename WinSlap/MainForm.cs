@@ -43,7 +43,6 @@ namespace WinSlap
         private async Task DoWorkAsync(object[] items, int totalCheckedItems, IProgress<ProgressReport> progress)
         {
             int totalItemsDone = 0;
-            double progresspercent = 0;
 
             try
             {
@@ -52,7 +51,7 @@ namespace WinSlap
                     string boxcontent = items[x].ToString();
                     await ApplySlapAsync(boxcontent);
                     totalItemsDone++;
-                    progresspercent = (double)totalItemsDone / (double)totalCheckedItems;
+                    double progresspercent = totalItemsDone / totalCheckedItems;
                     int percent = (int)Math.Ceiling(progresspercent * 100);
                     progress?.Report(new ProgressReport { PercentComplete = percent, CurrentJob = boxcontent });
                 }
