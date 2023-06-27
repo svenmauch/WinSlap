@@ -51,7 +51,7 @@ namespace WinSlap
                     string boxcontent = items[x].ToString();
                     await ApplySlapAsync(boxcontent);
                     totalItemsDone++;
-                    double progresspercent = totalItemsDone / totalCheckedItems;
+                    double progresspercent = (double)totalItemsDone / (double)totalCheckedItems;
                     int percent = (int)Math.Ceiling(progresspercent * 100);
                     progress?.Report(new ProgressReport { PercentComplete = percent, CurrentJob = boxcontent });
                 }
