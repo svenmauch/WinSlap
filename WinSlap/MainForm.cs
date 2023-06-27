@@ -499,9 +499,6 @@ namespace WinSlap
                     case "Install f.lux":
                         Slapper.InstallFlux();
                         break;
-                    case "Install FileZilla":
-                        Slapper.InstallFileZilla();
-                        break;
                     case "Install GIMP":
                         Slapper.InstallGIMP();
                         break;
