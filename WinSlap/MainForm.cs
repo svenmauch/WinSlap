@@ -1,16 +1,14 @@
-﻿using Microsoft.Win32;
-using System;
-using System.ComponentModel;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WinSlap
 {
     public sealed partial class MainForm : Form
     {
-        BackgroundWorker backgroundWorker1 = new BackgroundWorker();
         private SlapForm SlapForm;
 
         public static readonly string Tmpfolder = Path.GetTempPath() + @"WinSlap\";
@@ -22,17 +20,6 @@ namespace WinSlap
             if (args.Any(strNoRestart.Contains)) { this._restart = false; }
             InitializeComponent();
             MinimumSize = new System.Drawing.Size(332, 173);
-
-            backgroundWorker1.WorkerReportsProgress = true;
-            backgroundWorker1.DoWork += new DoWorkEventHandler(backgroundWorker1_DoWork);
-            backgroundWorker1.RunWorkerCompleted+=new RunWorkerCompletedEventHandler(backgroundWorker1_RunWorkerCompleted);
-            backgroundWorker1.ProgressChanged += new ProgressChangedEventHandler(backgroundWorker1_ProgressChanged);
-        }
-
-        void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            SlapForm.CurrentJobText = (String)e.UserState;
-            SlapForm.PercentFinished = e.ProgressPercentage;
         }
 
         private object[] GetSelectedItems(CheckedListBox tweaks, CheckedListBox appearance, CheckedListBox software, CheckedListBox advanced)
@@ -53,8 +40,38 @@ namespace WinSlap
         }
 
         // ToDo: implement cancel check
-        void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private async Task DoWorkAsync(object[] items, int totalCheckedItems, IProgress<ProgressReport> progress)
         {
+            int totalItemsDone = 0;
+            double progresspercent = 0;
+
+            try
+            {
+                for (int x = 0; x <= items.Length - 1; x++)
+                {
+                    string boxcontent = items[x].ToString();
+                    await ApplySlapAsync(boxcontent);
+                    totalItemsDone++;
+                    progresspercent = (double)totalItemsDone / (double)totalCheckedItems;
+                    int percent = (int)Math.Ceiling(progresspercent * 100);
+                    progress?.Report(new ProgressReport { PercentComplete = percent, CurrentJob = boxcontent });
+                }
+            }
+            catch (Exception ex)
+            {
+                string caption = "Something went wrong...";
+                string errorMessage = "Exception during slapping process.\n\n" + ex + "\n\nPlease report this issue on GitHub. Slapping will continue after closing this message.";
+                MessageBox.Show(new Form { TopMost = true }, errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public async void StartWork()
+        {
+            var progressIndicator = new Progress<ProgressReport>(report =>
+            {
+                SlapForm.CurrentJobText = report.CurrentJob;
+                SlapForm.PercentFinished = report.PercentComplete;
+            });
             object[] items;
             int totalCheckedItems;
 
@@ -69,40 +86,16 @@ namespace WinSlap
                 totalCheckedItems = CountTotalCheckedItems(checkedListBoxWin10Tweaks, checkedListBoxWin10Software, checkedListBoxWin10Advanced, checkedListBoxWin10Appearance);
             }
 
+            await DoWorkAsync(items, totalCheckedItems, progressIndicator);
 
-            int totalItemsDone = 0;
-            double progresspercent;
-            int progress = 0;
-
-            for (int x = 0; x <= items.Length - 1; x++)
-            {
-                string boxcontent = items[x].ToString();
-                backgroundWorker1.ReportProgress(progress, boxcontent);
-                ApplySlap(boxcontent);
-                totalItemsDone++;
-                progresspercent = (double)totalItemsDone / (double)totalCheckedItems;
-                progress = (int)Math.Ceiling(progresspercent * 100);
-                backgroundWorker1.ReportProgress(progress);
-            }
-        }
-
-        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (e.Cancelled)
-            {
-                MessageBox.Show("You've cancelled the slapping! :(");
-            }
+            if (_restart) RestartNow();
             else
             {
-                if (_restart) RestartNow();
-                else
-                {
-                    SlapForm.Dispose();
-                    string caption = "Slapping finished!";
-                    string errorMessage = "This message is shown because you are skipping the reboot.\n(shift-klick or norestart argument)";
-                    MessageBox.Show(errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Environment.Exit(0);
-                }
+                SlapForm.Dispose();
+                string caption = "Slapping finished!";
+                string errorMessage = "This message is shown because you are skipping the reboot.\n(shift-klick or norestart argument)";
+                MessageBox.Show(errorMessage, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Environment.Exit(0);
             }
         }
 
@@ -134,7 +127,7 @@ namespace WinSlap
             SlapForm = new SlapForm();
             SlapForm.Show();
 
-            backgroundWorker1.RunWorkerAsync(300); //300 gives a total of 3 seconds pause
+            StartWork();
 
             if (checkedListBoxWin10Software.CheckedItems.Count != 0 || checkedListBoxWin11Software.CheckedItems.Count != 0)
             {
@@ -169,494 +162,494 @@ namespace WinSlap
             }
         }
 
-        private void ApplySlap(string boxcontent)
+        private async Task ApplySlapAsync(string boxcontent)
         {
             try
             {
                 switch (boxcontent)
                 {
                     case "Remove preinstalled apps except Photos, Calculator, Store":
-                        Slapper.RemovePreinstalledApps();
+                        await Task.Run(() => Slapper.RemovePreinstalledApps());
                         break;
                     case "Disable Shared Experiences":
-                        Slapper.DisableSharedExperiences();
+                        await Task.Run(() => Slapper.DisableSharedExperiences());
                         break;
                     case "Disable Cortana":
-                        Slapper.DisableCortana();
+                        await Task.Run(() => Slapper.DisableCortana());
                         break;
                     case "Disable Game DVR and Game Bar":
-                        Slapper.DisableGameDvr();
+                        await Task.Run(() => Slapper.DisableGameDvr());
                         break;
                     case "Disable Hotspot 2.0":
-                        Slapper.DisableHotspot20();
+                        await Task.Run(() => Slapper.DisableHotspot20());
                         break;
                     case "Don't include frequently used folders in Quick access":
-                        Slapper.NoQuickAccess();
+                        await Task.Run(() => Slapper.NoQuickAccess());
                         break;
                     case "Don't show sync provider notifications":
-                        Slapper.HideSyncNotifications();
+                        await Task.Run(() => Slapper.HideSyncNotifications());
                         break;
                     case "Disable Sharing Wizard":
-                        Slapper.DisableSharingWizard();
+                        await Task.Run(() => Slapper.DisableSharingWizard());
                         break;
                     case "Show 'This PC' when launching File Explorer":
-                        Slapper.LaunchThisPcFileExplorer();
+                        await Task.Run(() => Slapper.LaunchThisPcFileExplorer());
                         break;
                     case "Disable Telemetry":
-                        Slapper.DisableTelemetry();
+                        await Task.Run(() => Slapper.DisableTelemetry());
                         break;
                     case "Uninstall OneDrive":
-                        Slapper.UninstallOneDrive();
+                        await Task.Run(() => Slapper.UninstallOneDrive());
                         break;
                     case "Disable Activity History":
-                        Slapper.DisableActivityHistory();
+                        await Task.Run(() => Slapper.DisableActivityHistory());
                         break;
                     case "Disable automatically installing Apps":
-                        Slapper.DisableAutomaticAppInstall();
+                        await Task.Run(() => Slapper.DisableAutomaticAppInstall());
                         break;
                     case "Disable Feedback dialogs":
-                        Slapper.DisableFeedbackDialogs();
+                        await Task.Run(() => Slapper.DisableFeedbackDialogs());
                         break;
                     case "Disable Start Menu suggestions":
-                        Slapper.DisableStartMenuSuggestions();
+                        await Task.Run(() => Slapper.DisableStartMenuSuggestions());
                         break;
                     case "Disable Bing search":
-                        Slapper.DisableBingSearch();
+                        await Task.Run(() => Slapper.DisableBingSearch());
                         break;
                     case "Disable password reveal button":
-                        Slapper.DisablePasswordReveal();
+                        await Task.Run(() => Slapper.DisablePasswordReveal());
                         break;
                     case "Disable settings sync":
-                        Slapper.DisableSettingsSync();
+                        await Task.Run(() => Slapper.DisableSettingsSync());
                         break;
                     case "Disable startup sound":
-                        Slapper.DisableStartupSound();
+                        await Task.Run(() => Slapper.DisableStartupSound());
                         break;
                     case "Disable autostart startup delay":
-                        Slapper.DisableAutostartStartupDelay();
+                        await Task.Run(() => Slapper.DisableAutostartStartupDelay());
                         break;
                     case "Disable location":
-                        Slapper.DisableLocation();
+                        await Task.Run(() => Slapper.DisableLocation());
                         break;
                     case "Disable Advertising ID":
-                        Slapper.DisableAdvertisingId();
+                        await Task.Run(() => Slapper.DisableAdvertisingId());
                         break;
                     case "Disable Malware Removal Tool data reporting":
-                        Slapper.DisableMrtReporting();
+                        await Task.Run(() => Slapper.DisableMrtReporting());
                         break;
                     case "Disable sending typing info to Microsoft":
-                        Slapper.DisableSendingTypingInfo();
+                        await Task.Run(() => Slapper.DisableSendingTypingInfo());
                         break;
                     case "Disable Personalization":
-                        Slapper.DisablePersonalization();
+                        await Task.Run(() => Slapper.DisablePersonalization());
                         break;
                     case "Hide language list from websites":
-                        Slapper.HideLanguageListWebsites();
+                        await Task.Run(() => Slapper.HideLanguageListWebsites());
                         break;
                     case "Disable Miracast":
-                        Slapper.DisableMiracast();
+                        await Task.Run(() => Slapper.DisableMiracast());
                         break;
                     case "Disable App Diagnostics":
-                        Slapper.DisableAppDiagnostics();
+                        await Task.Run(() => Slapper.DisableAppDiagnostics());
                         break;
                     case "Disable Wi-Fi Sense":
-                        Slapper.DisableWiFiSense();
+                        await Task.Run(() => Slapper.DisableWiFiSense());
                         break;
                     case "Disable lock screen Spotlight":
-                        Slapper.DisableLockScreenSpotlight();
+                        await Task.Run(() => Slapper.DisableLockScreenSpotlight());
                         break;
                     case "Disable automatic maps updates":
-                        Slapper.DisableAutomaticMapsUpdates();
+                        await Task.Run(() => Slapper.DisableAutomaticMapsUpdates());
                         break;
                     case "Disable error reporting":
-                        Slapper.DisableErrorReporting();
+                        await Task.Run(() => Slapper.DisableErrorReporting());
                         break;
                     case "Disable Remote Assistance":
-                        Slapper.DisableRemoteAssistance();
+                        await Task.Run(() => Slapper.DisableRemoteAssistance());
                         break;
                     case "Use UTC as BIOS time":
-                        Slapper.UseUtcAsBiosTime();
+                        await Task.Run(() => Slapper.UseUtcAsBiosTime());
                         break;
                     case "Hide network from lock screen":
-                        Slapper.HideNetworkFromLockScreen();
+                        await Task.Run(() => Slapper.HideNetworkFromLockScreen());
                         break;
                     case "Disable sticky keys prompt":
-                        Slapper.DisableStickyKeysPrompt();
+                        await Task.Run(() => Slapper.DisableStickyKeysPrompt());
                         break;
                     case "Hide 3D Objects from File Explorer":
-                        Slapper.Hide3DObjectsFileExplorer();
+                        await Task.Run(() => Slapper.Hide3DObjectsFileExplorer());
                         break;
                     case "Prevent preinstalling apps for new users":
-                        Slapper.PreventPreinstallingApps();
+                        await Task.Run(() => Slapper.PreventPreinstallingApps());
                         break;
                     case "Unpin preinstalled apps":
-                        Slapper.UnpinPreinstalledApps();
+                        await Task.Run(() => Slapper.UnpinPreinstalledApps());
                         break;
                     case "Disable Smart Screen":
-                        Slapper.DisableSmartScreen();
+                        await Task.Run(() => Slapper.DisableSmartScreen());
                         break;
                     case "Disable Smart Glass":
-                        Slapper.DisableSmartGlass();
+                        await Task.Run(() => Slapper.DisableSmartGlass());
                         break;
                     case "Remove Intel Control Panel from context menus":
-                        Slapper.RemoveIntelContextMenu();
+                        await Task.Run(() => Slapper.RemoveIntelContextMenu());
                         break;
                     case "Remove NVIDIA Control Panel from context menus":
-                        Slapper.RemoveNvidiaContextMenu();
+                        await Task.Run(() => Slapper.RemoveNvidiaContextMenu());
                         break;
                     case "Remove AMD Control Panel from context menus":
-                        Slapper.RemoveAmdContextMenu();
+                        await Task.Run(() => Slapper.RemoveAmdContextMenu());
                         break;
                     case "Disable suggested apps in Windows Ink Workspace":
-                        Slapper.DisableInkAppSuggestions();
+                        await Task.Run(() => Slapper.DisableInkAppSuggestions());
                         break;
                     case "Disable experiments by Microsoft":
-                        Slapper.DisableExperiments();
+                        await Task.Run(() => Slapper.DisableExperiments());
                         break;
                     case "Disable Inventory Collection":
-                        Slapper.DisableInventoryCollection();
+                        await Task.Run(() => Slapper.DisableInventoryCollection());
                         break;
                     case "Disable Steps Recorder":
-                        Slapper.DisableStepsRecorder();
+                        await Task.Run(() => Slapper.DisableStepsRecorder());
                         break;
                     case "Disable Application Compatibility Engine":
-                        Slapper.DisableCompatibilityAssistant();
+                        await Task.Run(() => Slapper.DisableCompatibilityAssistant());
                         break;
                     case "Disable pre-release features and settings":
-                        Slapper.DisablePreReleaseFeatures();
+                        await Task.Run(() => Slapper.DisablePreReleaseFeatures());
                         break;
                     case "Disable camera on lock screen":
-                        Slapper.DisableCameraLockScreen();
+                        await Task.Run(() => Slapper.DisableCameraLockScreen());
                         break;
                     case "Disable Microsoft Edge first run page":
-                        Slapper.DisableEdgeFirstRunPage();
+                        await Task.Run(() => Slapper.DisableEdgeFirstRunPage());
                         break;
                     case "Disable Microsoft Edge preload":
-                        Slapper.DisableEdgePreload();
+                        await Task.Run(() => Slapper.DisableEdgePreload());
                         break;
                     case "Install .NET Framework 2.0, 3.0 and 3.5":
-                        Slapper.InstallNetFrameworks();
+                        await Task.Run(() => Slapper.InstallNetFrameworks());
                         break;
                     case "Update Windows Store apps":
-                        Slapper.UpdateStoreApps();
+                        await Task.Run(() => Slapper.UpdateStoreApps());
                         break;
                     case "Enable Windows Photo Viewer":
-                        Slapper.EnablePhotoViewer();
+                        await Task.Run(() => Slapper.EnablePhotoViewer());
                         break;
                     case "Uninstall Microsoft XPS Document Writer":
-                        Slapper.UninstallXPSWriter();
+                        await Task.Run(() => Slapper.UninstallXPSWriter());
                         break;
                     case "Disable security questions for local accounts":
-                        Slapper.DisableSecurityQuestions();
+                        await Task.Run(() => Slapper.DisableSecurityQuestions());
                         break;
                     case "Disable app suggestions (e.g. use Edge instead of Firefox)":
-                        Slapper.DisableAppSuggestions();
+                        await Task.Run(() => Slapper.DisableAppSuggestions());
                         break;
                     case "Remove default Fax printer":
-                        Slapper.RemoveFaxPrinter();
+                        await Task.Run(() => Slapper.RemoveFaxPrinter());
                         break;
                     case "Remove Microsoft XPS Document Writer":
-                        Slapper.RemoveXPSDocumentWriter();
+                        await Task.Run(() => Slapper.RemoveXPSDocumentWriter());
                         break;
                     case "Disable clipboard history":
-                        Slapper.DisableClipboardHistory();
+                        await Task.Run(() => Slapper.DisableClipboardHistory());
                         break;
                     case "Disable cloud sync of clipboard history":
-                        Slapper.DisableClipboardCloudSync();
+                        await Task.Run(() => Slapper.DisableClipboardCloudSync());
                         break;
                     case "Disable automatic update of speech data":
-                        Slapper.DisableAutomaticSpeechDataUpdates();
+                        await Task.Run(() => Slapper.DisableAutomaticSpeechDataUpdates());
                         break;
                     case "Disable handwriting error reports":
-                        Slapper.DisableHandwritingErrorReports();
+                        await Task.Run(() => Slapper.DisableHandwritingErrorReports());
                         break;
                     case "Disable cloud sync of text messages":
-                        Slapper.DisableTextMessagesCloudSync();
+                        await Task.Run(() => Slapper.DisableTextMessagesCloudSync());
                         break;
                     case "Disable Bluetooth advertisements":
-                        Slapper.DisableBluetoothAdvertisements();
+                        await Task.Run(() => Slapper.DisableBluetoothAdvertisements());
                         break;
                     case "Disable Windows Media DRM internet access":
-                        Slapper.DisableDRMInternetAccess();
+                        await Task.Run(() => Slapper.DisableDRMInternetAccess());
                         break;
                     case "Disable Get even more out of Windows screen":
-                        Slapper.DisableGetEvenMoreOutOfWindows();
+                        await Task.Run(() => Slapper.DisableGetEvenMoreOutOfWindows());
                         break;
                     case "Set power plan to high performance":
-                        Slapper.SetPowerPlanHighPerformance();
+                        await Task.Run(() => Slapper.SetPowerPlanHighPerformance());
                         break;
                     case "Add This PC shortcut to desktop":
-                        Slapper.AddThisPCShortcut();
+                        await Task.Run(() => Slapper.AddThisPCShortcut());
                         break;
                     case "Small taskbar icons":
-                        Slapper.TaskbarSmallIcons();
+                        await Task.Run(() => Slapper.TaskbarSmallIcons());
                         break;
                     case "Don't group tasks in taskbar":
-                        Slapper.DoNotGroupTasks();
+                        await Task.Run(() => Slapper.DoNotGroupTasks());
                         break;
                     case "Hide Taskview button in taskbar":
-                        Slapper.HideTaskview();
+                        await Task.Run(() => Slapper.HideTaskview());
                         break;
                     case "Hide People button in taskbar":
-                        Slapper.DisablePeopleBand();
+                        await Task.Run(() => Slapper.DisablePeopleBand());
                         break;
                     case "Hide search bar in taskbar":
-                        Slapper.HideSearch();
+                        await Task.Run(() => Slapper.HideSearch());
                         break;
                     case "Remove compatibility item from context menu":
-                        Slapper.RemoveCompatibility();
+                        await Task.Run(() => Slapper.RemoveCompatibility());
                         break;
                     case "Hide OneDrive Cloud states in File Explorer":
-                        Slapper.DisableCloudStates();
+                        await Task.Run(() => Slapper.DisableCloudStates());
                         break;
                     case "Always show file name extensions":
-                        Slapper.ShowFilenameExtensions();
+                        await Task.Run(() => Slapper.ShowFilenameExtensions());
                         break;
                     case "Remove OneDrive from File Explorer":
-                        Slapper.HideOneDriveFileExplorer();
+                        await Task.Run(() => Slapper.HideOneDriveFileExplorer());
                         break;
                     case "Delete quicklaunch items":
-                        Slapper.DeleteQuicklaunchItems();
+                        await Task.Run(() => Slapper.DeleteQuicklaunchItems());
                         break;
                     case "Use Windows 7 volume control":
-                        Slapper.UseWin7Volume();
+                        await Task.Run(() => Slapper.UseWin7Volume());
                         break;
                     case "Remove Microsoft Edge desktop shortcut":
-                        Slapper.RemoveEdgeShortcut();
+                        await Task.Run(() => Slapper.RemoveEdgeShortcut());
                         break;
                     case "Disable Lockscreen Blur":
-                        Slapper.DisableLockscreenBlur();
+                        await Task.Run(() => Slapper.DisableLockscreenBlur());
                         break;
                     case "Hide Meet Now icon in taskbar":
-                        Slapper.HideMeetNow();
+                        await Task.Run(() => Slapper.HideMeetNow());
                         break;
                     case "Hide News and interests in taskbar":
-                        Slapper.HideNewsAndInterests();
+                        await Task.Run(() => Slapper.HideNewsAndInterests());
                         break;
                     case "Disable notifications on the lock screen":
-                        Slapper.DisableNotificationOnLockScreen();
+                        await Task.Run(() => Slapper.DisableNotificationOnLockScreen());
                         break;
                     case "Disable reminders and incoming VoIP calls on the lock screen":
-                        Slapper.DisableRemindersAndCallsOnLockScreen();
+                        await Task.Run(() => Slapper.DisableRemindersAndCallsOnLockScreen());
                         break;
                     case "Disable Windows welcome experience":
-                        Slapper.DisableWelcomeExperience();
+                        await Task.Run(() => Slapper.DisableWelcomeExperience());
                         break;
                     case "Disable Aero Shake":
-                        Slapper.DisableAeroShake();
+                        await Task.Run(() => Slapper.DisableAeroShake());
                         break;
                     case "Disable suggestions in timeline":
-                        Slapper.DisableTimelineSuggestions();
+                        await Task.Run(() => Slapper.DisableTimelineSuggestions());
                         break;
                     case "Disable typing insights":
-                        Slapper.DisableTypingInsights();
+                        await Task.Run(() => Slapper.DisableTypingInsights());
                         break;
                     case "Disable spell checker":
-                        Slapper.DisableSpellChecker();
+                        await Task.Run(() => Slapper.DisableSpellChecker());
                         break;
                     case "Disable text suggestions on the software keyboard":
-                        Slapper.DisableTextSuggestions();
+                        await Task.Run(() => Slapper.DisableTextSuggestions());
                         break;
                     case "Disable SafeSearch":
-                        Slapper.DisableSafeSearch();
+                        await Task.Run(() => Slapper.DisableSafeSearch());
                         break;
                     case "Disable suggested content in settings app":
-                        Slapper.DisableSuggestedContentInSettings();
+                        await Task.Run(() => Slapper.DisableSuggestedContentInSettings());
                         break;
                     case "Disable automatic login after finishing updates":
-                        Slapper.DisableAutoLoginAfterUpdates();
+                        await Task.Run(() => Slapper.DisableAutoLoginAfterUpdates());
                         break;
                     case "Disable Windows Defender submitting sample files":
-                        Slapper.DisableDefenderSampleFiles();
+                        await Task.Run(() => Slapper.DisableDefenderSampleFiles());
                         break;
                     case "Use Windows 10 ribbon bar in Windows Explorer":
-                        Slapper.UseWin10RibbonExplorer();
+                        await Task.Run(() => Slapper.UseWin10RibbonExplorer());
                         break;
                     case "Install 7Zip":
-                        Slapper.Install7Zip();
+                        await Task.Run(() => Slapper.Install7Zip());
                         break;
                     case "Install Adobe Acrobat Reader DC":
-                        Slapper.InstallAdobeReaderDC();
+                        await Task.Run(() => Slapper.InstallAdobeReaderDC());
                         break;
                     case "Install Audacity":
-                        Slapper.InstallAudacity();
+                        await Task.Run(() => Slapper.InstallAudacity());
                         break;
                     case "Install BalenaEtcher":
-                        Slapper.InstallBalenaEtcher();
+                        await Task.Run(() => Slapper.InstallBalenaEtcher());
                         break;
                     case "Install calibre":
-                        Slapper.InstallCalibre();
+                        await Task.Run(() => Slapper.InstallCalibre());
                         break;
                     case "Install CPU-Z":
-                        Slapper.InstallCPUZ();
+                        await Task.Run(() => Slapper.InstallCPUZ());
                         break;
                     case "Install Discord":
-                        Slapper.InstallDiscord();
+                        await Task.Run(() => Slapper.InstallDiscord());
                         break;
                     case "Install DupeGuru":
-                        Slapper.InstallDupeGuru();
+                        await Task.Run(() => Slapper.InstallDupeGuru());
                         break;
                     case "Install EarTrumpet":
-                        Slapper.InstallEarTrumpet();
+                        await Task.Run(() => Slapper.InstallEarTrumpet());
                         break;
                     case "Install Epic Games Launcher":
-                        Slapper.InstallEpicGamesLauncher();
+                        await Task.Run(() => Slapper.InstallEpicGamesLauncher());
                         break;
                     case "Install Everything Search":
-                        Slapper.InstallEverythingSearch();
+                        await Task.Run(() => Slapper.InstallEverythingSearch());
                         break;
                     case "Install f.lux":
-                        Slapper.InstallFlux();
+                        await Task.Run(() => Slapper.InstallFlux());
                         break;
                     case "Install GIMP":
-                        Slapper.InstallGIMP();
+                        await Task.Run(() => Slapper.InstallGIMP());
                         break;
                     case "Install GPU-Z":
-                        Slapper.InstallGPUZ();
+                        await Task.Run(() => Slapper.InstallGPUZ());
                         break;
                     case "Install Git":
-                        Slapper.InstallGit();
+                        await Task.Run(() => Slapper.InstallGit());
                         break;
                     case "Install Google Chrome":
-                        Slapper.InstallGoogleChrome();
+                        await Task.Run(() => Slapper.InstallGoogleChrome());
                         break;
                     case "Install Inkscape":
-                        Slapper.InstallInkscape();
+                        await Task.Run(() => Slapper.InstallInkscape());
                         break;
                     case "Install Irfanview":
-                        Slapper.InstallIrfanview();
+                        await Task.Run(() => Slapper.InstallIrfanview());
                         break;
                     case "Install Java Runtime Environment":
-                        Slapper.InstallJavaRE();
+                        await Task.Run(() => Slapper.InstallJavaRE());
                         break;
                     case "Install KeePassXC":
-                        Slapper.InstallKeePassXC();
+                        await Task.Run(() => Slapper.InstallKeePassXC());
                         break;
                     case "Install LibreOffice":
-                        Slapper.InstallLibreOffice();
+                        await Task.Run(() => Slapper.InstallLibreOffice());
                         break;
                     case "Install Minecraft":
-                        Slapper.InstallMinecraft();
+                        await Task.Run(() => Slapper.InstallMinecraft());
                         break;
                     case "Install Mozilla Firefox":
-                        Slapper.InstallFirefox();
+                        await Task.Run(() => Slapper.InstallFirefox());
                         break;
                     case "Install Mozilla Thunderbird":
-                        Slapper.InstallThunderbird();
+                        await Task.Run(() => Slapper.InstallThunderbird());
                         break;
                     case "Install Nextcloud Desktop":
-                        Slapper.InstallNextcloudDesktop();
+                        await Task.Run(() => Slapper.InstallNextcloudDesktop());
                         break;
                     case "Install Notepad++":
-                        Slapper.InstallNotepadPlusPlus();
+                        await Task.Run(() => Slapper.InstallNotepadPlusPlus());
                         break;
                     case "Install OBS Studio":
-                        Slapper.InstallOBSStudio();
+                        await Task.Run(() => Slapper.InstallOBSStudio());
                         break;
                     case "Install OpenHashTab":
-                        Slapper.InstallOpenHashTab();
+                        await Task.Run(() => Slapper.InstallOpenHashTab());
                         break;
                     case "Install OpenVPN Connect":
-                        Slapper.InstallOpenVPNConnect();
+                        await Task.Run(() => Slapper.InstallOpenVPNConnect());
                         break;
                     case "Install PowerToys":
-                        Slapper.InstallPowerToys();
+                        await Task.Run(() => Slapper.InstallPowerToys());
                         break;
                     case "Install PuTTY":
-                        Slapper.InstallPuTTY();
+                        await Task.Run(() => Slapper.InstallPuTTY());
                         break;
                     case "Install Python 3.11":
-                        Slapper.InstallPython311();
+                        await Task.Run(() => Slapper.InstallPython311());
                         break;
                     case "Install Skype":
-                        Slapper.InstallSkype();
+                        await Task.Run(() => Slapper.InstallSkype());
                         break;
                     case "Install Slack":
-                        Slapper.InstallSlack();
+                        await Task.Run(() => Slapper.InstallSlack());
                         break;
                     case "Install Speccy":
-                        Slapper.InstallSpeccy();
+                        await Task.Run(() => Slapper.InstallSpeccy());
                         break;
                     case "Install Steam":
-                        Slapper.InstallSteam();
+                        await Task.Run(() => Slapper.InstallSteam());
                         break;
                     case "Install TeamViewer":
-                        Slapper.InstallTeamViewer();
+                        await Task.Run(() => Slapper.InstallTeamViewer());
                         break;
                     case "Install TeamSpeak":
-                        Slapper.InstallTeamSpeak();
+                        await Task.Run(() => Slapper.InstallTeamSpeak());
                         break;
                     case "Install Telegram":
-                        Slapper.InstallTelegram();
+                        await Task.Run(() => Slapper.InstallTelegram());
                         break;
                     case "Install Ubisoft Connect":
-                        Slapper.InstallUbisoftConnect();
+                        await Task.Run(() => Slapper.InstallUbisoftConnect());
                         break;
                     case "Install VirtualBox":
-                        Slapper.InstallVirtualBox();
+                        await Task.Run(() => Slapper.InstallVirtualBox());
                         break;
                     case "Install Visual Studio Code":
-                        Slapper.InstallVSCode();
+                        await Task.Run(() => Slapper.InstallVSCode());
                         break;
                     case "Install VLC media player":
-                        Slapper.InstallVlc();
+                        await Task.Run(() => Slapper.InstallVlc());
                         break;
                     case "Install WinRAR":
-                        Slapper.InstallWinRAR();
+                        await Task.Run(() => Slapper.InstallWinRAR());
                         break;
                     case "Install WinSCP":
-                        Slapper.InstallWinSCP();
+                        await Task.Run(() => Slapper.InstallWinSCP());
                         break;
                     case "Install Windows Terminal":
-                        Slapper.InstallWindowsTerminal();
+                        await Task.Run(() => Slapper.InstallWindowsTerminal());
                         break;
                     case "Install Wireguard":
-                        Slapper.InstallWireguard();
+                        await Task.Run(() => Slapper.InstallWireguard());
                         break;
                     case "Install Wireshark":
-                        Slapper.InstallWireshark();
+                        await Task.Run(() => Slapper.InstallWireshark());
                         break;
                     case "Install Zoom":
-                        Slapper.InstallZoom();
+                        await Task.Run(() => Slapper.InstallZoom());
                         break;
                     case "Disable Background Apps":
-                        Slapper.DisableBackgroundApps();
+                        await Task.Run(() => Slapper.DisableBackgroundApps());
                         break;
                     case "Precision Trackpad: Disable keyboard block after clicking":
-                        Slapper.DisableBlockPrecisionTrackpad();
+                        await Task.Run(() => Slapper.DisableBlockPrecisionTrackpad());
                         break;
                     case "Disable Windows Defender":
-                        Slapper.DisableDefender();
+                        await Task.Run(() => Slapper.DisableDefender());
                         break;
                     case "Disable Link-local Multicast Name Resolution":
-                        Slapper.DisableLLMNR();
+                        await Task.Run(() => Slapper.DisableLLMNR());
                         break;
                     case "Disable Smart Multi-Homed Name Resolution":
-                        Slapper.DisableSmartNameResolution();
+                        await Task.Run(() => Slapper.DisableSmartNameResolution());
                         break;
                     case "Disable Web Proxy Auto-Discovery":
-                        Slapper.DisableWPAD();
+                        await Task.Run(() => Slapper.DisableWPAD());
                         break;
                     case "Disable Teredo tunneling":
-                        Slapper.DisableTeredo();
+                        await Task.Run(() => Slapper.DisableTeredo());
                         break;
                     case "Disable Intra-Site Automatic Tunnel Addressing Protocol":
-                        Slapper.DisableISATAP();
+                        await Task.Run(() => Slapper.DisableISATAP());
                         break;
                     case "Enable Windows Subsystem for Linux":
-                        Slapper.EnableWSL();
+                        await Task.Run(() => Slapper.EnableWSL());
                         break;
                     case "Uninstall Internet Explorer":
-                        Slapper.UninstallInternetExplorer();
+                        await Task.Run(() => Slapper.UninstallInternetExplorer());
                         break;
                     case "Enable Storage Sense":
-                        Slapper.EnableStorageSense();
+                        await Task.Run(() => Slapper.EnableStorageSense());
                         break;
                     case "Disable fast startup":
-                        Slapper.DisableFastStartup();
+                        await Task.Run(() => Slapper.DisableFastStartup());
                         break;
                     case "Disable mouse pointer acceleration":
-                        Slapper.DisableMousePointerAcceleration();
+                        await Task.Run(() => Slapper.DisableMousePointerAcceleration());
                         break;
                     default:
                         string caption = "Something went wrong...";
