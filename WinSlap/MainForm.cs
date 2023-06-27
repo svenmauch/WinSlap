@@ -35,32 +35,40 @@ namespace WinSlap
             SlapForm.PercentFinished = e.ProgressPercentage;
         }
 
+        private object[] GetSelectedItems(CheckedListBox tweaks, CheckedListBox appearance, CheckedListBox software, CheckedListBox advanced)
+        {
+            return tweaks.CheckedItems.OfType<object>()
+                .Concat(appearance.CheckedItems.OfType<object>())
+                .Concat(software.CheckedItems.OfType<object>())
+                .Concat(advanced.CheckedItems.OfType<object>())
+                .ToArray();
+        }
+
+        private int CountTotalCheckedItems(CheckedListBox tweaks, CheckedListBox appearance, CheckedListBox software, CheckedListBox advanced)
+        {
+            return tweaks.CheckedItems.Count
+                + software.CheckedItems.Count
+                + advanced.CheckedItems.Count
+                + appearance.CheckedItems.Count;
+        }
+
         // ToDo: implement cancel check
         void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             object[] items;
             int totalCheckedItems;
+
             if (Globals.winmajor == "11")
             {
-                object[] arrayTweaks = checkedListBoxWin11Tweaks.CheckedItems.OfType<object>().ToArray();
-                object[] arrayAppearance = checkedListBoxWin11Appearance.CheckedItems.OfType<object>().ToArray();
-                object[] arraySoftware = checkedListBoxWin11Software.CheckedItems.OfType<object>().ToArray();
-                object[] arrayAdvanced = checkedListBoxWin11Advanced.CheckedItems.OfType<object>().ToArray();
-
-                items = arrayTweaks.Concat(arrayAppearance).Concat(arraySoftware).Concat(arrayAdvanced).ToArray();
-
-                totalCheckedItems = checkedListBoxWin11Tweaks.CheckedItems.Count + checkedListBoxWin11Software.CheckedItems.Count + checkedListBoxWin11Advanced.CheckedItems.Count + checkedListBoxWin11Appearance.CheckedItems.Count;
-            } else
-            {
-                object[] arrayTweaks = checkedListBoxWin10Tweaks.CheckedItems.OfType<object>().ToArray();
-                object[] arrayAppearance = checkedListBoxWin10Appearance.CheckedItems.OfType<object>().ToArray();
-                object[] arraySoftware = checkedListBoxWin10Software.CheckedItems.OfType<object>().ToArray();
-                object[] arrayAdvanced = checkedListBoxWin10Advanced.CheckedItems.OfType<object>().ToArray();
-
-                items = arrayTweaks.Concat(arrayAppearance).Concat(arraySoftware).Concat(arrayAdvanced).ToArray();
-
-                totalCheckedItems = checkedListBoxWin10Tweaks.CheckedItems.Count + checkedListBoxWin10Software.CheckedItems.Count + checkedListBoxWin10Advanced.CheckedItems.Count + checkedListBoxWin10Appearance.CheckedItems.Count;
+                items = GetSelectedItems(checkedListBoxWin11Tweaks, checkedListBoxWin11Appearance, checkedListBoxWin11Software, checkedListBoxWin11Advanced);
+                totalCheckedItems = CountTotalCheckedItems(checkedListBoxWin11Tweaks, checkedListBoxWin11Software, checkedListBoxWin11Advanced, checkedListBoxWin11Appearance);
             }
+            else
+            {
+                items = GetSelectedItems(checkedListBoxWin10Tweaks, checkedListBoxWin10Appearance, checkedListBoxWin10Software, checkedListBoxWin10Advanced);
+                totalCheckedItems = CountTotalCheckedItems(checkedListBoxWin10Tweaks, checkedListBoxWin10Software, checkedListBoxWin10Advanced, checkedListBoxWin10Appearance);
+            }
+
 
             int totalItemsDone = 0;
             double progresspercent;
@@ -105,10 +113,11 @@ namespace WinSlap
             int totalCheckedItems;
             if (Globals.winmajor == "11")
             {
-                totalCheckedItems = checkedListBoxWin11Tweaks.CheckedItems.Count + checkedListBoxWin11Software.CheckedItems.Count + checkedListBoxWin11Advanced.CheckedItems.Count + checkedListBoxWin11Appearance.CheckedItems.Count;
-            } else
+                totalCheckedItems = CountTotalCheckedItems(checkedListBoxWin11Tweaks, checkedListBoxWin11Software, checkedListBoxWin11Advanced, checkedListBoxWin11Appearance);
+            }
+            else
             {
-                totalCheckedItems = checkedListBoxWin10Tweaks.CheckedItems.Count + checkedListBoxWin10Software.CheckedItems.Count + checkedListBoxWin10Advanced.CheckedItems.Count + checkedListBoxWin10Appearance.CheckedItems.Count;
+                totalCheckedItems = CountTotalCheckedItems(checkedListBoxWin10Tweaks, checkedListBoxWin10Software, checkedListBoxWin10Advanced, checkedListBoxWin10Appearance);
             }
 
             if (totalCheckedItems == 0)
