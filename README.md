@@ -100,11 +100,11 @@ WinSlap is currently developed for and tested against **Windows 10 Pro 22H2 (64-
   - Disable spell checker
   - Disable text suggestions on the software keyboard
   - Disable SafeSearch
-  - nDisable suggested content in settings app
+  - Disable suggested content in settings app
   - Disable automatic login after finishing updates
   - Disable Windows Defender submitting sample files
 
-### Appeareance
+### Appearance
 
   - Add This PC shortcut to desktop
   - Small taskbar icons
@@ -138,7 +138,6 @@ WinSlap is currently developed for and tested against **Windows 10 Pro 22H2 (64-
   - Install GPU-Z
   - Install Git
   - Install Google Chrome
-  - Install HashTab
   - Install Inkscape
   - Install Irfanview
   - Install Java Runtime Environment
@@ -150,6 +149,7 @@ WinSlap is currently developed for and tested against **Windows 10 Pro 22H2 (64-
   - Install Nextcloud Desktop
   - Install Notepad++
   - Install OBS Studio
+  - Install OpenHashTab
   - Install OpenVPN Connect
   - Install PowerToys
   - Install PuTTY
