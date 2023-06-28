@@ -278,11 +278,11 @@ namespace WinSlap
             }
         }
 
-        public static void UninstallXPSWriter()
+        public static void RemoveXPSDocumentWriter()
         {
             using (PowerShell ps = PowerShell.Create())
             {
-                ps.AddScript("Disable-WindowsOptionalFeature -Online -FeatureName \"Printing - XPSServices - Features\" -NoRestart -WarningAction SilentlyContinue");
+                ps.AddScript("Disable-WindowsOptionalFeature -Online -FeatureName \"Printing-XPSServices-Features\" -NoRestart -WarningAction SilentlyContinue | Out-Null");
                 ps.Invoke();
             }
         }
@@ -876,6 +876,9 @@ namespace WinSlap
             }
         }
 
+
+        // todo: broken, see preventpreinstallingapps.ps1
+        /*
         public static void PreventPreinstallingApps()
         {
             string commands = Encoding.UTF8.GetString(Resources.preventpreinstallingapps);
@@ -886,6 +889,7 @@ namespace WinSlap
                 ps.Invoke();
             }
         }
+        */
 
         public static void UnpinPreinstalledApps()
         {
@@ -1256,15 +1260,6 @@ namespace WinSlap
             using (PowerShell ps = PowerShell.Create())
             {
                 ps.AddScript("Remove-Printer -Name \"Fax\" -ErrorAction SilentlyContinue");
-                ps.Invoke();
-            }
-        }
-
-        public static void RemoveXPSDocumentWriter()
-        {
-            using (PowerShell ps = PowerShell.Create())
-            {
-                ps.AddScript("Disable-WindowsOptionalFeature -Online -FeatureName \"Printing-XPSServices-Features\" -NoRestart -WarningAction SilentlyContinue | Out-Null");
                 ps.Invoke();
             }
         }

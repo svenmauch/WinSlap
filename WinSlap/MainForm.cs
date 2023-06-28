@@ -81,8 +81,8 @@ namespace WinSlap
             }
             else
             {
-                items = GetSelectedItems(checkedListBoxWin10Tweaks, checkedListBoxWin10Appearance, checkedListBoxWin10Software, checkedListBoxWin10Advanced);
-                totalCheckedItems = CountTotalCheckedItems(checkedListBoxWin10Tweaks, checkedListBoxWin10Software, checkedListBoxWin10Advanced, checkedListBoxWin10Appearance);
+                items = GetSelectedItems(checkedListBoxWin10TweaksSys, checkedListBoxWin10TweaksUser, checkedListBoxWin10Software, checkedListBoxWin10Advanced);
+                totalCheckedItems = CountTotalCheckedItems(checkedListBoxWin10TweaksSys, checkedListBoxWin10TweaksUser, checkedListBoxWin10Software, checkedListBoxWin10Advanced);
             }
 
             await DoWorkAsync(items, totalCheckedItems, progressIndicator);
@@ -114,7 +114,7 @@ namespace WinSlap
             }
             else
             {
-                totalCheckedItems = CountTotalCheckedItems(checkedListBoxWin10Tweaks, checkedListBoxWin10Software, checkedListBoxWin10Advanced, checkedListBoxWin10Appearance);
+                totalCheckedItems = CountTotalCheckedItems(checkedListBoxWin10TweaksSys, checkedListBoxWin10TweaksUser, checkedListBoxWin10Software, checkedListBoxWin10Advanced);
             }
 
             if (totalCheckedItems == 0)
@@ -283,9 +283,12 @@ namespace WinSlap
                     case "Hide 3D Objects from File Explorer":
                         await Task.Run(() => Slapper.Hide3DObjectsFileExplorer());
                         break;
+                    // todo: broken?
+                    /*
                     case "Prevent preinstalling apps for new users":
                         await Task.Run(() => Slapper.PreventPreinstallingApps());
                         break;
+                    */
                     case "Unpin preinstalled apps":
                         await Task.Run(() => Slapper.UnpinPreinstalledApps());
                         break;
@@ -339,9 +342,6 @@ namespace WinSlap
                         break;
                     case "Enable Windows Photo Viewer":
                         await Task.Run(() => Slapper.EnablePhotoViewer());
-                        break;
-                    case "Uninstall Microsoft XPS Document Writer":
-                        await Task.Run(() => Slapper.UninstallXPSWriter());
                         break;
                     case "Disable security questions for local accounts":
                         await Task.Run(() => Slapper.DisableSecurityQuestions());
@@ -776,22 +776,12 @@ namespace WinSlap
 
         private void buttonWin10CheckTweaks_Click(object sender, EventArgs e)
         {
-            CheckAll(checkedListBoxWin10Tweaks, true);
+            CheckAll(checkedListBoxWin10TweaksSys, true);
         }
 
         private void buttonWin10UncheckTweaks_Click(object sender, EventArgs e)
         {
-            CheckAll(checkedListBoxWin10Tweaks, false);
-        }
-
-        private void buttonWin10CheckAppearance_Click(object sender, EventArgs e)
-        {
-            CheckAll(checkedListBoxWin10Appearance, true);
-        }
-
-        private void buttonWin10UncheackAppearance_Click(object sender, EventArgs e)
-        {
-            CheckAll(checkedListBoxWin10Appearance, false);
+            CheckAll(checkedListBoxWin10TweaksSys, false);
         }
 
         private void buttonWin10CheckSoftware_Click(object sender, EventArgs e)
